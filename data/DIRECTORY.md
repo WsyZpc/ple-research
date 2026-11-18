@@ -2,6 +2,7 @@
 
 - [逐题调研笔记](work/PLE_research.md)
 - [统计表](work/stats_summary.md)
+- [29 题数据集调研 Excel](work/PLE_29题数据集调研与失败案例模板.xlsx)
 - [组内检查用周报](../docs/week01.md)
 
 开发集通过 [官方入口](https://huggingface.co/datasets/google/physical-engineerings-last-exam) 获取。本地评测使用 `data/tasks/`。

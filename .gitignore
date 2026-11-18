@@ -4,6 +4,7 @@
 /data/work/*
 !/data/work/PLE_research.md
 !/data/work/stats_summary.md
+!/data/work/PLE_29题数据集调研与失败案例模板.xlsx
 /ple/
 /ple-minimal-baseline/
 /runs/
