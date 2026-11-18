@@ -1,4 +1,9 @@
-/data/
+/data/*
+!/data/DIRECTORY.md
+!/data/work/
+/data/work/*
+!/data/work/PLE_research.md
+!/data/work/stats_summary.md
 /ple/
 /ple-minimal-baseline/
 /runs/
