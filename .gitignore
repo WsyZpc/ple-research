@@ -1,0 +1,9 @@
+/data/
+/ple/
+/ple-minimal-baseline/
+/runs/
+/artifacts/
+.env
+.env.*
+*.env
+

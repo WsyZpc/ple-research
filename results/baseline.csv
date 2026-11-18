@@ -1,0 +1,2 @@
+run_id,task_id,status,provider,model_id,reasoning_effort,harness_commit,dataset_revision,score,agent_runtime_sec,input_tokens,output_tokens,notes
+planned-01,data-center-site-model,planned,,,,,b3857a3fea39a695e18f845d4a88f29442e96e75,,,,,Qwen baseline model ID pending confirmation
