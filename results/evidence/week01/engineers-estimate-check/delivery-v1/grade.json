@@ -1,0 +1,134 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.06521739130434782,
+  "passed_score": 0.06521739130434782,
+  "combined_score": 0.06521739130434782,
+  "weighted_points": 3.0,
+  "possible_weighted_points": 46.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx states: 'Revised Bonded Amount (rounded up to next $1,000 per Sched. Sec. 12.02) $5,390,000.00'",
+      "reason": "The memorandum states $5,390,000.00, but the criterion requires $5,384,000.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx states: 'Corrected Section 2 Subtotal $1,309,834.00'",
+      "reason": "The memorandum states $1,309,834.00, but the criterion requires $1,303,717.70.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx Reconciliation Table lists: 'Item No. 2.35 ... 14 EA'",
+      "reason": "The memorandum lists Item 2.35 with 14 EA, but the criterion requires Item 2.36 with 10 EA.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx Reconciliation Table lists only Item 2.35; Item 2.38 is absent.",
+      "reason": "The memorandum does not state an amount for schedule item 2.38; the criterion requires $15,083.70.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx Reconciliation Table lists only Item 2.35; Item 2.03 is absent.",
+      "reason": "The memorandum does not state an amount for schedule item 2.03; the criterion requires $13,800.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx Reconciliation Table lists only Item 2.35; Item 2.30 is absent.",
+      "reason": "The memorandum does not state that $58,200 remains for schedule item 2.30.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx states: 'TO: Mr. Callaway, Callaway Land Partners'",
+      "reason": "The memorandum correctly identifies Callaway as the recipient.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 1,
+      "passed": true,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx includes: 'RECONCILIATION TABLE — SECTION 2 QUANTITY AND UNIT PRICE CHANGES ... Sheet Source C-8'",
+      "reason": "The memorandum includes a line-by-line table listing changed items with their plan sheet source.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 8,
+      "score": 1,
+      "passed": true,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx states: 'DATE: October 31, 2026'",
+      "reason": "The memorandum states the required date 10/31/2026.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Correspondence/Client/Memo_to_Callaway_2026-10-31.docx Notes state: 'No items were flagged for omission; all items shown on Sheets C-6, C-8, and C-9 are represented in Section 2 of the estimate.'",
+      "reason": "The memorandum states no items were flagged for omission, but the criterion requires stating the basin maintenance access ramp has no matching item.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "Memo_to_Callaway_2026-10-31.pdf"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9
+      ],
+      "files": [
+        "FINAL_MESSAGE.md",
+        "Memo_to_Callaway_2026-10-31.pdf.txt"
+      ],
+      "chars": 3916
+    }
+  ],
+  "candidate_chars": 3916,
+  "primary_score": 0.06521739130434782,
+  "reward": 0.06521739130434782,
+  "candidate": "1 vendor rendering text(s) + final message"
+}

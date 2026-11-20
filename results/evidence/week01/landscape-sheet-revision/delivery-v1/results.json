@@ -1,0 +1,32 @@
+{
+  "submission": "ple-custom-openai-baseline-delivery-v1",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.155844,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-19T17:47:27Z",
+  "submission_dir": "ple-custom-openai-baseline-delivery-v1",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "landscape-sheet-revision",
+      "score": 0.155844,
+      "reward": 0.155844,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 187,
+      "trial": "attempt1/jobs/dev/landscape-sheet-revision__S4TmGUS",
+      "tokens": {
+        "input": 651882,
+        "output": 10724
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

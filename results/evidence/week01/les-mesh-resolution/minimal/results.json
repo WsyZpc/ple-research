@@ -1,0 +1,80 @@
+{
+  "submission": "ple-minimal-baseline",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.019085,
+  "complete": false,
+  "unmeasured": [
+    "fill-compaction-acceptance",
+    "engineers-estimate-check"
+  ],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-19T08:07:01Z",
+  "submission_dir": "ple-minimal-baseline",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "fill-compaction-acceptance",
+      "score": 0.0,
+      "reward": null,
+      "measured": false,
+      "status": "its image did not build: sh libarpack2t64 libgfortran5 libreoffice-calc libreoffice-core libreoffice-impress libreoffice-writer openmpi-bin poppler-utils proot python-is-python3 python3-pip qpdf socat tesseract-ocr tesseract-ocr-eng unzip util-linux zip \\\n   7 | >>>  && rm -rf /var/lib/apt/lists/*\n   8 |     \n--------------------\nERROR: failed to build: failed to solve: process \"/bin/sh -c apt-get update  && apt-get install -y --no-install-recommends 7zip acl ca-certificates curl file fonts-liberation freecad gmsh libarpack2t64 libgfortran5 libreoffice-calc libreoffice-core libreoffice-impress libreoffice-writer openmpi-bin poppler-utils proot python-is-python3 python3-pip qpdf socat tesseract-ocr tesseract-ocr-eng unzip util-linux zip  && rm -rf /var/lib/apt/lists/*\" did not complete successfully: exit code: 100\n; rerun to build it again",
+      "kind": "image",
+      "seconds": null,
+      "trial": "",
+      "tokens": null,
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    },
+    {
+      "id": "les-mesh-resolution",
+      "score": 0.02439,
+      "reward": 0.02439,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 193,
+      "trial": "attempt1/jobs/dev/les-mesh-resolution__iUW8gPD",
+      "tokens": {
+        "input": 1097010,
+        "output": 12396
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    },
+    {
+      "id": "engineers-estimate-check",
+      "score": 0.0,
+      "reward": null,
+      "measured": false,
+      "status": "its image did not build within 3600 s; rerun to build it again",
+      "kind": "image",
+      "seconds": null,
+      "trial": "",
+      "tokens": null,
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    },
+    {
+      "id": "landscape-sheet-revision",
+      "score": 0.051948,
+      "reward": 0.051948,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 138,
+      "trial": "attempt1/jobs/dev/landscape-sheet-revision__WgLNHB8",
+      "tokens": {
+        "input": 993098,
+        "output": 8102
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

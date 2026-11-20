@@ -1,0 +1,32 @@
+{
+  "submission": "ple-custom-openai-baseline-delivery-v1",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.25,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-19T17:07:28Z",
+  "submission_dir": "ple-custom-openai-baseline-delivery-v1",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "fire-test-validation-memo",
+      "score": 0.25,
+      "reward": 0.25,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 461,
+      "trial": "attempt1/jobs/dev/fire-test-validation-memo__cD9Wh9s",
+      "tokens": {
+        "input": 1603318,
+        "output": 31449
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

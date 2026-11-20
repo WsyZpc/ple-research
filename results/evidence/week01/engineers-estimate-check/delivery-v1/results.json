@@ -1,0 +1,32 @@
+{
+  "submission": "ple-custom-openai-baseline-delivery-v1",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.065217,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-20T01:08:44Z",
+  "submission_dir": "ple-custom-openai-baseline-delivery-v1",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "engineers-estimate-check",
+      "score": 0.065217,
+      "reward": 0.065217,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 419,
+      "trial": "attempt1/jobs/dev/engineers-estimate-check__34Hm3aK",
+      "tokens": {
+        "input": 899984,
+        "output": 27250
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

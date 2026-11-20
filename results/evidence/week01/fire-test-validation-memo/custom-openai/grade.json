@@ -1,0 +1,454 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "verifiers[]",
+  "family": "weighted_rubric",
+  "score_key": "passed_score",
+  "score": 0.0,
+  "passed_score": 0.0,
+  "combined_score": 0.0,
+  "weighted_points": 0.0,
+  "possible_weighted_points": 208.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content to verify. Final message summary does not contain this specific statement about through-wall physics bias.",
+      "reason": "Cannot verify criterion from available artifacts. The E119_Validation_Memo.docx is claimed but not provided in artifact list.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content. Final message mentions lag but does not contain the specific statement ruling out steel-tie path.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content to verify corrective scope statement.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message shows offset values (85 degC test, 91 degC sim) but does not contain explicit statement about under-predicted field mean.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content containing statement about inherited bias being non-conservative.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'E119 validation does NOT establish wildfire performance' but does not contain client-facing paragraph text stating certified 1-hour rating is unaffected.",
+      "reason": "Bianca_email_paragraph.txt claimed but not provided in artifact list for verification.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message shows criteria separation (45 min test, 46 min sim) but does not contain statement about absolute accuracy being undetermined.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message shows S=131 min, D=118 min (difference 13 min) but does not explicitly state 'field-mean path lags by 13 min'.",
+      "reason": "Cannot verify specific phrasing from Word document.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about exposed-face boundary condition in corrective scope.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about radiative exchange in corrective scope.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about elevated-temperature bulk properties of concrete in corrective scope.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'E119 validation does NOT establish wildfire performance' but does not contain specific statement about Phase 1 wildfire cases predicting lower temperatures.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about restriction applying to every Phase 1 wildfire thermal result.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states validation 'does NOT establish wildfire performance' but does not contain explicit statement that model fidelity remains unestablished.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 14,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message mentions 'Ironwood Fire Protection Engineering (Marla Kettering, PE)' but does not contain statement about only certifying fire-protection PE of record may act.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 15,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message shows S=131 min, D=118 min but does not explicitly state 'single-point path lags by 13 min'.",
+      "reason": "Cannot verify specific phrasing from Word document.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 16,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Future comparisons must be reported as E ± u_val' but does not contain explicit statement about reporting model error.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 17,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Test time (D) | 118 min' and 'Experimental value adopted | D = 118 min' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 18,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Error (E) | +13 min' but Word document not accessible for verification of exact phrasing.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 19,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Acceptance criterion | 11.8 min (10% of D)' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 20,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Simulation time (S) | 131 min' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 21,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message does not contain statement about average unexposed-face criterion crossed at 176 min.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 22,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message does not contain statement about companion simulation being present only as results output on file server.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 23,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Checklist item closed | Item 6 (Validation)' and 'Items remaining open | 2, 3, 4, 5, 7, 9, 10' but contradicts criterion which states NO item is closed.",
+      "reason": "Final message indicates Item 6 is closed, but criterion requires statement that no item is closed.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 24,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Assembly match | YES - revC geometry matches certified geometry' but does not contain parameter-by-parameter comparison details.",
+      "reason": "Cannot verify detailed comparison from available artifacts.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 25,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Uncertainty (u_val) | ±9 min' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 26,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Error vs uncertainty | MODEL ERROR (13 > 9)' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 27,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Error vs criterion | FAILS (13 > 11.8)' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 28,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states validation 'FAILS' but Word document not accessible for explicit failure statement.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 29,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Largest S clearing criterion | 130 min' but criterion requires 129.8 min. Word document not accessible.",
+      "reason": "Value mismatch (130 vs 129.8) and cannot verify from actual Word document.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 30,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Section 7 stub prediction | STANDS (S = 131 min)' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 31,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message includes stamp language but Word document not accessible to verify it appears in the memo.",
+      "reason": "Cannot verify stamp language appears in actual Word document.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 32,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Experimental value adopted | D = 118 min (from certified Red Butte report)' and 'Bianca's figure disposition | Cannot be used without reissued lab report' but does not mention 129 min specifically.",
+      "reason": "Cannot verify specific 129 min reference from available artifacts.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 33,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states assembly 'would qualify for 2-hour rating' if D=129 min substantiated, but does not mention 120 min threshold explicitly.",
+      "reason": "Cannot verify specific threshold statement from available artifacts.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 34,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Future comparisons must be reported as E ± u_val' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 35,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message does not contain statement about comparing error against firm acceptance criterion for future validation.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 36,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'D = 118 min (from certified Red Butte report)' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 37,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about documented run record being absent from file server.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 38,
+      "score": 0,
+      "passed": false,
+      "evidence": "No accessible Word document content about run identifier being unavailable.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 39,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Criteria separation (test) | 45 min' and 'Criteria separation (sim) | 46 min' but criterion requires both to be 45 min.",
+      "reason": "Value mismatch (46 min sim vs required 45 min).",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 40,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message does not contain nine-point mean rise values (96 degC test, 90 degC sim).",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 41,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Offset at governance (test) | 85 degC' and 'Offset at governance (sim) | 91 degC' which matches criterion values.",
+      "reason": "Values match but cannot verify from actual Word document content.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 42,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Rework status | Not started' but Word document not accessible for verification.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 43,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message states 'Acceptance criterion | 11.8 min' (one decimal) but 'Largest S clearing criterion | 130 min' (whole number, not 129.8).",
+      "reason": "Largest passing prediction not stated to one decimal place.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 44,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message does not contain the two criterion crossing times for companion simulation.",
+      "reason": "Cannot verify criterion from available artifacts.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 45,
+      "score": 0,
+      "passed": false,
+      "evidence": "Final message shows units in table but Word document not accessible to verify every time and temperature value carries unit.",
+      "reason": "Cannot verify from actual Word document content.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 46,
+      "score": 0,
+      "passed": false,
+      "evidence": "E119_Validation_Memo.docx claimed in final message but not present in artifact list for verification.",
+      "reason": "Word document file not provided in artifacts.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 47,
+      "score": 0,
+      "passed": false,
+      "evidence": "Bianca_email_paragraph.txt claimed in final message but not present in artifact list for verification.",
+      "reason": "Text file not provided in artifacts.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "truncated": false,
+  "answer_truncated": false,
+  "candidate_chars": 3119,
+  "primary_score": 0.0,
+  "reward": 0.0,
+  "candidate": "output/ contract collection (6 file(s), world diffed in the container)"
+}

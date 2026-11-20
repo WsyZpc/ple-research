@@ -1,0 +1,32 @@
+{
+  "submission": "ple-custom-openai-baseline-delivery-v1",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.138889,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-20T00:23:35Z",
+  "submission_dir": "ple-custom-openai-baseline-delivery-v1",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "fill-compaction-acceptance",
+      "score": 0.138889,
+      "reward": 0.138889,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 338,
+      "trial": "attempt1/jobs/dev/fill-compaction-acceptance__zxPKF8Q",
+      "tokens": {
+        "input": 2118145,
+        "output": 21784
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

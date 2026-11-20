@@ -1,0 +1,32 @@
+{
+  "submission": "ple-custom-openai-baseline-delivery-v1",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.02439,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-19T17:34:37Z",
+  "submission_dir": "ple-custom-openai-baseline-delivery-v1",
+  "model_base_url": null,
+  "no_export": true,
+  "tasks_dir": "data/tasks",
+  "tasks": [
+    {
+      "id": "les-mesh-resolution",
+      "score": 0.02439,
+      "reward": 0.02439,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 298,
+      "trial": "attempt1/jobs/dev/les-mesh-resolution__mPwF7Zx",
+      "tokens": {
+        "input": 987868,
+        "output": 18424
+      },
+      "graded_by": "",
+      "artifact": "",
+      "claimed": null
+    }
+  ]
+}

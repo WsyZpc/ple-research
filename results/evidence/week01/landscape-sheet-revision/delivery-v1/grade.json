@@ -1,0 +1,184 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "verifiers[]",
+  "family": "weighted_rubric",
+  "score_key": "passed_score",
+  "score": 0.15584415584415584,
+  "passed_score": 0.15584415584415584,
+  "combined_score": 0.15584415584415584,
+  "weighted_points": 12.0,
+  "possible_weighted_points": 77.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of 'Condition 14', 'TM-22-500041', or '03/14/2022' found in FINAL_MESSAGE.md, Memo_to_Callaway_L4_Revision.docx, or Summary.txt",
+      "reason": "The artifacts do not contain any reference to Condition 14 of the TM-22-500041 approval letter dated 03/14/2022",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of 'Condition 14' or 'landscape and streetscape treatments in common areas' in relation to Condition 14 found in any artifact",
+      "reason": "The artifacts do not state that Condition 14 covers landscape and streetscape treatments in common areas",
+      "weight": 5.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of 'Condition 14' found in FINAL_MESSAGE.md, Memo_to_Callaway_L4_Revision.docx, or Summary.txt",
+      "reason": "The artifacts do not state that the street tree revision falls within the scope of Condition 14",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'HOA has requested amenity parity with Phases 1/2' but does not state streetscape planting area is common area owned by HOA",
+      "reason": "No direct evidence that streetscape planting area is common area owned by the homeowners association",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'We must coordinate with Clark County Comprehensive Planning... to confirm whether this revision can proceed' but does not state no significant-change determination has been issued",
+      "reason": "The artifacts do not explicitly state that no significant-change determination has been issued for this revision",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx states: 'We must coordinate with Clark County Comprehensive Planning (Odette Marchetti, Principal Planner)... to confirm whether this revision can proceed through the standard resubmittal process or requires additional Enterprise TAB review'",
+      "reason": "Direct evidence that Clark County Comprehensive Planning makes the significant-change determination",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 6,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of '21 days before the meeting' application deadline in any artifact",
+      "reason": "The artifacts do not state that applications for Enterprise Town Advisory Board meeting are due 21 days before the meeting",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'The next TAB meeting is 11/18/2026' but does not mention application window closing on 10/28/2026",
+      "reason": "No evidence that the application window for 11/18/2026 TAB meeting closed on 10/28/2026",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'The next TAB meeting is 11/18/2026' not 12/16/2026",
+      "reason": "The artifacts state 11/18/2026 is the next TAB meeting, not 12/16/2026",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of TAB action being 'a recommendation forwarded to the Planning Commission' in any artifact",
+      "reason": "The artifacts do not state that Town Advisory Board action is a recommendation forwarded to the Planning Commission",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo discusses TAB Process Confirmation but does not explicitly state 'design review must occur before staff-level action'",
+      "reason": "No direct evidence that design review must occur before staff-level action on the resubmittal",
+      "weight": 5.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'Yes, we can commit to the 11/30/2026 resubmittal target, provided the following critical items are resolved on schedule' - this contradicts the criterion requiring statement that date CANNOT be committed",
+      "reason": "The artifacts state we CAN commit (with conditions), not that we CANNOT commit until Comprehensive Planning issues determination",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'immediate confirmation from Comprehensive Planning is required' but does not specify 'written determination'",
+      "reason": "The artifacts say 'confirmation' not 'written determination' as the immediate next action",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx states: 'The current landscape sheets (L-1 through L-4, dated 08/21/2026) show 58 street trees'; Summary.txt states: 'Current sheets show 58 trees'",
+      "reason": "Direct evidence that current landscape sheets show 58 street trees",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 14,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx states: 'Based on 4,160 linear feet of frontage, 208 trees are required'; Summary.txt states: '208 trees REQUIRED'",
+      "reason": "Direct evidence that 208 trees are required by the one-per-twenty-linear-feet standard",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 15,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'Bea Cortland, PLA (Ocotillo Landscape Studio) must prepare' the revised plan but does not state it must be 'sealed by the landscape architect of record'",
+      "reason": "No direct evidence that the revised planting plan must be sealed by the landscape architect of record",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 16,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx is present in output with readable content shown in artifact display",
+      "reason": "One readable memo document is included in the output",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 17,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx states: 'MEMORANDUM TO: Callaway Land Partners' and 'DATE: October 31, 2026'",
+      "reason": "Direct evidence the memo is addressed to Callaway and dated 10/31/2026",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    }
+  ],
+  "truncated": false,
+  "answer_truncated": false,
+  "candidate_chars": 11452,
+  "primary_score": 0.15584415584415584,
+  "reward": 0.15584415584415584,
+  "candidate": "output/ contract collection (13 file(s), world diffed in the container)"
+}

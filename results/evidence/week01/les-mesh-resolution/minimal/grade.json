@@ -1,0 +1,174 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.024390243902439025,
+  "passed_score": 0.024390243902439025,
+  "combined_score": 0.024390243902439025,
+  "weighted_points": 2.0,
+  "possible_weighted_points": 82.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Representative cell edge length dx = 0.5 m (fire-region background, with two additional refinement levels over the 3.0 m fire source)'",
+      "reason": "The artifact states 0.5 m, not the required 0.125 m for the fire-region cell edge length. The criterion requires the fine-grid fire-region cell size (0.500 m background refined two levels = 0.125 m), but the artifact incorrectly uses the background cell size.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Characteristic plume diameter D* = 3.76 m'",
+      "reason": "The artifact states 3.76 m, not the required 3.74 m. The criterion explanation notes that 3.74 m follows from the QA verification standard's definition worked on the 30.1 MW heat release rate and recorded reference-atmosphere constants, while 3.76 m does not follow from its own inputs.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'D*/dx = 7.52 is WITHIN the required band 5-10. The band is met with comfortable margin'",
+      "reason": "The artifact states the band IS met, but the criterion requires stating the band is NOT met. With the correct 0.125 m cell size and 3.74 m diameter, the index would be 29.9, nearly three times the upper limit of the 5-10 band.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Both criteria are met. The resolution acceptance rests on the numerical evidence documented in three_grid_study_outputs.txt'",
+      "reason": "The artifact states both criteria are met, but the criterion requires stating acceptance rests on the resolved turbulent kinetic energy criterion ALONE. Since the plume resolution criterion is not met (index 29.9), acceptance rests on the resolved-energy criterion (0.84 ≥ 0.80) alone.",
+      "weight": 9.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'No decision from the Reviewing Engineer is required beyond confirming that the evidence satisfies the standard'",
+      "reason": "While the artifact states no decision is needed, it bases this on both criteria being met rather than on the correct basis that resting on one criterion alone requires no escalation. The criterion requires the specific statement that one criterion being met triggers no escalation per QA Sec 5.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'The Pope resolved-TKE fraction... was evaluated at the centreline probe located 0.75*D* above the source top surface. This location is within the buoyancy-dominated plume region'",
+      "reason": "The artifact asserts the probe is in the correct region without stating that the radius and height of the fire-source refinement zone are not recorded on file. The criterion requires explicitly stating this gap in the file server records.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "Artifact states: 'These are standard reference conditions, not the actual Avra Valley site conditions. The site meteorology record (site_met_avra_valley_2015-2024.csv) shows fire-season daytime ambient temperatures of 35-42C (308-315 K)'",
+      "reason": "The artifact directly states that 1.204 kg/m3 and 293.15 K are reference-atmosphere values rather than the site design ambient of 35-42 deg C, matching the criterion requirement.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'A calculation confirms this: Standard (20C, 1.204 kg/m3): D* = 3.742 m... Site (40C, 1.127 kg/m3): D* = 3.742 m'",
+      "reason": "The artifact states D* at site conditions CAN be evaluated and is unchanged, but the criterion requires stating it CANNOT be evaluated from the files on the file server because no site pressure is recorded and the plume basis carries no elevation.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Yes, Item 4 can close, subject to one documentation edit'",
+      "reason": "The artifact states the item CAN close, but the criterion requires stating the item remains OPEN because QA Sec 3(a) requires naming the sub-grid-scale closure and no file names the closure of the simulation that produced the reported monitors.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact does not mention sub-grid-scale closure or case setup memo requirements",
+      "reason": "The artifact does not address the sub-grid-scale closure requirement at all. The criterion requires stating that the closure choice must be recorded in the case setup memo or Mixed-convection LES setup memo to settle the item.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 1,
+      "passed": true,
+      "evidence": "Artifact states: 'No further technical work, no re-run, no additional analysis is required'",
+      "reason": "The artifact directly states the item can be settled without any new simulation run, matching the criterion requirement.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'No decision from the Reviewing Engineer is required beyond confirming that the evidence satisfies the standard'",
+      "reason": "The artifact does not specifically address the cell edge length definition question. The criterion requires stating that no ruling from Marguerite is needed to fix which cell edge length the plume resolution index takes, as QA Sec 2 and Sec 5.1 fix the denominator.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Both criteria are met' without addressing whether both are required",
+      "reason": "The artifact does not state that the expectation for both criteria to be met does not apply to Phase 1 rev B. The criterion requires stating that QA Sec 5 makes both criteria the default expectation only for AHJ or life-safety end use, which does not apply here per the signed SOW.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "Artifact states: 'Plume resolution index D*/dx = 7.52'",
+      "reason": "The artifact states 7.52, not the required 29.9. With the correct 0.125 m fire-region cell edge length and 3.74 m plume characteristic diameter, the index is 29.9 (3.742310 / 0.125 = 29.93848).",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "CFDME-2025-041_resolution_note_revA.pdf"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "files": [
+        "FINAL_MESSAGE.md",
+        "CFDME-2025-041_resolution_note_revA.pdf.txt"
+      ],
+      "chars": 7611
+    }
+  ],
+  "candidate_chars": 7611,
+  "primary_score": 0.024390243902439025,
+  "reward": 0.024390243902439025,
+  "candidate": "1 vendor rendering text(s) + final message"
+}
