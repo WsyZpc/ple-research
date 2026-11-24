@@ -1,0 +1,35 @@
+diff --git a/es/index.js b/es/index.js
+index 5a23a9748b83486b0924468028de32d1a3f4de27..ffdfd3871014825e535170341ddbcd4bb19f26fd 100644
+--- a/es/index.js
++++ b/es/index.js
+@@ -11,7 +11,7 @@ import ReactDOM from 'react-dom';
+ import raf from "rc-util/es/raf";
+ import contains from "rc-util/es/Dom/contains";
+ import findDOMNode from "rc-util/es/Dom/findDOMNode";
+-import { composeRef, supportRef } from "rc-util/es/ref";
++import { composeRef, getNodeRef, supportRef } from "rc-util/es/ref";
+ import addEventListener from "rc-util/es/Dom/addEventListener";
+ import Portal from "rc-util/es/Portal";
+ import classNames from 'classnames';
+@@ -763,7 +763,7 @@ export function generateTrigger(PortalComponent) {
+         var cloneProps = _objectSpread({}, newChildProps);
+ 
+         if (supportRef(child)) {
+-          cloneProps.ref = composeRef(this.triggerRef, child.ref);
++          cloneProps.ref = composeRef(this.triggerRef, getNodeRef(child));
+         }
+ 
+         var trigger = /*#__PURE__*/React.cloneElement(child, cloneProps);
+diff --git a/lib/index.js b/lib/index.js
+index 765ae505a7df5b207d31538d489167b69ece93bd..aed1e49fe99c33793a7614f245b8cc5abbeee16e 100644
+--- a/lib/index.js
++++ b/lib/index.js
+@@ -759,7 +759,7 @@ function generateTrigger(PortalComponent) {
+         var cloneProps = (0, _objectSpread2.default)({}, newChildProps);
+ 
+         if ((0, _ref2.supportRef)(child)) {
+-          cloneProps.ref = (0, _ref2.composeRef)(this.triggerRef, child.ref);
++          cloneProps.ref = (0, _ref2.composeRef)(this.triggerRef, (0, _ref2.getNodeRef)(child));
+         }
+ 
+         var trigger = /*#__PURE__*/React.cloneElement(child, cloneProps);

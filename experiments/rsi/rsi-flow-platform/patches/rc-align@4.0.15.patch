@@ -1,0 +1,33 @@
+diff --git a/es/Align.js b/es/Align.js
+--- a/es/Align.js
++++ b/es/Align.js
+@@ -10,7 +10,7 @@
+ import addEventListener from "rc-util/es/Dom/addEventListener";
+ import isVisible from "rc-util/es/Dom/isVisible";
+ import useLayoutEffect from "rc-util/es/hooks/useLayoutEffect";
+-import { composeRef } from "rc-util/es/ref";
++import { composeRef, getNodeRef } from "rc-util/es/ref";
+ import React from 'react';
+ import useBuffer from "./hooks/useBuffer";
+ import { isSamePoint, monitorResize, restoreFocus } from "./util";
+@@ -154,7 +154,7 @@
+ 
+   if ( /*#__PURE__*/React.isValidElement(childNode)) {
+     childNode = /*#__PURE__*/React.cloneElement(childNode, {
+-      ref: composeRef(childNode.ref, nodeRef)
++      ref: composeRef(getNodeRef(childNode), nodeRef)
+     });
+   }
+ 
+diff --git a/lib/Align.js b/lib/Align.js
+--- a/lib/Align.js
++++ b/lib/Align.js
+@@ -185,7 +185,7 @@
+ 
+   if ( /*#__PURE__*/_react.default.isValidElement(childNode)) {
+     childNode = /*#__PURE__*/_react.default.cloneElement(childNode, {
+-      ref: (0, _ref2.composeRef)(childNode.ref, nodeRef)
++      ref: (0, _ref2.composeRef)((0, _ref2.getNodeRef)(childNode), nodeRef)
+     });
+   }
+ 

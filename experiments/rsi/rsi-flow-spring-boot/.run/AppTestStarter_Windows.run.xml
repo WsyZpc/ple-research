@@ -1,0 +1,13 @@
+<?xml version='1.0' encoding='utf-8'?>
+<component name="ProjectRunConfigurationManager">
+  <configuration name="AppTestStarter Windows" type="Application" factoryName="Application">
+    <option name="MAIN_CLASS_NAME" value="com.horsecoder.common.whuTalent.core.test.starter.AppTestStarter" />
+    <option name="PROGRAM_PARAMETERS" value="--server.port=18080" />
+    <module name="core-test" />
+    <option name="VM_PARAMETERS" value="-Dsun.net.spi.nameservice.provider.1=dns,local-dns-provider -Dsun.net.spi.nameservice.provider.2=default" />
+    <shortenClasspath name="MANIFEST" />
+    <method v="2">
+      <option name="Make" enabled="true" />
+    </method>
+  </configuration>
+</component>

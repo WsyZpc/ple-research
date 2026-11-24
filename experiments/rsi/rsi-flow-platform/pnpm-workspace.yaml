@@ -1,0 +1,12 @@
+packages:
+  - '.'
+
+allowBuilds:
+  sharp: false
+patchedDependencies:
+  rc-align@4.0.15: patches/rc-align@4.0.15.patch
+  rc-trigger@5.3.4: patches/rc-trigger@5.3.4.patch
+
+permissions:
+  '@reduxjs/toolkit':
+    skills: false
