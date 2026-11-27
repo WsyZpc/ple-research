@@ -1,0 +1,9 @@
+{
+  "task_id": "fill-compaction-acceptance",
+  "run_id": "grade-fill-coverage-5SZAc8DJ",
+  "judge_model": "qwen3.5-plus",
+  "candidate": "2 vendor rendering text(s)",
+  "grader_failed": "judge failed: judge timed out after 840 s",
+  "stage": "first judge attempt",
+  "score": null
+}

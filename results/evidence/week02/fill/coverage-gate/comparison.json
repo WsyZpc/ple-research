@@ -8,7 +8,7 @@
   "word_sha256": "2e5552be8db098523d227c4081218fd00cbd7ed53cac5660117067160713452f",
   "engineering_retries": 1,
   "route_status": "EVIDENCE_HOLD",
-  "score": "15/108 → 24/108，覆盖门禁版待评分",
+  "score": "15/108 → 24/108，覆盖门禁版首次裁判超时，暂无新分",
   "targets": {
     "P04": {
       "previous": "11/31",
@@ -20,5 +20,6 @@
       "current": null,
       "remaining": {}
     }
-  }
+  },
+  "first_judge_attempt": "judge-timeout.json"
 }
