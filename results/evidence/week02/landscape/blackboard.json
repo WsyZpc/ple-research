@@ -1,0 +1,632 @@
+{
+  "task_id": "",
+  "task_dir": "landscape-sheet-revision/environment/filesystem",
+  "instruction": "Garrett wants the L-4 street tree revision worked into the landscape sheets and the package back to Yeoman for the 11/30 resubmittal. Check it against the current landscape sheets and the resubmittal tracker, then tell me whether we can commit to that date on this revision and what has to happen first. One memo to Callaway for my signature, dated 10/31/2026.\n\n## Where to put your answer\n\nSave the files that make up your answer under `output/` in this workspace,\ncreating that directory if it does not exist. What gets reviewed when you\nfinish is `output/`, any file you create or change elsewhere in this\nworkspace, and your final message. Files you copy into `output/` are read as\npart of your answer.\n",
+  "retry_count": 0,
+  "max_retry": 2,
+  "file_index": [
+    {
+      "path": "Correspondence/Agency/CC-PW_1stReview_Comments_10092026.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/CC-PW_Ph2_Acceptance_032025.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/CC-PW_Ph2_Comments_1st_2nd.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/CCFD_Ph2_Access_Approval.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/DSR_ExtensionOfTime_request_and_response.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/DSR_Ph2_Comment_Response_Matrix.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/DSR_Ph2_County_Inspection_Reports.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/DSR_Ph3_Transmittal_Clearance_Log.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/FCD_MDS_Acceptance_Letter.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/RE_DSR_tentative_map_status_thread.eml",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/RE_DSR_tentative_map_status_thread.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/SewerCapacity_Confirmation_09302025.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/TM-22-500041_DetailedTeamReview_draft_conditions.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Agency/WillServe_Water_07222026.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Callaway_counsel_turf_exemption.eml",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Callaway_counsel_turf_exemption.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/DSR_HOA_park_landscape_letter.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Nokes_redline_and_resubmit.eml",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Nokes_redline_and_resubmit.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Title_officer_map_runway.eml",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/Client/Title_officer_map_runway.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/DSR_Ph3_internal_design_coordination.eml",
+      "status": "active"
+    },
+    {
+      "path": "Correspondence/DSR_Ph3_internal_design_coordination.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "Cost Estimates/CC_Unit_Cost_Schedule.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Cost Estimates/DSR_Ph3_Engineers_Estimate.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Landscape/DSR_Ph1-2_Landscape_APPROVED_2022.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Landscape/DSR_Ph3_Landscape_L1-L4.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Landscape/DSR_Ph3_Turf_Planting_Tabulation.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Phase 2 As-Builts/DSR_Ph2_AsBuilts.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Phase 3/DSR_Ph3_DryUtility_Composite.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Phase 3/DSR_Ph3_Improvement_Plans_C1-C9.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Phase 3/DSR_Ph3_QAQC_Checklist.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Phase 3/DSR_Ph3_Street_FireAccess_Plan.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Survey/DSR_Ph1-2_FinalMap_recorded_12232024.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Design-Drafting/Survey/DSR_Ph3_FinalMap_FM-26-100290_checkprint.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/DSR_Ph3_DustControl_Permit.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/DSR_Ph3_Grading_Permit_Application.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/DSR_SWPPP_original.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/NOI_and_Authorization_original.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/NOT_NVR100000_Ph1-2.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Health and Safety/NVR100000_General_Permit_current.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Meeting Notes/DSR_Ph2_Precon_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "Meeting Notes/DSR_Ph3_PreApp_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "Meeting Notes/DSR_Ph3_Weekly_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reference/CC_Map_Amendment_and_Vacation_Procedures.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reference/CC_Shade_Canopy_Guidance.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reference/FunctionalTurf_Compliance_Bulletin.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reference/Title/DSR_Ph3_Preliminary_Title_Report.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Geotechnical_Report.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Irrigation_Demand_Worksheet.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Master_Drainage_Study.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Ph3_Detention_Calc_prelim.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Ph3_Hydrology_Worksheet.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Ph3_StormDrain_HGL.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Ph3_Traffic_Impact_Statement.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Reports-Studies/DSR_Ph3_Water_Budget.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "Tenders-Contracts/DSR_CCRs_CommonArea_Exhibit.pdf",
+      "status": "active"
+    },
+    {
+      "path": "Tenders-Contracts/DSR_Ph2_SIA_and_Bond.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/CC-PW_1stReview_Comments_10092026.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/CC-PW_Ph2_Acceptance_032025.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/CC-PW_Ph2_Comments_1st_2nd.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/CCFD_Ph2_Access_Approval.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/DSR_ExtensionOfTime_request_and_response.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/DSR_Ph2_Comment_Response_Matrix.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/DSR_Ph2_County_Inspection_Reports.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/DSR_Ph3_Transmittal_Clearance_Log.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/FCD_MDS_Acceptance_Letter.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/RE_DSR_tentative_map_status_thread.eml",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/RE_DSR_tentative_map_status_thread.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/SewerCapacity_Confirmation_09302025.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/TM-22-500041_DetailedTeamReview_draft_conditions.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Agency/WillServe_Water_07222026.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Callaway_counsel_turf_exemption.eml",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Callaway_counsel_turf_exemption.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/DSR_HOA_park_landscape_letter.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Nokes_redline_and_resubmit.eml",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Nokes_redline_and_resubmit.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Title_officer_map_runway.eml",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/Client/Title_officer_map_runway.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/DSR_Ph3_internal_design_coordination.eml",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Correspondence/DSR_Ph3_internal_design_coordination.emlOECustomProperty",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Cost Estimates/CC_Unit_Cost_Schedule.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Cost Estimates/DSR_Ph3_Engineers_Estimate.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Landscape/DSR_Ph1-2_Landscape_APPROVED_2022.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Landscape/DSR_Ph3_Landscape_L1-L4.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Landscape/DSR_Ph3_Turf_Planting_Tabulation.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Phase 2 As-Builts/DSR_Ph2_AsBuilts.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Phase 3/DSR_Ph3_DryUtility_Composite.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Phase 3/DSR_Ph3_Improvement_Plans_C1-C9.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Phase 3/DSR_Ph3_QAQC_Checklist.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Phase 3/DSR_Ph3_Street_FireAccess_Plan.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Survey/DSR_Ph1-2_FinalMap_recorded_12232024.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Design-Drafting/Survey/DSR_Ph3_FinalMap_FM-26-100290_checkprint.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/DSR_Ph3_DustControl_Permit.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/DSR_Ph3_Grading_Permit_Application.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/DSR_SWPPP_original.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/NOI_and_Authorization_original.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/NOT_NVR100000_Ph1-2.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Health and Safety/NVR100000_General_Permit_current.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Meeting Notes/DSR_Ph2_Precon_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Meeting Notes/DSR_Ph3_PreApp_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Meeting Notes/DSR_Ph3_Weekly_Meeting_Notes.docx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reference/CC_Map_Amendment_and_Vacation_Procedures.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reference/CC_Shade_Canopy_Guidance.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reference/FunctionalTurf_Compliance_Bulletin.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reference/Title/DSR_Ph3_Preliminary_Title_Report.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Geotechnical_Report.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Irrigation_Demand_Worksheet.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Master_Drainage_Study.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Ph3_Detention_Calc_prelim.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Ph3_Hydrology_Worksheet.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Ph3_StormDrain_HGL.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Ph3_Traffic_Impact_Statement.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Reports-Studies/DSR_Ph3_Water_Budget.xlsx",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Tenders-Contracts/DSR_CCRs_CommonArea_Exhibit.pdf",
+      "status": "active"
+    },
+    {
+      "path": "filesystem/Tenders-Contracts/DSR_Ph2_SIA_and_Bond.pdf",
+      "status": "active"
+    }
+  ],
+  "authority_docs": [
+    "Correspondence/Agency/CCFD_Ph2_Access_Approval.pdf",
+    "Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf",
+    "Design-Drafting/Landscape/DSR_Ph1-2_Landscape_APPROVED_2022.pdf",
+    "filesystem/Correspondence/Agency/CCFD_Ph2_Access_Approval.pdf",
+    "filesystem/Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf",
+    "filesystem/Design-Drafting/Landscape/DSR_Ph1-2_Landscape_APPROVED_2022.pdf"
+  ],
+  "claims": [],
+  "draft_output": "",
+  "artifact_path": "E:\\harness_in_PLE\\outputs\\landscape-review\\landscape-sheet-revision\\run-tf52g312\\output\\Memo_to_Callaway_L4_Revision.docx",
+  "expected_schema": {
+    "format": "docx",
+    "required_text": [
+      "Callaway",
+      "10/31/2026",
+      "Condition 14",
+      "TM-22-500041",
+      "Streetscape Common Area",
+      "written significant-change determination"
+    ]
+  },
+  "entity_conflicts": [],
+  "coverage_gaps": [],
+  "attribution_warnings": [],
+  "missing_evidence": [
+    {
+      "code": "WRITTEN_PLANNING_DECISION_PENDING",
+      "message": "The reviewed records do not establish a written significant-change determination for this revision.",
+      "blocking": true,
+      "retryable": false,
+      "source_skill": "landscape_review"
+    }
+  ],
+  "route_status": "EVIDENCE_HOLD",
+  "retry_feedback": "{\"findings\": [{\"code\": \"WRITTEN_PLANNING_DECISION_PENDING\", \"message\": \"The reviewed records do not establish a written significant-change determination for this revision.\", \"blocking\": true, \"retryable\": false, \"source_skill\": \"landscape_review\"}], \"reason\": \"UNVERIFIED_EVIDENCE\"}",
+  "schema_ok": true,
+  "schema_error": "",
+  "trace_metrics": {
+    "landscape_review": {
+      "status": "reviewed",
+      "passages": 13,
+      "calls": 1
+    },
+    "epistemic_hold_gate": {
+      "route": "EVIDENCE_HOLD",
+      "reason": "UNVERIFIED_EVIDENCE",
+      "blocking_count": 1,
+      "retry_count_before": 0,
+      "retry_count_after": 0,
+      "max_retry": 2,
+      "calls": 1
+    },
+    "landscape_docx_export": {
+      "status": "ok",
+      "bytes": 37506,
+      "calls": 1
+    },
+    "roundtrip_schema_guard": {
+      "status": "ok",
+      "checks": {
+        "paragraphs": 10,
+        "tables": 0
+      },
+      "calls": 1
+    }
+  },
+  "landscape_summary": {
+    "memo_date": "2026-10-31",
+    "target": "2026-11-30",
+    "approval_date": "March 14, 2022",
+    "frontage": 4160,
+    "spacing": 20,
+    "required": 208,
+    "shown": 58,
+    "lead_days": 21,
+    "meeting": "2026-11-18",
+    "cutoff": "2026-10-28",
+    "next_meeting": "2026-12-16",
+    "next_cutoff": "2026-11-25"
+  },
+  "landscape_evidence": {
+    "condition_section": {
+      "reference": "Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L109-L109",
+      "text": "C. Comprehensive Planning (Conditions 14 through 20)"
+    },
+    "condition_14": {
+      "reference": "Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L110-L112",
+      "text": "Any significant change to approved plans, including but not limited to landscape and streetscape treatments in common areas, shall be subject to design review as a public hearing before the applicable Town Advisory Board and Planning Commission prior to staff-level action."
+    },
+    "approval_date": {
+      "reference": "Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L4-L4",
+      "text": "March 14, 2022"
+    },
+    "common_area": {
+      "reference": "Tenders-Contracts/DSR_CCRs_CommonArea_Exhibit.pdf:L99-L104",
+      "text": "Section 2.17. \"Streetscape Common Area.\" Those parcels or strips of Common Area situated between the back-of-curb of a public street and the front or side lot lines of the adjoining Lots (or, where applicable, between the back-of-curb and a perimeter community wall), extending along all frontage of the Property, and improved with sidewalks (where the sidewalk is not within the dedicated public right-of-way), desert planting, street trees, and drip irrigation. Each Streetscape Common Area parcel is owned by the Association and is not part of any Lot."
+    },
+    "l4_open": {
+      "reference": "Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L30-L30",
+      "text": "12 | Landscape | L-4 | Bea Cortland, PLA | 11/22/2026 | Open | Street frontage planting revised to 1 tree per 20 lf. Comment cites 4,160 lf frontage, 208 required against 58 shown. Revised planting plan and revised annual irrigation demand due with resubmittal."
+    },
+    "plan_count": {
+      "reference": "Design-Drafting/Landscape/DSR_Ph3_Landscape_L1-L4.pdf:L275-L275",
+      "text": "4,160 lf 58"
+    },
+    "seal": {
+      "reference": "Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L27-L27",
+      "text": "9 | Landscape | L-1 | Bea Cortland, PLA | 11/22/2026 | In progress | L-1 through L-4 to be sealed by landscape architect of record at resubmittal."
+    },
+    "planning_coordination": {
+      "reference": "Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L90-L90",
+      "text": "9 | Enterprise TAB — decision on whether landscape resubmittal materially changes character of Parcel A (Advisory A-3) | Max Braddock | 11/10/2026 | Review applicable conditions of approval before resubmitting landscape revisions. Any revision that materially changes approved plan character may require additional process before plan approval; coordinate with Comprehensive Planning."
+    },
+    "target": {
+      "reference": "Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L58-L58",
+      "text": "11/30/2026 | Phase 3 resubmittal target to Clark County Public Works | Annotated comment matrix, red-lined set, clean revised sheets, and revised/reissued supporting documents (irrigation worksheet, ESC plan, updated will-serve/capacity confirmations, updated preliminary title report)."
+    },
+    "filing_window": {
+      "reference": "Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf:L105-L106",
+      "text": "Comprehensive Planning no later than 21 days prior to the meeting date. This period is necessary to permit staff review, agenda preparation, and the ten-day posting required by Nevada Open Meeting Law. Applications received"
+    },
+    "board_authority": {
+      "reference": "Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf:L112-L116",
+      "text": "TAB recommendations are advisory to the Clark County Board of County Commissioners and to the Clark County Planning Commission. The Board of County Commissioners and the Planning Commission retain final authority over all land use applications within their respective jurisdictions. The record of the TAB meeting — including any recommendation, the vote, and the public testimony — is transmitted with the staff report to the final decision-making body."
+    },
+    "november_meeting": {
+      "reference": "Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf:L35",
+      "text": "11 11/18/2026 Wednesday 6:00 PM 11/08/2026 10/28/2026 5:30 PM day of meeting"
+    },
+    "available_meeting": {
+      "reference": "Meeting Notes/EnterpriseTAB_Calendar_Agenda.pdf:L36",
+      "text": "12 12/16/2026 Wednesday 6:00 PM 12/06/2026 11/25/2026 5:30 PM day of meeting"
+    }
+  }
+}

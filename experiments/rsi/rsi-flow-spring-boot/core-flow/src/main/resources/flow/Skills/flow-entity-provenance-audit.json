@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENTITY_PROVENANCE_AUDIT",
+  "name": "FLOW_ENTITY_PROVENANCE_AUDIT",
+  "type": "flow",
+  "title": "实体与来源隔离审计",
+  "description": "按独立来源核验实体、单位、出处与适用条件",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_ENTITY_PROVENANCE_AUDIT",
+      "type": "event",
+      "title": "实体与来源隔离审计",
+      "reference": "FLOW_CODE_ENTITY_PROVENANCE_AUDIT",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_ENTITY_PROVENANCE_AUDIT",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_ENTITY_PROVENANCE_AUDIT",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

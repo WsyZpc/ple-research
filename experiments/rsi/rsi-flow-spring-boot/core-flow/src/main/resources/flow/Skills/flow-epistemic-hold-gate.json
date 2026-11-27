@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
+  "name": "FLOW_EPISTEMIC_HOLD_GATE",
+  "type": "flow",
+  "title": "证据完备与三态仲裁",
+  "description": "汇总阻断项并决定通过、有限重试或待核",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_EPISTEMIC_HOLD_GATE",
+      "type": "event",
+      "title": "证据完备与三态仲裁",
+      "reference": "FLOW_CODE_EPISTEMIC_HOLD_GATE",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_EPISTEMIC_HOLD_GATE",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_EPISTEMIC_HOLD_GATE",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

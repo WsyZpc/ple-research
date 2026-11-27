@@ -1,0 +1,50 @@
+21:48:07.902 [main] WARN org.apache.velocity.deprecation - configuration key 'runtime.log.invalid.references' has been deprecated in favor of 'runtime.log.log_invalid_references'
+21:48:07.902 [main] DEBUG org.apache.velocity - Initializing Velocity, Calling init()...
+21:48:07.902 [main] DEBUG org.apache.velocity - Starting Apache Velocity v2.2
+21:48:07.902 [main] DEBUG org.apache.velocity - Default Properties resource: org/apache/velocity/runtime/defaults/velocity.properties
+21:48:07.902 [main] DEBUG org.apache.velocity - ResourceLoader instantiated: org.apache.velocity.runtime.resource.loader.StringResourceLoader
+21:48:07.902 [main] DEBUG org.apache.velocity.loader.string - Creating string repository using class org.apache.velocity.runtime.resource.util.StringResourceRepositoryImpl...
+21:48:07.902 [main] DEBUG org.apache.velocity.loader.string - Default repository encoding is UTF-8
+21:48:07.902 [main] DEBUG org.apache.velocity - initialized (class org.apache.velocity.runtime.resource.ResourceCacheImpl) with class java.util.Collections$SynchronizedMap cache map.
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Stop
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Define
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Break
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Evaluate
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Macro
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Parse
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Include
+21:48:07.902 [main] DEBUG org.apache.velocity - Loaded System Directive: org.apache.velocity.runtime.directive.Foreach
+21:48:07.918 [main] DEBUG org.apache.velocity.parser - Created '20' parsers.
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - "velocimacro.library.path" is not set. Trying default library: velocimacros.vtl
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - Default library velocimacros.vtl not found. Trying old default library: VM_global_library.vm
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - Old default library VM_global_library.vm not found.
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - allowInline = true: VMs can be defined inline in templates
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - allowInlineToOverride = false: VMs defined inline may NOT replace previous VM definitions
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - allowInlineLocal = false: VMs defined inline will be global in scope if allowed.
+21:48:07.950 [main] DEBUG org.apache.velocity.macro - autoload off: VM system will not automatically reload global library macros
+21:48:08.004 [main] INFO cc.eamon.open.flow.core.context.pipeline.ConfigLoadPipeline - 执行ConfigLoadPipeline组装过程
+21:48:08.018 [main] INFO cc.eamon.open.flow.core.stereotype.support.load.JarLoader - no protocol: f
+21:48:08.018 [main] INFO cc.eamon.open.flow.core.context.pipeline.CodeLoadPipeline - 执行CodeLoadPipeline组装过程
+21:48:08.019 [main] INFO cc.eamon.open.flow.core.utils.LogoUtil -
+================================================================================================
+		 _____ _     _____        __
+		|  ___| |   / _ \ \      / /
+		| |_  | |  | | | \ \ /\ / /
+		|  _| | |__| |_| |\ V  V /
+		|_|   |_____\___/  \_/\_/
+
+		(^ v ^) Code hard, play harder.
+================================================================================================
+
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.context.pipeline.ModelLoadPipeline - 执行ModelLoadPipeline组装过程
+21:48:08.046 [main] INFO cc.eamon.open.flow.model.stereotype.support.load.ResourceLoader - resource包中未找到名为model的model包
+21:48:08.046 [main] INFO cc.eamon.open.flow.model.stereotype.support.load.JarLoader - no protocol: f
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.context.pipeline.FlowAssemblyPipeline - 执行FlowAssemblyPipeline组装过程
+21:48:08.046 [main] ERROR cc.eamon.open.flow.core.stereotype.support.execute.EventExecutable - 流程节点代码FLOW_CODE_PLE_LANDSCAPE_REVIEW未找到
+21:48:08.046 [main] ERROR cc.eamon.open.flow.core.stereotype.execute.holder.FlowNodeHolder - java.lang.reflect.InvocationTargetException
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.context.pipeline.FlowAssemblyPipeline - null
+21:48:08.046 [main] ERROR cc.eamon.open.flow.core.stereotype.support.execute.EventExecutable - 流程节点代码FLOW_CODE_RUN未找到
+21:48:08.046 [main] ERROR cc.eamon.open.flow.core.stereotype.execute.holder.FlowNodeHolder - java.lang.reflect.InvocationTargetException
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.context.pipeline.FlowAssemblyPipeline - null
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.context.Initializer - 流程配置信息装配完成
+21:48:08.046 [main] INFO cc.eamon.open.flow.core.FlowEngine - 初始化流程引擎完成

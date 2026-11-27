@@ -1,0 +1,218 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_LANDSCAPE_REVIEW",
+  "name": "FLOW_PLE_LANDSCAPE_REVIEW",
+  "type": "flow",
+  "title": "景观修订审查",
+  "description": "读取原始图纸和批准函，核对审查前置条件并回读备忘录。",
+  "params": [
+    {
+      "title": "task_dir",
+      "name": "task_dir",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "instruction",
+      "name": "instruction",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "expected_schema",
+      "name": "expected_schema",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "INIT",
+      "type": "event",
+      "title": "建立本次审查黑板",
+      "reference": "FLOW_CODE_PLE_START_REVIEW",
+      "params": [
+        {
+          "title": "task_dir",
+          "name": "task_dir",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "instruction",
+          "name": "instruction",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "expected_schema",
+          "name": "expected_schema",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "RECON",
+      "type": "flow",
+      "title": "工作区侦察",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_WORKSPACE_RECON",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "CHECK",
+      "type": "event",
+      "title": "核对景观资料与批准条件",
+      "reference": "FLOW_CODE_PLE_LANDSCAPE_REVIEW",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "GATE",
+      "type": "flow",
+      "title": "判断重提日期能否承诺",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "EXPORT",
+      "type": "event",
+      "title": "生成签字备忘录",
+      "reference": "FLOW_CODE_PLE_LANDSCAPE_EXPORT",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "VERIFY",
+      "type": "event",
+      "title": "重开 Word 并检查内容",
+      "reference": "FLOW_CODE_PLE_LANDSCAPE_VERIFY",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "INIT",
+      "condition": "true"
+    },
+    {
+      "source": "INIT",
+      "target": "RECON",
+      "condition": "true"
+    },
+    {
+      "source": "RECON",
+      "target": "CHECK",
+      "condition": "true"
+    },
+    {
+      "source": "CHECK",
+      "target": "GATE",
+      "condition": "true"
+    },
+    {
+      "source": "GATE",
+      "target": "EXPORT",
+      "condition": "true"
+    },
+    {
+      "source": "EXPORT",
+      "target": "VERIFY",
+      "condition": "true"
+    },
+    {
+      "source": "VERIFY",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

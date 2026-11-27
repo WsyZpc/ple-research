@@ -1,0 +1,261 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_COVERAGE_REVIEW",
+  "name": "FLOW_PLE_COVERAGE_REVIEW",
+  "type": "flow",
+  "title": "条款覆盖与归因复核",
+  "description": "每次输入一个独立审查项；定向重算至多两轮，证据不足生成待核意见。",
+  "params": [
+    {
+      "title": "task_dir",
+      "name": "task_dir",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "instruction",
+      "name": "instruction",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "expected_schema",
+      "name": "expected_schema",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "INIT",
+      "type": "event",
+      "title": "建立本次审查黑板",
+      "reference": "FLOW_CODE_PLE_START_REVIEW",
+      "params": [
+        {
+          "title": "task_dir",
+          "name": "task_dir",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "instruction",
+          "name": "instruction",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "expected_schema",
+          "name": "expected_schema",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "RECON",
+      "type": "flow",
+      "title": "工作区侦察",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_WORKSPACE_RECON",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "SOLVE",
+      "type": "flow",
+      "title": "工程提取与求解",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "AUDIT_1",
+      "type": "flow",
+      "title": "集合覆盖与归因审校",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_COVERAGE_ATTRIBUTION_AUDIT",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "GATE",
+      "type": "flow",
+      "title": "证据完备与三态仲裁",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "ROUTE",
+      "type": "event",
+      "title": "读取仲裁结果",
+      "reference": "FLOW_CODE_PLE_READ_ROUTE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "route_status",
+          "name": "route_status",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "HOLD",
+      "type": "flow",
+      "title": "工程提取与求解",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "INIT",
+      "condition": "true"
+    },
+    {
+      "source": "INIT",
+      "target": "RECON",
+      "condition": "true"
+    },
+    {
+      "source": "RECON",
+      "target": "SOLVE",
+      "condition": "true"
+    },
+    {
+      "source": "SOLVE",
+      "target": "AUDIT_1",
+      "condition": "true"
+    },
+    {
+      "source": "AUDIT_1",
+      "target": "GATE",
+      "condition": "true"
+    },
+    {
+      "source": "GATE",
+      "target": "ROUTE",
+      "condition": "true"
+    },
+    {
+      "source": "ROUTE",
+      "target": "end",
+      "condition": "route_status == 'PASS' || route_status == 'MAX_RETRY_REACHED'"
+    },
+    {
+      "source": "ROUTE",
+      "target": "HOLD",
+      "condition": "route_status == 'EVIDENCE_HOLD'"
+    },
+    {
+      "source": "ROUTE",
+      "target": "SOLVE",
+      "condition": "route_status == 'RETRY_CONFLICT'"
+    },
+    {
+      "source": "HOLD",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

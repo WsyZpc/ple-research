@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ROUNDTRIP_SCHEMA_GUARD",
+  "name": "FLOW_ROUNDTRIP_SCHEMA_GUARD",
+  "type": "flow",
+  "title": "产物确定性回读门禁",
+  "description": "回读交付文件并校验结构和必要内容",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_ROUNDTRIP_SCHEMA_GUARD",
+      "type": "event",
+      "title": "产物确定性回读门禁",
+      "reference": "FLOW_CODE_ROUNDTRIP_SCHEMA_GUARD",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_ROUNDTRIP_SCHEMA_GUARD",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_ROUNDTRIP_SCHEMA_GUARD",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

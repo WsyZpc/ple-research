@@ -1,0 +1,86 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_ARTIFACT_REVIEW",
+  "name": "FLOW_PLE_ARTIFACT_REVIEW",
+  "type": "flow",
+  "title": "已落盘产物回读与处置",
+  "description": "输入上游黑板，包含 artifact_path、expected_schema 和重试计数。回读后仲裁；将修复反馈交还产物生成端，重新导出后携原黑板再次调用。",
+  "params": [
+    {
+      "title": "blackboard",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "READ_BACK",
+      "type": "flow",
+      "title": "产物确定性回读门禁",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ROUNDTRIP_SCHEMA_GUARD",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "GATE",
+      "type": "flow",
+      "title": "证据完备与三态仲裁",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "READ_BACK",
+      "condition": "true"
+    },
+    {
+      "source": "READ_BACK",
+      "target": "GATE",
+      "condition": "true"
+    },
+    {
+      "source": "GATE",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

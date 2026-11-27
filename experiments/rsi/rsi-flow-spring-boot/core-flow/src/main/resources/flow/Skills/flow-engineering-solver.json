@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+  "name": "FLOW_ENGINEERING_SOLVER",
+  "type": "flow",
+  "title": "工程提取与求解",
+  "description": "从任务证据提取结构化声明、执行确定性计算并生成草稿",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_ENGINEERING_SOLVER",
+      "type": "event",
+      "title": "工程提取与求解",
+      "reference": "FLOW_CODE_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_ENGINEERING_SOLVER",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_ENGINEERING_SOLVER",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

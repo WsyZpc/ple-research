@@ -1,0 +1,593 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_CONTINUE_ENTITY_REVIEW",
+  "name": "FLOW_PLE_CONTINUE_ENTITY_REVIEW",
+  "type": "flow",
+  "title": "实体审查、修订与交付（可从快照恢复）",
+  "description": "每次输入一个独立审查项；定向重算至多两轮，证据不足生成待核意见。",
+  "params": [
+    {
+      "title": "blackboard",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "ENTRY",
+      "title": "选择起始节点",
+      "type": "event",
+      "reference": "FLOW_CODE_PLE_SELECT_ENTRY",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "entry",
+          "name": "entry",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "SOLVE",
+      "type": "flow",
+      "title": "工程提取与求解",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "AUDIT_1",
+      "type": "flow",
+      "title": "实体与来源隔离审计",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENTITY_PROVENANCE_AUDIT",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "AUDIT_2",
+      "type": "flow",
+      "title": "集合覆盖与归因审校",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_COVERAGE_ATTRIBUTION_AUDIT",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "GATE",
+      "type": "flow",
+      "title": "证据完备与三态仲裁",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "ROUTE",
+      "type": "event",
+      "title": "读取仲裁结果",
+      "reference": "FLOW_CODE_PLE_READ_ROUTE",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "route_status",
+          "name": "route_status",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "HOLD",
+      "type": "flow",
+      "title": "工程提取与求解",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "SELECT_DELIVERY",
+      "type": "event",
+      "title": "选择交付方式",
+      "reference": "FLOW_CODE_PLE_SELECT_DELIVERY",
+      "params": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "delivery",
+          "name": "delivery",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "DELIVER",
+      "type": "flow",
+      "title": "导出并核验 LES 文档",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_LES_DELIVERY",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "PHYSICS",
+      "type": "flow",
+      "title": "复算物理派生量",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PHYSICAL_RECALCULATION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "REPAIR_SCOPE",
+      "type": "event",
+      "title": "选择局部或整轮重算",
+      "reference": "FLOW_CODE_PLE_PREPARE_REPAIR",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "repair_scope",
+          "name": "repair_scope",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "SNAPSHOT",
+      "type": "flow",
+      "title": "保存修订前快照",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REVISION_RETENTION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "LOOKUP",
+      "type": "flow",
+      "title": "定向补证",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_TARGETED_EVIDENCE_LOOKUP",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "REPAIR",
+      "type": "flow",
+      "title": "修订目标结论",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_ENGINEERING_SOLVER",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "COMPARE_MODE",
+      "type": "event",
+      "title": "选择修订对比模式",
+      "reference": "FLOW_CODE_PLE_PREPARE_COMPARISON",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "COMPARE",
+      "type": "flow",
+      "title": "对比修订前后",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REVISION_RETENTION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "FINISH",
+      "title": "保存最终黑板",
+      "type": "event",
+      "reference": "FLOW_CODE_PLE_FINISH_TRACE",
+      "params": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "DELIVER_FILL",
+      "type": "flow",
+      "title": "交付填土压实验收记录",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_FILL_DELIVERY",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "ENTRY",
+      "condition": "true"
+    },
+    {
+      "source": "ENTRY",
+      "target": "SOLVE",
+      "condition": "entry == 'SOLVE'"
+    },
+    {
+      "source": "ENTRY",
+      "target": "REPAIR",
+      "condition": "entry == 'REPAIR'"
+    },
+    {
+      "source": "ENTRY",
+      "target": "AUDIT_1",
+      "condition": "entry == 'AUDIT_1'"
+    },
+    {
+      "source": "ENTRY",
+      "target": "AUDIT_2",
+      "condition": "entry == 'AUDIT_2'"
+    },
+    {
+      "source": "SOLVE",
+      "target": "PHYSICS",
+      "condition": "true"
+    },
+    {
+      "source": "AUDIT_1",
+      "target": "AUDIT_2",
+      "condition": "true"
+    },
+    {
+      "source": "AUDIT_2",
+      "target": "GATE",
+      "condition": "true"
+    },
+    {
+      "source": "GATE",
+      "target": "ROUTE",
+      "condition": "true"
+    },
+    {
+      "source": "ROUTE",
+      "target": "SELECT_DELIVERY",
+      "condition": "route_status == 'PASS' || route_status == 'MAX_RETRY_REACHED'"
+    },
+    {
+      "source": "ROUTE",
+      "target": "HOLD",
+      "condition": "route_status == 'EVIDENCE_HOLD'"
+    },
+    {
+      "source": "ROUTE",
+      "target": "REPAIR_SCOPE",
+      "condition": "route_status == 'RETRY_CONFLICT'"
+    },
+    {
+      "source": "HOLD",
+      "target": "SELECT_DELIVERY",
+      "condition": "true"
+    },
+    {
+      "source": "SELECT_DELIVERY",
+      "target": "FINISH",
+      "condition": "delivery == 'none'"
+    },
+    {
+      "source": "SELECT_DELIVERY",
+      "target": "DELIVER",
+      "condition": "delivery == 'les_docx'"
+    },
+    {
+      "source": "DELIVER",
+      "target": "FINISH",
+      "condition": "true"
+    },
+    {
+      "source": "REPAIR_SCOPE",
+      "target": "SOLVE",
+      "condition": "repair_scope == 'full'"
+    },
+    {
+      "source": "REPAIR_SCOPE",
+      "target": "SNAPSHOT",
+      "condition": "repair_scope == 'local'"
+    },
+    {
+      "source": "SNAPSHOT",
+      "target": "LOOKUP",
+      "condition": "true"
+    },
+    {
+      "source": "LOOKUP",
+      "target": "REPAIR",
+      "condition": "true"
+    },
+    {
+      "source": "REPAIR",
+      "target": "COMPARE_MODE",
+      "condition": "true"
+    },
+    {
+      "source": "COMPARE_MODE",
+      "target": "COMPARE",
+      "condition": "true"
+    },
+    {
+      "source": "COMPARE",
+      "target": "PHYSICS",
+      "condition": "true"
+    },
+    {
+      "source": "PHYSICS",
+      "target": "AUDIT_1",
+      "condition": "true"
+    },
+    {
+      "source": "ROUTE",
+      "target": "FINISH",
+      "condition": "route_status == 'TRANSPORT_PAUSED'"
+    },
+    {
+      "source": "FINISH",
+      "target": "end",
+      "condition": "true"
+    },
+    {
+      "source": "SELECT_DELIVERY",
+      "target": "DELIVER_FILL",
+      "condition": "delivery == 'fill_docx'"
+    },
+    {
+      "source": "DELIVER_FILL",
+      "target": "FINISH",
+      "condition": "true"
+    }
+  ]
+}

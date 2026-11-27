@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PHYSICAL_RECALCULATION",
+  "name": "FLOW_PHYSICAL_RECALCULATION",
+  "type": "flow",
+  "title": "物理派生量复算",
+  "description": "依据带出处的操作数、单位和适用条件核验派生量",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_PHYSICAL_RECALCULATION",
+      "type": "event",
+      "title": "物理派生量复算",
+      "reference": "FLOW_CODE_PHYSICAL_RECALCULATION",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_PHYSICAL_RECALCULATION",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_PHYSICAL_RECALCULATION",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

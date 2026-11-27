@@ -1,0 +1,20 @@
+{
+ "combined_score": 0.0,
+ "valid": 0.0,
+ "grader_exception": true,
+ "grader_exception_type": "RuntimeError",
+ "verdict": "EXTRACTION_FAILED",
+ "gate_errors": [
+  "file:grader_exception"
+ ],
+ "report": {
+  "instance": "p6_002",
+  "verdict": "EXTRACTION_FAILED",
+  "gate_errors": [
+   {
+    "item": "file",
+    "code": "grader_exception"
+   }
+  ]
+ }
+}

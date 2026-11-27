@@ -1,0 +1,31 @@
+{
+  "id":"@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_WORKSPACE_RECON",
+  "name":"FLOW_WORKSPACE_RECON",
+  "type":"flow",
+  "title": "工作区侦察",
+  "description": "扫描任务目录，生成文件索引并标记候选权威资料和旧修订版",
+  "params": [
+    { "title": "证据黑板", "name": "blackboard", "type": "String", "notnull": true }
+  ],
+  "results": [
+    { "title": "更新后的证据黑板", "name": "result", "type": "String", "notnull": true }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_WORKSPACE_RECON",
+      "type": "event",
+      "title": "扫描任务目录",
+      "reference": "FLOW_CODE_WORKSPACE_RECON",
+      "params": [
+        { "title": "证据黑板", "name": "blackboard", "type": "String", "notnull": true }
+      ],
+      "results": [
+        { "title": "更新后的证据黑板", "name": "result", "type": "String", "notnull": true }
+      ]
+    }
+  ],
+  "routes": [
+    { "source": "start", "target": "FLOW_NODE_WORKSPACE_RECON", "condition": "true" },
+    { "source": "FLOW_NODE_WORKSPACE_RECON", "target": "end", "condition": "true" }
+  ]
+}

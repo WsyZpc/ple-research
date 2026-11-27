@@ -1,0 +1,64 @@
+{
+  "task_id": "fill-compaction-acceptance",
+  "method": "真实原题材料与模板，Java RSI-Flow 引擎执行，模型回复由可核对的源文件生成并固定。",
+  "grade_status": "未评分",
+  "route_status": "EVIDENCE_HOLD",
+  "retry_count": 1,
+  "schema_ok": true,
+  "trace": "E:\\harness_in_PLE\\.work\\fill-compaction-integration\\replay\\traces\\59ef983e-4edd-468a-947c-f35bd73bc477",
+  "artifact": "E:\\harness_in_PLE\\outputs\\weekly-10-evidence\\填土压实_本地对照证据\\59ef983e-4edd-468a-947c-f35bd73bc477\\Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.docx",
+  "before_repair": {
+    "entity_conflicts": [
+      {
+        "retryable": true,
+        "source_skill": "entity_provenance_audit",
+        "code": "ENTITY_MISMATCH",
+        "blocking": true,
+        "claim_id": "FILL_TEST_BASIS",
+        "message": "FILL_TEST_BASIS 的来源实体与目标实体不同"
+      }
+    ],
+    "coverage_gaps": [
+      {
+        "retryable": true,
+        "source_skill": "coverage_attribution_audit",
+        "code": "REQUIRED_ITEM_MISSING",
+        "provenance": "environment/files/Birchwood/PackageA/06_Submittals_RFI/RFI_Log_PackageA.xlsx:L39",
+        "blocking": true,
+        "claim_id": "FILL_RFI_079",
+        "message": "Check stockpile approval scope and gradation retest",
+        "requirement_id": "RFI_079"
+      }
+    ]
+  },
+  "repair_targets": [
+    "FILL_RFI_079",
+    "FILL_TEST_BASIS"
+  ],
+  "verified_output": {
+    "P04": "The placement log identifies the Stockpile north of Block C [environment/tools/files/ce01-slab-on-grade-fill-compaction-acceptance-3d2c133e/Fill_Placement_Records_BlockA_SlabOnGrade.xlsx:L23]. VMT-25-0918-P04 tested Larchwood Pit [environment/files/Birchwood/PackageA/04_Materials/Proctor_D1557_PackageA_Structural_Fill.pdf:L24]. A matching D1557 Method C determination has not been established in the reviewed files. Density and moisture acceptance limits remain undetermined for the material placed.",
+    "P05": "RFI 079 approved reuse of the Stockpile north of Block C subject to a gradation retest, referencing TPM-25-079 [environment/files/Birchwood/PackageA/06_Submittals_RFI/RFI_Log_PackageA.xlsx:L39]. The closed entry establishes the RFI disposition. It does not document completion of the gradation retest. Obtain and verify that retest before acceptance."
+  },
+  "after_repair": {
+    "coverage_gaps": [],
+    "gate": {
+      "findings": [
+        {
+          "retryable": false,
+          "source_skill": "engineering_solver",
+          "code": "SOLVER_EVIDENCE_MISSING",
+          "blocking": true,
+          "message": "A stockpile-specific laboratory determination remains unverified."
+        },
+        {
+          "retryable": false,
+          "source_skill": "engineering_solver",
+          "code": "SOLVER_EVIDENCE_MISSING",
+          "blocking": true,
+          "message": "A stockpile-specific laboratory determination remains unverified."
+        }
+      ],
+      "reason": "FILL_UNRESOLVED_EVIDENCE"
+    }
+  }
+}

@@ -1,0 +1,42 @@
+{
+  "blackboard": "C:\\Users\\l\\ple-submissions\\les-mesh-resolution\\run-joro928i\\blackboard.json",
+  "blackboard_sha256": "a3c2a80e96ff1e69d029336dbff992a1d70cc6bc6f1607c8dfff0798fb847cc2",
+  "replayed_from_original_sources": [
+    {
+      "status": "unverified",
+      "reason": "claim entity or applicability differs from the declared check",
+      "claim_id": "C3"
+    }
+  ],
+  "temporary_variants": {
+    "align_result_name": {
+      "status": "unverified",
+      "error_type": "KeyError",
+      "reason": "'numerator'"
+    },
+    "align_result_name_and_operand_keys": {
+      "status": "unverified",
+      "error_type": "ValueError",
+      "reason": "claim entity or applicability differs from the declared check"
+    }
+  },
+  "prior_calculation": "3.76 / 0.5",
+  "operand_details": {
+    "numerator": {
+      "claim_id": "C1",
+      "param": "plume_characteristic_diameter",
+      "value": 3.76,
+      "unit": "m",
+      "target_entity": "plume characteristic diameter D*",
+      "regime_or_version": "QA Verification Standard rev3 §2"
+    },
+    "denominator": {
+      "claim_id": "C2",
+      "param": "background_cell_size",
+      "value": 0.5,
+      "unit": "m",
+      "target_entity": "fine grid background cell size dx",
+      "regime_or_version": "QA Verification Standard rev3 §5"
+    }
+  }
+}

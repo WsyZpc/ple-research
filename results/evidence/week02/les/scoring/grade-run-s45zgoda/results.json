@@ -1,0 +1,30 @@
+{
+  "submission": "rsi-les-replay",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.0,
+  "complete": false,
+  "unmeasured": [
+    "les-mesh-resolution"
+  ],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-27T10:23:09Z",
+  "submission_dir": "/home/wsyzpc1/ple-rsi-replays/run-s45zgoda",
+  "model_base_url": null,
+  "artifacts": true,
+  "tasks": [
+    {
+      "id": "les-mesh-resolution",
+      "score": 0.0,
+      "reward": null,
+      "measured": false,
+      "status": "grader failed: APIStatusError: HTTP 401: {\"error\":{\"code\":\"\",\"message\":\"Invalid token (request id: 202611271022473386017298268d9d6gwjq872A)\",\"type\":\"new_api_error\"}}",
+      "kind": "grader failed",
+      "seconds": 3,
+      "trial": "attempt3/jobs/dev/les-mesh-resolution__mjyHHJz",
+      "tokens": null,
+      "graded_by": "",
+      "artifact": "ok",
+      "claimed": null
+    }
+  ]
+}

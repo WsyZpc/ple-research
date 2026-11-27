@@ -1,0 +1,137 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_ENTITY_REVIEW",
+  "name": "FLOW_PLE_ENTITY_REVIEW",
+  "type": "flow",
+  "title": "实体与证据复核",
+  "description": "每次输入一个独立审查项；定向重算至多两轮，证据不足生成待核意见。",
+  "params": [
+    {
+      "title": "task_dir",
+      "name": "task_dir",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "instruction",
+      "name": "instruction",
+      "type": "String",
+      "notnull": true
+    },
+    {
+      "title": "expected_schema",
+      "name": "expected_schema",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "INIT",
+      "type": "event",
+      "title": "建立本次审查黑板",
+      "reference": "FLOW_CODE_PLE_START_ENTITY_REVIEW",
+      "params": [
+        {
+          "title": "task_dir",
+          "name": "task_dir",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "instruction",
+          "name": "instruction",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "expected_schema",
+          "name": "expected_schema",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "RECON",
+      "type": "flow",
+      "title": "工作区侦察",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_WORKSPACE_RECON",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "REVIEW",
+      "title": "执行可恢复的实体审查",
+      "type": "flow",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_CONTINUE_ENTITY_REVIEW",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "INIT",
+      "condition": "true"
+    },
+    {
+      "source": "INIT",
+      "target": "RECON",
+      "condition": "true"
+    },
+    {
+      "source": "RECON",
+      "target": "REVIEW",
+      "condition": "true"
+    },
+    {
+      "source": "REVIEW",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

@@ -1,0 +1,56 @@
+{
+  "task_dir": "les-mesh-resolution/environment/files",
+  "authority_docs": [],
+  "retry_feedback": "{\"reason\": \"UNVERIFIED_EVIDENCE\", \"findings\": [{\"code\": \"COVERAGE_AUDIT_UNAVAILABLE\", \"message\": \"model endpoint connection or response failed: RemoteDisconnected\", \"source_skill\": \"coverage_attribution_audit\", \"blocking\": true, \"retryable\": false}]}",
+  "draft_output": "## Basis for disposition\nThe available audit findings do not establish that the resolution criterion is met for the plume region used in the Phase 1 revision B result. Six candidate claims (C2 through C7) were flagged for differences between the source and target entities. Those flags require a scope check before the values can support closure.\n## Acceptance band and supporting evidence\nClaims C4 and C5 cite lines 38–40 of the revision 3 QA Verification Standard for the limits 5 and 10. The audit identified those lines as terminology for RANS and steady work. The mesh log mentions the band at line 39. Locate the controlling clause, verify that it applies to this region and index, and correct the references before adopting the limits.\nClaims C6 and C7 lack traceable support in the evidence reviewed. The Red Butte report identifies TC-6 as governing endurance, but the cited excerpts do not establish the numerical identifier assigned in C7.\n## Conditions for closure\nTrace the local cell size and plume length scale to the same reported case and region, then recompute the index. Verify the probe location against the refined-region extent and check the ambient inputs against the site record. The available findings do not establish the numerical resolved-TKE fraction or support a conclusion about those site effects.\nFor the E119 comparison, locate the experimental TC-6 temperature at 118 minutes before comparing it with the companion simulation. Locate the project-specific numerical, input and experimental uncertainty contributions. The independent coverage audit disconnected before returning a conclusion. Complete that review and present the corrected evidence to Marguerite for disposition.",
+  "entity_conflicts": [],
+  "route_status": "EVIDENCE_HOLD",
+  "expected_schema": {
+    "hold_statement": "Keep the resolution-basis item open pending evidence review.",
+    "format": "docx"
+  },
+  "attribution_warnings": [],
+  "task_id": "",
+  "missing_evidence": [
+    {
+      "source_skill": "coverage_attribution_audit",
+      "retryable": false,
+      "code": "COVERAGE_AUDIT_UNAVAILABLE",
+      "blocking": true,
+      "message": "model endpoint connection or response failed: RemoteDisconnected"
+    }
+  ],
+  "file_index": [],
+  "artifact_path": "C:\\Users\\l\\ple-submissions\\les-mesh-resolution\\run-s45zgoda\\filesystem\\CFDME-2025-041_resolution_note_revA.docx",
+  "instruction": "",
+  "retry_count": 0,
+  "claims": [],
+  "trace_metrics": {
+    "roundtrip_schema_guard": {
+      "status": "ok",
+      "checks": {
+        "paragraphs": 12,
+        "tables": 0
+      },
+      "calls": 2
+    },
+    "docx_export": {
+      "calls": 1,
+      "bytes": 37626,
+      "status": "ok"
+    },
+    "epistemic_hold_gate": {
+      "reason": "UNVERIFIED_EVIDENCE",
+      "retry_count_before": 0,
+      "route": "EVIDENCE_HOLD",
+      "blocking_count": 1,
+      "calls": 1,
+      "retry_count_after": 0,
+      "max_retry": 2
+    }
+  },
+  "schema_ok": true,
+  "schema_error": "",
+  "coverage_gaps": [],
+  "max_retry": 2
+}

@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_TARGETED_EVIDENCE_LOOKUP",
+  "name": "FLOW_TARGETED_EVIDENCE_LOOKUP",
+  "type": "flow",
+  "title": "定向补证",
+  "description": "按可修订结论和审计意见检索当前工作区，返回带行号的候选原文",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_TARGETED_EVIDENCE_LOOKUP",
+      "type": "event",
+      "title": "定向补证",
+      "reference": "FLOW_CODE_TARGETED_EVIDENCE_LOOKUP",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_TARGETED_EVIDENCE_LOOKUP",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_TARGETED_EVIDENCE_LOOKUP",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

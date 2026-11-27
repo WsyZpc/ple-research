@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REVISION_RETENTION",
+  "name": "FLOW_REVISION_RETENTION",
+  "type": "flow",
+  "title": "修订保留性检查",
+  "description": "在局部修订前保存快照，比较非目标断言并回读 Word 必留语句",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_REVISION_RETENTION",
+      "type": "event",
+      "title": "修订保留性检查",
+      "reference": "FLOW_CODE_REVISION_RETENTION",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_REVISION_RETENTION",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_REVISION_RETENTION",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

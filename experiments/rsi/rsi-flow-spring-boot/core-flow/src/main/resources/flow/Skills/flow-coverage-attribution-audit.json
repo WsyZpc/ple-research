@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_COVERAGE_ATTRIBUTION_AUDIT",
+  "name": "FLOW_COVERAGE_ATTRIBUTION_AUDIT",
+  "type": "flow",
+  "title": "集合覆盖与归因审校",
+  "description": "对比强制要求与草稿覆盖，并审校物理因果证据",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "FLOW_NODE_COVERAGE_ATTRIBUTION_AUDIT",
+      "type": "event",
+      "title": "集合覆盖与归因审校",
+      "reference": "FLOW_CODE_COVERAGE_ATTRIBUTION_AUDIT",
+      "params": [
+        {
+          "title": "证据黑板",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "更新后的证据黑板",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "FLOW_NODE_COVERAGE_ATTRIBUTION_AUDIT",
+      "condition": "true"
+    },
+    {
+      "source": "FLOW_NODE_COVERAGE_ATTRIBUTION_AUDIT",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

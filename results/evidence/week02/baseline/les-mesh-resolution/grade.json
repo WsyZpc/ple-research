@@ -1,0 +1,174 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.024390243902439025,
+  "passed_score": 0.024390243902439025,
+  "combined_score": 0.024390243902439025,
+  "weighted_points": 2.0,
+  "possible_weighted_points": 82.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 2 states: 'Cell size behind it: dx = 0.5 m (fine-grid background)'",
+      "reason": "The artifact states 0.5 m as the cell size, but the criterion requires 0.125 m as the representative fire-region cell edge length. The 0.5 m value is the far-field background cell, not the fire-region cell.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 2 states: 'Plume length scale behind it: D* = 3.76 m'",
+      "reason": "The artifact states 3.76 m, but the criterion requires 3.74 m as the plume characteristic diameter calculated from the QA verification standard inputs.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 2 states: 'Whether our band is met: YES' and 'D*/dx = 7.5 -> WITHIN band 5-10 (PASS)'",
+      "reason": "The artifact states the band IS met, but the criterion requires stating the band is NOT met (index 29.9 with correct cell size exceeds the 5-10 band upper limit).",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 3 states: 'Our resolution acceptance rests on two criteria' and 'Both criteria are met on the fine grid'",
+      "reason": "The artifact states acceptance rests on both criteria, but the criterion requires stating acceptance rests on the resolved-TKE criterion alone (since plume criterion is not met with correct values).",
+      "weight": 9.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 4 states: 'NO. The numerical evidence is complete and passes both acceptance criteria.'",
+      "reason": "The artifact's reasoning is that both criteria pass, not that resting on one criterion alone requires no escalation per QA Sec 5. The basis for the no-escalation conclusion is incorrect.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 states: 'YES. The Pope resolved-TKE fraction (84%) was evaluated at the centreline probe... This is within the buoyancy-dominated flow region'",
+      "reason": "The artifact asserts the probe is inside the region without stating that the files record neither the radius nor the height of the fire-source refinement zone. The criterion requires disclosing this record gap.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 6 states: 'The D* computation uses standard reference-atmosphere conditions (rho_inf = 1.204 kg/m3... T_inf = 293.15 K), not the site actual ambient conditions.' and 'Site conditions... Ambient temperature: 35-42 C (design envelope)'",
+      "reason": "The artifact correctly states that the ambient values behind the plume characteristic diameter are reference-atmosphere values rather than the site design ambient of 35-42°C.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 6 states: 'this effect is second-order for the classes of fires the firm simulates, and the standard reference-atmosphere D* is the accepted convention for resolution assessment.'",
+      "reason": "The artifact does not state that a plume characteristic diameter at site conditions cannot be evaluated from the files on the file server. It treats the effect as second-order rather than stating the evaluation is impossible from recorded data.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 7 states: 'YES - pending one editorial action.' and 'The peer-review checklist Item 4 can close once the following is done'",
+      "reason": "The artifact states the item can close pending editorial action, but the criterion requires stating the item remains open due to missing sub-grid-scale closure documentation per QA Sec 3(a).",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 8 states settlement action is to 'Add the following to Section 6 (Verification) of the Phase 1 Report rev B' with resolution figures",
+      "reason": "The artifact does not mention sub-grid-scale closure or state that the closure choice is to be recorded in the case setup memo or Mixed-convection LES setup memo. The settlement action identified is incorrect.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 1,
+      "passed": true,
+      "evidence": "Executive Summary states: 'No new runs are required.'",
+      "reason": "The artifact correctly states that the item can be settled without any new simulation run.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 4 states: 'NO. The numerical evidence is complete and passes both acceptance criteria.'",
+      "reason": "The artifact does not state that no ruling from Marguerite is needed because QA Sec 2 and Sec 5.1 fix the cell edge length denominator. The artifact uses incorrect cell size (0.5 m vs 0.125 m) and different reasoning.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 3 states: 'Both criteria are met on the fine grid' and acceptance rests on both criteria",
+      "reason": "The artifact does not state that the expectation for both criteria to be met does not apply to Phase 1 rev B (because it is analysis-only, not AHJ/life-safety end use). The artifact treats both criteria as applicable and met.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 2 states: 'Plume resolution index, D*/dx = 7.5'",
+      "reason": "The artifact states the index is 7.5, but the criterion requires 29.9 (calculated from 3.74 m plume diameter over 0.125 m fire-region cell edge length).",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "CFDME-2025-041_resolution_note_revA.pdf"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "files": [
+        "FINAL_MESSAGE.md",
+        "CFDME-2025-041_resolution_note_revA.pdf.txt"
+      ],
+      "chars": 7182
+    }
+  ],
+  "candidate_chars": 7182,
+  "primary_score": 0.024390243902439025,
+  "reward": 0.024390243902439025,
+  "candidate": "1 vendor rendering text(s) + final message"
+}

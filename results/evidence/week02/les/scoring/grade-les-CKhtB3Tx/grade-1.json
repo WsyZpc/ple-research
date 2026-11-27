@@ -1,0 +1,173 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.08536585365853659,
+  "passed_score": 0.08536585365853659,
+  "combined_score": 0.08536585365853659,
+  "weighted_points": 7.0,
+  "possible_weighted_points": 82.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt does not state the representative fire-region cell edge length is 0.125 m; it instructs to 'Trace the local cell size... then recompute the index.'",
+      "reason": "The specific value 0.125 m is not stated in the artifact.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt does not state the plume characteristic diameter is 3.74 m; it instructs to 'Trace the... plume length scale... then recompute the index.'",
+      "reason": "The specific value 3.74 m is not stated in the artifact.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt states 'audit findings do not establish that the resolution criterion is met' but does not state the criterion is not met based on the index value; it instructs to 'recompute the index.'",
+      "reason": "The artifact does not definitively state the band is not met based on the calculated index.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt states 'findings do not establish the numerical resolved-TKE fraction' and does not state acceptance rests on TKE alone.",
+      "reason": "The artifact explicitly says the TKE fraction is not established, contradicting the required statement.",
+      "weight": 9.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt instructs to 'present the corrected evidence to Marguerite for disposition' rather than stating no escalation is needed.",
+      "reason": "The artifact implies escalation/disposition by Marguerite is required.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt instructs to 'Verify the probe location against the refined-region extent' but does not state the files lack radius or height records.",
+      "reason": "The specific statement about missing radius and height records is absent.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt instructs to 'check the ambient inputs against the site record' but does not state the values are reference-atmosphere rather than site design.",
+      "reason": "The specific distinction between reference and site ambient values is not stated.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt states findings do not 'support a conclusion about those site effects' but does not state the diameter cannot be evaluated from files.",
+      "reason": "The specific conclusion about evaluability from files is absent.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 1,
+      "passed": true,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt states: 'Keep the resolution-basis item open pending evidence review.'",
+      "reason": "The artifact directly states the item remains open.",
+      "weight": 7.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt does not mention sub-grid-scale closure, case setup memo, or recording requirements.",
+      "reason": "The specific action regarding closure recording is absent.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt does not mention simulation runs or settling without new runs.",
+      "reason": "The statement about no new simulation is absent.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt instructs to 'present the corrected evidence to Marguerite for disposition' rather than stating no ruling is needed.",
+      "reason": "The artifact implies Marguerite's disposition is needed.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt does not mention the expectation for both criteria or its applicability to Phase 1 rev B.",
+      "reason": "The specific statement about the expectation not applying is absent.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "CFDME-2025-041_resolution_note_revA.pdf.txt instructs to 'recompute the index' but does not state the index is 29.9.",
+      "reason": "The specific index value 29.9 is not stated.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "CFDME-2025-041_resolution_note_revA.pdf"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13
+      ],
+      "files": [
+        "CFDME-2025-041_resolution_note_revA.pdf.txt"
+      ],
+      "chars": 1946
+    }
+  ],
+  "candidate_chars": 1946,
+  "primary_score": 0.08536585365853659,
+  "reward": 0.08536585365853659,
+  "candidate": "1 vendor rendering text(s)"
+}

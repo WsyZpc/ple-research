@@ -1,0 +1,454 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "verifiers[]",
+  "family": "weighted_rubric",
+  "score_key": "passed_score",
+  "score": 0.25,
+  "passed_score": 0.25,
+  "combined_score": 0.25,
+  "weighted_points": 52.0,
+  "possible_weighted_points": 208.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "No direct statement that displacement arises from bias in through-wall physics shared by both heat paths. Memo attributes error to tie modeling specifically.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Memo states tie modeling is the likely source of error (Section 9), not that field-mean lag rules out steel-tie path as sole source.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Corrective scope in Section 9 lists tie thermal conductivity, contact resistance, and geometry—not 'through-wall physics shared by both heat paths'.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 8 notes simulation mean is lower (89.9°C vs 96°C) but attributes larger spread to tie over-representation, not explicitly to under-predicted field mean.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Memo explicitly states model IS conservative (Section 9, 14), contradicting the criterion's claim of non-conservative bias.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Bianca_email_paragraph.docx states certification remains with Ironwood but does not explicitly state the 1-hour rating is 'unaffected'.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 7 states separation is well-captured and error is systematic offset, but does not state absolute accuracy of both heat paths is 'undetermined'.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 2 shows average criterion at 163 min (test) vs 177 min (sim) = 14 min lag, not 13 min. The 13 min applies to single-point criterion.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 9 lists tie conductivity, contact resistance, and geometry—no mention of exposed-face boundary condition.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 9 does not mention radiative exchange across the cavity as part of corrective scope.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 9 does not mention elevated-temperature bulk properties of concrete as part of corrective scope.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 10 states wildfire predictions 'may also be conservative, but this cannot be assumed'—no definitive statement that Phase 1 cases will predict lower temperatures.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 10 says wildfire cases 'should proceed...with understanding that E119 validation is incomplete' but does not state restriction applies to 'every Phase 1 wildfire thermal result, including those already computed and those planned'.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 11 states E119 validation does not establish wildfire fidelity, but memo states E119 fidelity IS established with known error. No statement that model fidelity 'remains unestablished' overall.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 14,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 12 of E119_validation_memo.docx: 'Only Ironwood Fire Protection Engineering (Marla Kettering, PE, AZ PE #45106) may issue a revised certification.'",
+      "reason": "Direct statement that only the certifying fire-protection PE may act on revised endurance value.",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 15,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 2 of E119_validation_memo.docx: Test single-point at 118 min, Simulation single-point at 131 min (131 - 118 = 13 min lag).",
+      "reason": "Direct evidence that single-point path lags by 13 min.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 16,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 11 of E119_validation_memo.docx: 'The wildfire validation must be reported in the same form as the E119 validation: E = S − D with u_val...'",
+      "reason": "Direct statement that future wildfire validation would report model error (E = S - D).",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 17,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 of E119_validation_memo.docx: 'Adopted experimental value: D = 118 min (from Red Butte RBFMT-25-0918 §5.3, governing single-point endurance)'.",
+      "reason": "Direct statement of experimental value D = 118 min.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 18,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: 'Model error: E = S − D = 131 min − 118 min = +13 min'.",
+      "reason": "Direct statement of model error E = +13 min with positive sign retained.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 19,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: 'Acceptance criterion (per Procedure §5): Primary: |E| ≤ 10% of D = 0.10 × 118 min = 11.8 min'.",
+      "reason": "Direct statement of acceptance criterion as 11.8 min.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 20,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: 'Simulation prediction: S = 131 min (companion simulation, single-point governing time)'.",
+      "reason": "Direct statement of simulation prediction S = 131 min.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 21,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 2 states average criterion reached at 177 min, not 176 min as criterion requires.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 22,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "No statement in memo that companion simulation is present 'only as results output' on file server.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 23,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 13 states 'Item 7 may be closed' and lists items 2, 3, 4, 5, 6, 9, 10 as open—not matching criterion's list (2, 3, 4, 5, 7, 9, 10) and contradicts 'no item is closed'.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 24,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 1 lists leaf thickness, cavity width, overall thickness, tie material/gauge/spacing/embedment but does not mention 'aggregate' as required by criterion.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 25,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: 'u_val = √(4² + 6² + 5²) = √77 = ±8.77 min → reported as ±9 min'.",
+      "reason": "Direct statement of validation uncertainty u_val = ±9 min.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 26,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: '|E| = 13 min vs. u_val = 9 min: 13 min > 9 min → DISCREPANCY EXCEEDS VALIDATION UNCERTAINTY'.",
+      "reason": "Direct statement that absolute model error exceeds validation uncertainty.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 27,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: '|E| = 13 min vs. criterion 11.8 min: 13 min > 11.8 min → CRITERION NOT MET'.",
+      "reason": "Direct statement that absolute model error exceeds acceptance criterion.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 28,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 and 14 of E119_validation_memo.docx: 'The simulation does not validate against the certified test under the firm acceptance criterion.'",
+      "reason": "Direct statement that validation outcome is a failure.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 29,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 6 of E119_validation_memo.docx: 'The largest simulation prediction S that would have satisfied |E| ≤ 10% of D is: S_max = 129.8 min'.",
+      "reason": "Direct statement of largest passing prediction as 129.8 min.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 30,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 3 of E119_validation_memo.docx: 'This prediction is correct and stands.'",
+      "reason": "Direct statement that Section 7 stub prediction stands.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 31,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 12 of E119_validation_memo.docx: 'Stamp language...: \"CFD thermal analysis only. Fire-resistance rating certified separately by others.\"'",
+      "reason": "Exact stamp language included.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 32,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 of E119_validation_memo.docx: 'Bianca Rennert's amended figure (129 min...) is not admissible as D...the original certified value stands: D = 118 min.'",
+      "reason": "Direct statement retaining certified endurance over client-transmitted 129 min.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 33,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 12 of E119_validation_memo.docx: 'The certified endurance would be 129 min, exceeding the 120 min threshold for a 2-hour fire-resistance rating.'",
+      "reason": "Direct statement that 129 min exceeds 120 min threshold for 2-hour rung.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 34,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 11 of E119_validation_memo.docx: 'The wildfire validation must be reported in the same form as the E119 validation: E = S − D with u_val...'",
+      "reason": "Direct statement that future validation would report uncertainty alongside error.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 35,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 11 of E119_validation_memo.docx: '...compared against the 10% of D acceptance criterion.'",
+      "reason": "Direct statement that future validation would compare error against firm acceptance criterion.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 36,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 of E119_validation_memo.docx: '...the experimental value D must be taken from the certified third-party test report of record.'",
+      "reason": "Direct statement that experimental value comes from certified third-party test report.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 37,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "No statement in memo that documented run record required by validation procedure is 'absent from the file server'.",
+      "weight": 6.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 38,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "No statement in memo that 'no run identifier is available to cite for the companion simulation'.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 39,
+      "score": 0,
+      "passed": false,
+      "evidence": "",
+      "reason": "Section 7 states test separation is 45 min but simulation separation is 46 min (177 - 131), not 45 min as criterion requires.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 40,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 8 of E119_validation_memo.docx: Test nine-TC mean rise 'approximately 96 °C'; Simulation nine-TC mean '89.9 °C rise' (approximately 90 °C).",
+      "reason": "Direct statement of nine-point mean rises at governance.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 41,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 8 of E119_validation_memo.docx: Test elevation '85 °C'; Simulation elevation '91.2 °C' (approximately 91 °C).",
+      "reason": "Direct statement of governing point elevation above mean in each case.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 42,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 9 of E119_validation_memo.docx: 'Whether rework has been started: No.'",
+      "reason": "Direct statement on whether corrective work has been started.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 43,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5: criterion = 11.8 min; Section 6: S_max = 129.8 min—both to one decimal place.",
+      "reason": "Acceptance criterion and largest passing prediction stated to one decimal place.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 44,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 2 of E119_validation_memo.docx: Single-point at 131 min, Average at 177 min—both whole minutes.",
+      "reason": "Criterion crossing times stated as whole minutes.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 45,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 of E119_validation_memo.docx: All values include 'min' unit (131 min, 118 min, +13 min, ±9 min, 11.8 min).",
+      "reason": "Units included alongside every time value in validation rollup.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 46,
+      "score": 1,
+      "passed": true,
+      "evidence": "File E119_validation_memo.docx exists in output/ directory.",
+      "reason": "Word validation memorandum file is present.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 47,
+      "score": 1,
+      "passed": true,
+      "evidence": "File Bianca_email_paragraph.docx exists in output/ directory with client-facing content.",
+      "reason": "Short client-facing paragraph for Bianca is present.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    }
+  ],
+  "truncated": false,
+  "answer_truncated": false,
+  "candidate_chars": 17917,
+  "primary_score": 0.25,
+  "reward": 0.25,
+  "candidate": "output/ contract collection (8 file(s), world diffed in the container)"
+}

@@ -1,0 +1,151 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_LES_DELIVERY",
+  "name": "FLOW_PLE_LES_DELIVERY",
+  "type": "flow",
+  "title": "LES Word 交付",
+  "description": "按本题规定的文件名导出审查意见，回读文件并返回核验黑板。",
+  "params": [
+    {
+      "title": "blackboard",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EXPORT",
+      "type": "event",
+      "title": "生成审查意见 Word",
+      "reference": "FLOW_CODE_PLE_EXPORT_LES_DOCX",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "VERIFY",
+      "type": "flow",
+      "title": "回读本轮交付文件",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_ARTIFACT_REVIEW",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "WORD_MODE",
+      "type": "event",
+      "title": "选择 Word 保留性检查",
+      "reference": "FLOW_CODE_PLE_PREPARE_WORD_CHECK",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "word_check",
+          "name": "word_check",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "WORD_RETENTION",
+      "type": "flow",
+      "title": "核对 Word 必留语句",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REVISION_RETENTION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "EXPORT",
+      "condition": "true"
+    },
+    {
+      "source": "EXPORT",
+      "target": "WORD_MODE",
+      "condition": "true"
+    },
+    {
+      "source": "VERIFY",
+      "target": "end",
+      "condition": "true"
+    },
+    {
+      "source": "WORD_MODE",
+      "target": "VERIFY",
+      "condition": "word_check == 'skip'"
+    },
+    {
+      "source": "WORD_MODE",
+      "target": "WORD_RETENTION",
+      "condition": "word_check == 'run'"
+    },
+    {
+      "source": "WORD_RETENTION",
+      "target": "VERIFY",
+      "condition": "true"
+    }
+  ]
+}

@@ -1,0 +1,2 @@
+evaluator reported grader_exception (RuntimeError)
+the evaluator grades the pristine canary cleanly (combined_score 0.0): the crash is this candidate's, scored 0

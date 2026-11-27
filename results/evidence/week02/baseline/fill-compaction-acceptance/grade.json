@@ -1,0 +1,316 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.1388888888888889,
+  "passed_score": 0.1388888888888889,
+  "combined_score": 0.1388888888888889,
+  "weighted_points": 15.0,
+  "possible_weighted_points": 108.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact states: 'The governing laboratory reference for Package A structural fill is Vantree Report VMT-25-0918-P04' and applies its values to the fill. It does not state that the ASTM D1557 Method C determination has yet to be performed on the material placed there.",
+      "reason": "The artifact incorrectly treats the Larchwood Pit determination (VMT-25-0918-P04) as valid for this fill, rather than stating the required determination is missing for the actual material.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact states: 'Minimum Required Dry Density (95% of maximum) = 122.0 pcf; Acceptable Moisture Range = 8.2% to 11.2%.' and applies these limits to FD-14 through FD-17.",
+      "reason": "The criterion requires stating the limits remain undetermined; the artifact states specific numerical limits and applies them.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 5 CONCLUSION AND RECOMMENDATION states: 'DETERMINATION: REJECTED. The slab-on-grade structural fill compaction for Lift 6 (Block A)... is REJECTED'.",
+      "reason": "The artifact explicitly states the test locations are rejected.",
+      "weight": 9.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 states: 'revised Field Density Report shall be issued referencing correct ASTM D1557 Method C values (VMT-25-0918-P04)'.",
+      "reason": "The artifact calls for reissuing against the existing Larchwood Pit determination (VMT-25-0918-P04), not a new determination on the material actually placed.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact does not mention Thelbridge Verification Register Item 012 or its closure date.",
+      "reason": "No evidence of the required statement regarding Item 012.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact does not mention Thelbridge Verification Register Item 012 or its scope.",
+      "reason": "No evidence of the required statement regarding Item 012 scope.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact does not mention RFI 079 or the stockpile north of Block C approval.",
+      "reason": "No evidence of the required statement regarding RFI 079.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact does not mention RFI 079 or the status of the gradation retest.",
+      "reason": "No evidence of the required statement regarding the outstanding retest.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact cites Articles 3.4.B, 3.4.D, 3.4.C, 3.7.A, 1.2.A.1, but does not cite Article 2.1.D.",
+      "reason": "No evidence of the required citation and statement regarding Article 2.1.D.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact cites Article 3.4.D but does not cite Article 1.4.C or state that denominators must be from material actually placed.",
+      "reason": "Missing required citation and specific statement regarding acceptance denominators.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact states: 'The governing laboratory reference for Package A structural fill is Vantree Report VMT-25-0918-P04' and applies it to the Block A fill without distinguishing the source difference.",
+      "reason": "The artifact treats the Larchwood Pit material as the reference for this fill, failing to distinguish the sources as required.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 states: 'revised Field Density Report shall be issued referencing correct ASTM D1557 Method C values (VMT-25-0918-P04)'.",
+      "reason": "The artifact calls for reissuing against the existing Larchwood Pit determination, not a new determination on the material actually placed.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact cites Articles 3.4.B, 3.4.D, 3.4.C, 3.7.A, but does not cite Article 3.7.C regarding non-conformance of reported denominators.",
+      "reason": "No evidence of the required statement regarding Article 3.7.C non-conformance.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 FINDING 1 states: 'Specification Section 31 20 00 Article 1.2.A.1 states ASTM D698 is for historical borrow characterization only, not the acceptance basis for Package A structural fill.'",
+      "reason": "The artifact explicitly states the required content of Article 1.2.A.1.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 14,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact cites Article 1.2.A.1 but does not cite Article 1.2.A.2 regarding ASTM D1557.",
+      "reason": "No evidence of the required citation and statement regarding Article 1.2.A.2.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 15,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 FINDING 1 states: 'The report references ASTM D698 Method A (Standard Proctor) with γd,max = 118.6 pcf and wopt = 12.1% from VMT-2024-0403-P1B (Phase 1 borrow, Wexford Ridge source).'",
+      "reason": "The artifact explicitly states the values, method, and source used in the Field Density Report.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 16,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 3 BASIS OF REVIEW states: 'Specification Section 31 20 00, Article 3.4.B establishes the acceptance criteria... Dry density shall be not less than 95 percent'. It attributes the requirement to the Specification, not the Report's statement.",
+      "reason": "The artifact does not state that Field Density Report SF-26-0708 itself stated the requirement as 95 percent.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 17,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact states the report used incorrect references and recalculates results, but does not explicitly state that the original Field Density Report SF-26-0708 dispositioned all four locations as PASS.",
+      "reason": "Missing explicit statement regarding the original report's PASS disposition.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 18,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 3 BASIS OF REVIEW states: 'Both criteria must be satisfied independently at each test location (Article 3.4.D).' following the listing of density and moisture criteria under Article 3.4.B.",
+      "reason": "The artifact states that both density and moisture criteria must be satisfied.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 19,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 CONCLUSION AND RECOMMENDATION states: 'This determination closes Verification Register Item 054 contingent upon satisfactory completion of rework and retest.'",
+      "reason": "The artifact states it closes Item 054, whereas the criterion requires stating it remains open.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 20,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact refers to 'Package A structural fill' but does not state it was drawn from the 'stockpile north of Block C'.",
+      "reason": "Missing specific identification of the fill source as the stockpile north of Block C.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 21,
+      "score": 1,
+      "passed": true,
+      "evidence": "Section 4 FINDING 4 states: 'Testing Frequency (Article 3.7.A): Pad area 11,400 sf; 4 tests performed meets the requirement of one per 5,000 sf (min 3).'",
+      "reason": "The artifact states the testing frequency requirement was satisfied.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 22,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact does not mention subgrade proof-rolling, acceptance in writing, or TPM-26-063.",
+      "reason": "No evidence of the required statement regarding subgrade proof-rolling.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 23,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 states acceptance is required before construction, but calls for referencing 'VMT-25-0918-P04' (existing Larchwood determination) rather than a new determination on the material actually placed.",
+      "reason": "The artifact does not require a new ASTM D1557 Method C determination on the material actually placed.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 24,
+      "score": 1,
+      "passed": true,
+      "evidence": "Summary section 'Files Delivered' lists: '/filesystem/Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.docx'.",
+      "reason": "The artifact includes a document with the exact required file name.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 25,
+      "score": 1,
+      "passed": true,
+      "evidence": "PDF text shows header block (To, From, Date, Subject) followed by '1. PURPOSE', '2. DOCUMENTS REVIEWED', '3. BASIS OF REVIEW', '4. FINDINGS', '5. CONCLUSION AND RECOMMENDATION'.",
+      "reason": "The artifact follows the required template structure exactly.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 26,
+      "score": 0,
+      "passed": false,
+      "evidence": "Section 5 states: 'This determination closes Verification Register Item 054'.",
+      "reason": "The artifact states it closes Item 054, whereas the criterion requires stating it remains outstanding at the due date.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 27,
+      "score": 0,
+      "passed": false,
+      "evidence": "The artifact mentions 'Vantree on site 07:15-11:30' in Finding 5 but does not mention the adopted building code, continuous special inspection, or that the attendance does not satisfy it.",
+      "reason": "No evidence of the required statement regarding continuous special inspection requirements.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.pdf",
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708_comments.txt"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "files": [
+        "FINAL_MESSAGE.md",
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.pdf.txt",
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708_comments.txt"
+      ],
+      "chars": 8181
+    }
+  ],
+  "candidate_chars": 8181,
+  "primary_score": 0.1388888888888889,
+  "reward": 0.1388888888888889,
+  "candidate": "2 vendor rendering text(s) + final message"
+}

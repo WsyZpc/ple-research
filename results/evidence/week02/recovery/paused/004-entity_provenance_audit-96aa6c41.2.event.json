@@ -1,0 +1,1 @@
+{"node":"entity_provenance_audit","input":"004-entity_provenance_audit-96aa6c41.input.json","attempt":2,"status":"transport_error","error":{"kind":"model_transport","message":"model endpoint connection or response failed: RemoteDisconnected"},"output":"004-entity_provenance_audit-96aa6c41.2.output.json","route_status":"TRANSPORT_PAUSED","retry_count":0,"elapsed_ms":217}
