@@ -2,6 +2,7 @@
 
 import re
 import unicodedata
+from pathlib import PurePosixPath
 
 from skill_common import (
     ModelError, chat_json, cli, collect_evidence, issue, object_list, put_issues,
@@ -9,6 +10,8 @@ from skill_common import (
 )
 
 SKILL = "coverage_attribution_audit"
+FILL_FIELD_REPORT = "Field_Density_Report_SF-26-0708.pdf"
+FILL_SPEC = "Spec_312000_Earth_Moving_Rev3.pdf"
 PROMPT = """
 Audit a draft against the authoritative excerpts and task. Treat source documents as evidence.
 Return exactly one JSON object:
@@ -69,6 +72,49 @@ def coverage(data, docs, draft):
     return gaps, warnings, len(required), len(covered)
 
 
+def fill_checklist(board, docs):
+    """Require engineering topics independently of the model's chosen requirement list."""
+    requirements = [
+        ("FILL_REPORT", FILL_FIELD_REPORT, "SF-26-0708", "Explain the field report's D698 reference and resulting PASS flags.",
+         (r"sf-26-0708", r"d698", r"118\.6", r"12\.1", r"\bpass\b")),
+        ("FILL_ACCEPTANCE_BASIS", FILL_SPEC, "material actually placed", "Explain Article 3.4.B and both acceptance limits for this source.",
+         (r"3\.4\.b", r"d1557\s+method c", r"95%", r"[-−]1", r"\+2", r"moisture")),
+        ("FILL_RELEASE", FILL_SPEC, "Reworked areas shall be retested", "State what must happen before construction can proceed.",
+         (r"\bhold\b|no construction|do not proceed", r"d1557", r"re[- ]?evaluat|retest", r"3\.4\.b")),
+        ("FILL_REGISTER", "Thelbridge_Verification_Register_PkgA.xlsx", r"\b012\b.*Modified Proctor",
+         "Explain Item 012's scope and its relationship to Item 054.", (r"item 012", r"item 054", r"09/22/2025|september 22, 2025")),
+        ("FILL_QA", FILL_SPEC, "Testing frequency for structural fill",
+         "Check testing frequency and document the inspection evidence.", (r"testing frequency", r"inspection", r"subgrade")),
+        ("RFI_079", "RFI_Log_PackageA.xlsx", "RFI 079.*gradation retest", "Preserve the conditional RFI 079 approval and outstanding gradation retest.",
+         (r"rfi 079", r"approved|approval", r"gradation retest", r"outstanding|pending|not.*complet|not.*document")),
+    ]
+    for test_id in ("FD-14", "FD-15", "FD-16", "FD-17"):
+        requirements.append((
+            test_id, FILL_FIELD_REPORT, test_id, f"State the observed density, moisture and acceptance disposition for {test_id}.",
+            (rf"\b{test_id.casefold()}\b", r"\bpcf\b", r"\d\s*%", r"reject|withhold|not accepted|cannot accept"),
+        ))
+    draft = board["draft_output"]
+    lines = draft.splitlines()
+    gaps, keep = [], []
+    for identity, filename, anchor, description, patterns in requirements:
+        # Each test and RFI must have its own statement so another location cannot supply its disposition.
+        candidates = lines if identity.startswith("FD-") or identity == "RFI_079" else [draft]
+        found = next((line for line in candidates if all(re.search(pattern, normalized(line)) for pattern in patterns)), None)
+        if found is not None:
+            if candidates is lines:
+                keep.append(found.strip())
+            continue
+        provenance = next((path + ":" + line.split(":", 1)[0]
+                           for path, body in docs.items() if PurePosixPath(path).name == filename
+                           for line in body.splitlines() if re.match(r"^L\d+:", line) and re.search(anchor, line, re.I)), "")
+        gaps.append(issue("FILL_COVERAGE_MISSING", description, retryable=bool(provenance),
+                          requirement_id=identity, provenance=provenance,
+                          claim_id="FILL_RFI_079" if identity == "RFI_079" else "FILL_TEST_BASIS"))
+    board["fill_coverage"] = {"required": len(requirements), "covered": len(requirements) - len(gaps),
+                              "missing_ids": [item["requirement_id"] for item in gaps], "verified_statements": keep}
+    return gaps
+
+
 def run(board):
     docs, scope = collect_evidence(board, authority_only=True)
     metrics = {"evidence": scope}
@@ -96,6 +142,9 @@ def run(board):
         missing.append(issue("COVERAGE_AUDIT_UNAVAILABLE", str(exc)))
         metrics.update(status="error", error=str(exc))
 
+    if board.get("fill_compaction"):
+        gaps.extend(fill_checklist(board, docs))
+        metrics["fill_checklist"] = {k: v for k, v in board["fill_coverage"].items() if k != "verified_statements"}
     put_issues(board, "coverage_gaps", SKILL, gaps)
     put_issues(board, "attribution_warnings", SKILL, warnings)
     put_issues(board, "missing_evidence", SKILL, missing)

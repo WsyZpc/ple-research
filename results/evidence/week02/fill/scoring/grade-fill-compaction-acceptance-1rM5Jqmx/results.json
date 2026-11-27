@@ -1,0 +1,28 @@
+{
+  "submission": "rsi-fill-replay",
+  "model": "openai-compatible/qwen3.5-plus",
+  "score": 0.222222,
+  "complete": true,
+  "unmeasured": [],
+  "judge_model": "qwen3.5-plus",
+  "date": "2026-11-27T16:39:30Z",
+  "submission_dir": "/mnt/e/harness_in_PLE/.work/grade-preflight-nvVTkXx1/fill-compaction-acceptance",
+  "model_base_url": null,
+  "artifacts": true,
+  "tasks": [
+    {
+      "id": "fill-compaction-acceptance",
+      "score": 0.222222,
+      "reward": 0.222222,
+      "measured": true,
+      "status": "ok",
+      "kind": "ok",
+      "seconds": 3,
+      "trial": "attempt1/jobs/dev/fill-compaction-acceptance__uB8pT89",
+      "tokens": null,
+      "graded_by": "",
+      "artifact": "ok",
+      "claimed": null
+    }
+  ]
+}

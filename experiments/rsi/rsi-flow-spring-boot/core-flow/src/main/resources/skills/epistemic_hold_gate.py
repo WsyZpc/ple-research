@@ -35,7 +35,7 @@ def fill_repair_targets(board, findings, claim_ids):
                          and f.get("provenance", "").rpartition(":")[0] in active)
                         or (f.get("code") == "ENTITY_MISMATCH" and f["claim_id"] == "FILL_TEST_BASIS"
                             and placement_and_lab)
-                        or (f.get("code") == "INDEPENDENT_SOURCE_CONFLICT"
+                        or (f.get("code") in {"INDEPENDENT_SOURCE_CONFLICT", "FILL_COVERAGE_MISSING"}
                             and f.get("provenance", "").rpartition(":")[0] in active))})
 
 

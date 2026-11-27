@@ -39,6 +39,9 @@ def run(board):
     if spec.get("format", "docx").casefold().lstrip(".") != "docx":
         raise ValueError("fill compaction export requires DOCX")
     spec["format"] = "docx"
+    checked_statements = board.get("fill_coverage", {}).get("verified_statements", [])
+    if checked_statements:
+        spec["required_text"] = list(dict.fromkeys([*spec.get("required_text", []), *checked_statements]))
 
     draft = board["draft_output"].strip()
     candidate = board.get("fill_candidate_draft", draft)

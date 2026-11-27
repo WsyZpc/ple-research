@@ -1,0 +1,24 @@
+{
+  "trial": "RSI Java replay, original task evidence and controlled replies",
+  "same_initial_solver_draft": true,
+  "same_initial_claims": true,
+  "coverage_initial": "0/10",
+  "coverage_final": "10/10",
+  "word_statements": 5,
+  "word_sha256": "2e5552be8db098523d227c4081218fd00cbd7ed53cac5660117067160713452f",
+  "engineering_retries": 1,
+  "route_status": "EVIDENCE_HOLD",
+  "score": "15/108 → 24/108，覆盖门禁版待评分",
+  "targets": {
+    "P04": {
+      "previous": "11/31",
+      "current": null,
+      "remaining": {}
+    },
+    "P05": {
+      "previous": "9/9",
+      "current": null,
+      "remaining": {}
+    }
+  }
+}

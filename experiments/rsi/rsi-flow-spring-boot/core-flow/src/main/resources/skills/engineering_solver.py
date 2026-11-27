@@ -137,7 +137,12 @@ def run(board):
                        "laboratory basis is unsupported, report the missing basis and keep Item 054 open. "
                        "Independently review RFI 079 approval scope and the status of the gradation retest. "
                        "A closed RFI entry alone does not establish a completed retest. Use the stable claim ID "
-                       "FILL_TEST_BASIS for lab applicability and FILL_RFI_079 for the approval and retest finding.")
+                       "FILL_TEST_BASIS for lab applicability and FILL_RFI_079 for the approval and retest finding. "
+                       "Use the field report, verification register and specification to account for "
+                       "each test separately. Put each FD test's readings, units and disposition on a "
+                       "separate line. Explain the field report's old reference, numerical acceptance "
+                       "rule, exact articles, Item 012 scope, inspection and testing, and prerequisites "
+                       "for releasing the construction hold. Give the supported RFI finding on its own line.")
         extended = board.get("entity_review_extensions") is True
         if extended:
             prompt += (" Return physical_checks as a list for every applicable length ratio or binary mesh "

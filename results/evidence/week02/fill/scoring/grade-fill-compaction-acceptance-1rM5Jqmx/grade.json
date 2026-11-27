@@ -1,0 +1,315 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "rubrics[]",
+  "family": "rendered_rubric",
+  "score_key": "passed_score",
+  "score": 0.2222222222222222,
+  "passed_score": 0.2222222222222222,
+  "combined_score": 0.2222222222222222,
+  "weighted_points": 24.0,
+  "possible_weighted_points": 108.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states 'A matching D1557 Method C determination has not been established' but does not specifically name test locations FD-14 through FD-17.",
+      "reason": "Criterion requires specific reference to FD-14 through FD-17; document speaks only of 'material placed' generally.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states 'Density and moisture acceptance limits remain undetermined for the material placed' but does not name FD-14 through FD-17 or cite Article 3.4.B.",
+      "reason": "Criterion requires specific test locations and specification article; neither appears.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not state REJECTED, not accepted, or non-conforming for FD-14 through FD-17.",
+      "reason": "No disposition of the four test locations appears in the record.",
+      "weight": 9.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states determination 'has not been established' but does not tie this requirement to evaluation of FD-14 through FD-17.",
+      "reason": "Criterion requires the corrective action be applied to evaluation of the four test results specifically.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention Verification Register Item 012 or the date 09/22/2025.",
+      "reason": "No evidence of Item 012 closing date in the record.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 5,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention Item 012 or its scope limitation to Larchwood Pit borrow.",
+      "reason": "Item 012 is not addressed in the document.",
+      "weight": 8.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "FINDINGS section: 'RFI 079 approved reuse of the Stockpile north of Block C subject to a gradation retest, referencing TPM-25-079 [environment/files/Birchwood/PackageA/06_Submittals_RFI/RFI_Log_PackageA.xlsx:L39]'",
+      "reason": "Document explicitly states RFI 079 approval with the gradation retest condition.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 1,
+      "passed": true,
+      "evidence": "FINDINGS section: 'It does not document completion of the gradation retest. Obtain and verify that retest before acceptance.'",
+      "reason": "Document states the gradation retest remains outstanding.",
+      "weight": 7.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 8,
+      "score": 0,
+      "passed": false,
+      "evidence": "BASIS OF REVIEW states 'Section 31 20 00 requires ASTM D1557 Method C on material actually placed' but does not cite Article 2.1.D.",
+      "reason": "Criterion requires specific article citation; document cites section only.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document mentions 'material actually placed' but does not cite Articles 1.4.C and 3.4.D.",
+      "reason": "Criterion requires specific article citations; neither appears.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 1,
+      "passed": true,
+      "evidence": "FINDINGS section: 'The placement log identifies the Stockpile north of Block C [environment/tools/files/ce01-slab-on-grade-fill-compaction-acceptance-3d2c133e/Fill_Placement_Records_BlockA_SlabOnGrade.xlsx:L23]. VMT-25-0918-P04 tested Larchwood Pit [environment/files/Birchwood/PackageA/04_Materials/Proctor_D1557_PackageA_Structural_Fill.pdf:L24]'",
+      "reason": "Document identifies Larchwood Pit and stockpile north of Block C as separate sources.",
+      "weight": 10.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 11,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention Field Density Report SF-26-0708 or state it must be reissued.",
+      "reason": "SF-26-0708 is not addressed in the record.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 12,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention Article 3.7.C or state the lift is non-conforming under that article.",
+      "reason": "Article 3.7.C non-conformance is not addressed.",
+      "weight": 4.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 13,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention ASTM D698 or Article 1.2.A.1.",
+      "reason": "D698 limitation is not addressed.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 14,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document mentions ASTM D1557 but does not cite Article 1.2.A.2.",
+      "reason": "Specific article citation required; not present.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 15,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention SF-26-0708, 118.6 pcf, ASTM D698, or Wexford Ridge borrow.",
+      "reason": "None of these specifics appear in the record.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 16,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention SF-26-0708 or the 95 percent requirement.",
+      "reason": "SF-26-0708 specification requirement not addressed.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 17,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention SF-26-0708 or PASS disposition for four test locations.",
+      "reason": "SF-26-0708 disposition not addressed.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 18,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states 'Density and moisture acceptance limits remain undetermined' but does not cite Article 3.4.B or state both criteria must be satisfied.",
+      "reason": "Article 3.4.B and dual-criteria requirement not explicitly stated.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 19,
+      "score": 1,
+      "passed": true,
+      "evidence": "CONCLUSION AND RECOMMENDATION: 'Item 054 remains open pending resolution of the findings below.'",
+      "reason": "Document explicitly states Item 054 remains open.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 20,
+      "score": 1,
+      "passed": true,
+      "evidence": "FINDINGS section: 'The placement log identifies the Stockpile north of Block C [environment/tools/files/ce01-slab-on-grade-fill-compaction-acceptance-3d2c133e/Fill_Placement_Records_BlockA_SlabOnGrade.xlsx:L23]'",
+      "reason": "Document identifies the fill source as stockpile north of Block C.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 21,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not address field density testing frequency or state it was satisfied.",
+      "reason": "Testing frequency compliance not addressed.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 22,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention subgrade proof-rolling or acceptance before first lift.",
+      "reason": "Subgrade acceptance not addressed.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 23,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states 'Obtain and verify that retest before acceptance' but does not state construction hold or cite Article 3.4.B.",
+      "reason": "Criterion requires explicit construction hold tied to new D1557 determination and Article 3.4.B acceptance.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 24,
+      "score": 1,
+      "passed": true,
+      "evidence": "output_dependencies lists 'Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.docx' and comments.txt references the file path.",
+      "reason": "Document with exact required filename is listed in output dependencies.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 25,
+      "score": 1,
+      "passed": true,
+      "evidence": "Document shows header block (To, From, Date, Subject) followed by '1. PURPOSE', '2. DOCUMENTS REVIEWED', '3. BASIS OF REVIEW', '4. FINDINGS', '5. CONCLUSION AND RECOMMENDATION'.",
+      "reason": "Document structure matches template with header and five numbered sections in correct order.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 26,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document states 'Item 054 remains open' but does not mention the 07/20/2026 due date.",
+      "reason": "Criterion requires specific reference to 07/20/2026 deadline.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 27,
+      "score": 0,
+      "passed": false,
+      "evidence": "Document does not mention adopted building code, continuous special inspection, or Laboratory attendance times 07:15 to 11:30.",
+      "reason": "Continuous special inspection requirement and attendance gap not addressed.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    }
+  ],
+  "binding": [
+    {
+      "renderings": [
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.pdf",
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708_comments.txt"
+      ],
+      "criteria": [
+        0,
+        1,
+        2,
+        3,
+        4,
+        5,
+        6,
+        7,
+        8,
+        9,
+        10,
+        11,
+        12,
+        13,
+        14,
+        15,
+        16,
+        17,
+        18,
+        19,
+        20,
+        21,
+        22,
+        23,
+        24,
+        25,
+        26,
+        27
+      ],
+      "files": [
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708.pdf.txt",
+        "Thelbridge_Materials_Acceptance_Fill_Compaction_2026-0708_comments.txt"
+      ],
+      "chars": 3362
+    }
+  ],
+  "candidate_chars": 3362,
+  "primary_score": 0.2222222222222222,
+  "reward": 0.2222222222222222,
+  "candidate": "2 vendor rendering text(s)"
+}
