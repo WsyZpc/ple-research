@@ -1,0 +1,184 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "verifiers[]",
+  "family": "weighted_rubric",
+  "score_key": "passed_score",
+  "score": 0.9090909090909091,
+  "passed_score": 0.9090909090909091,
+  "combined_score": 0.9090909090909091,
+  "weighted_points": 70.0,
+  "possible_weighted_points": 77.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo states 'Condition 14 of the March 14, 2022 approval letter for TM-22-500041 covers landscape and streetscape treatments in common areas' but does not explicitly state Condition 14 governs whether the revision may proceed to staff-level action.",
+      "reason": "The memo identifies Condition 14 as the approval basis and discusses staff-level action separately, but does not contain a direct statement that Condition 14 governs whether the revision may proceed to staff-level action as required.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Condition 14 of the March 14, 2022 approval letter for TM-22-500041 covers landscape and streetscape treatments in common areas.'",
+      "reason": "Direct quote matches criterion exactly.",
+      "weight": 5.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 2,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The CC&Rs identify street-tree planting strips as HOA-owned Streetscape Common Area, so this revision falls within that scope.'",
+      "reason": "Direct statement that the street tree revision falls within Condition 14's scope.",
+      "weight": 8.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 3,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The CC&Rs identify street-tree planting strips as HOA-owned Streetscape Common Area'",
+      "reason": "Direct statement that streetscape planting area is common area owned by the homeowners association.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 4,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The reviewed records do not establish that one has been issued.'",
+      "reason": "Direct statement that no significant-change determination has been issued.",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 5,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'until Clark County Comprehensive Planning gives us a written significant-change determination'",
+      "reason": "Direct statement identifying Clark County Comprehensive Planning as the party that makes the determination.",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The Enterprise TAB requires applications 21 days before the meeting.'",
+      "reason": "Direct statement of the 21-day application requirement.",
+      "weight": 4.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The 11/18/2026 deadline was 10/28/2026.'",
+      "reason": "Direct statement that the application window for the 11/18/2026 meeting closed on 10/28/2026.",
+      "weight": 7.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 8,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The next available regular meeting is 12/16/2026'",
+      "reason": "Direct statement identifying 12/16/2026 as the next available meeting.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 9,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The TAB recommendation is forwarded to the Planning Commission.'",
+      "reason": "Direct statement that TAB action is a recommendation forwarded to Planning Commission.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 10,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'public design review before the Enterprise Town Advisory Board and Planning Commission must precede staff-level action on the resubmittal.'",
+      "reason": "Direct statement that design review must occur before staff-level action.",
+      "weight": 5.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 11,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'We cannot commit to the 11/30/2026 resubmittal to Yeoman until Clark County Comprehensive Planning gives us a written significant-change determination'",
+      "reason": "Direct statement that the 11/30/2026 date cannot be committed until Comprehensive Planning issues the determination.",
+      "weight": 10.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 12,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Request the written determination now.'",
+      "reason": "Direct statement identifying obtaining the written determination as the immediate next action.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 13,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The current sheets show 58 trees along 4,160 lf.'",
+      "reason": "Direct statement that current landscape sheets show 58 trees.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 14,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'L-4 requires one tree per 20 lf, or 208 trees.'",
+      "reason": "Direct statement that the one-per-twenty-linear-feet standard requires 208 trees.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 15,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Have the landscape architect of record revise and seal the planting plan'",
+      "reason": "Direct statement that the revised planting plan must be sealed by the landscape architect of record.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 16,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx exists with readable content in word/document.xml",
+      "reason": "One readable memo document is included in the output.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 17,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'To Callaway Land Partners Date 10/31/2026'",
+      "reason": "Memo is addressed to Callaway and dated 10/31/2026 as required.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    }
+  ],
+  "truncated": false,
+  "answer_truncated": false,
+  "candidate_chars": 3494,
+  "primary_score": 0.9090909090909091,
+  "reward": 0.9090909090909091,
+  "candidate": "output/ contract collection (11 file(s), world diffed in the container)"
+}
