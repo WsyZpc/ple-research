@@ -1,0 +1,75 @@
+{
+  "before": "UNVERIFIED_EVIDENCE",
+  "previous_candidate": 7.52,
+  "result": {
+    "status": "unverified",
+    "reason": "legacy role references need independent scope declarations",
+    "residuals": [
+      {
+        "code": "PHYSICAL_ROLE_SCOPE_REQUIRED",
+        "action": "lookup_operand",
+        "role": "numerator",
+        "claim_id": "C3",
+        "message": "legacy role references need independent scope declarations",
+        "operand_claim_id": "C1",
+        "param": "plume_characteristic_diameter",
+        "target_entity": "plume characteristic diameter D*",
+        "regime_or_version": "QA Verification Standard rev3 §2",
+        "provenance": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_scoping_memo_20251008.docx:L57",
+        "retry_signature": "16b06d9280b0aaf933ba8c1b18487c29db0cab448e1ea23b5ba3d596d5b3b5f8"
+      },
+      {
+        "code": "PHYSICAL_ROLE_SCOPE_REQUIRED",
+        "action": "lookup_operand",
+        "role": "denominator",
+        "claim_id": "C3",
+        "message": "legacy role references need independent scope declarations",
+        "operand_claim_id": "C2",
+        "param": "background_cell_size",
+        "target_entity": "fine grid background cell size dx",
+        "regime_or_version": "QA Verification Standard rev3 §5",
+        "provenance": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_Phase1_report_revB.docx:L80",
+        "retry_signature": "0a2f79cbc3880beb6a804b52719dc4ee4a0f8a575802b61723744991e10650aa"
+      }
+    ],
+    "claim_id": "C3"
+  },
+  "retry_count": 1,
+  "route": "RETRY_CONFLICT",
+  "role_hits": {
+    "numerator": [
+      {
+        "path": "Firm/QA/CFDME_QA_Verification_Standard_rev3.pdf",
+        "start_line": 25,
+        "end_line": 28
+      },
+      {
+        "path": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_scoping_memo_20251008.docx",
+        "start_line": 7,
+        "end_line": 10
+      },
+      {
+        "path": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_Phase1_report_revB.docx",
+        "start_line": 103,
+        "end_line": 106
+      }
+    ],
+    "denominator": [
+      {
+        "path": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_Phase1_report_revB.docx",
+        "start_line": 77,
+        "end_line": 80
+      },
+      {
+        "path": "Projects/CFDME-2025-041_Ocotillo_WUI/Case/verification/three_grid_study_outputs.txt",
+        "start_line": 7,
+        "end_line": 10
+      },
+      {
+        "path": "Projects/CFDME-2025-041_Ocotillo_WUI/Reports/CFDME-2025-041_scoping_memo_20251008.docx",
+        "start_line": 57,
+        "end_line": 60
+      }
+    ]
+  }
+}

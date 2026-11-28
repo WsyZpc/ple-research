@@ -1,0 +1,20 @@
+{
+  "historical": {
+    "route_status": "RETRY_CONFLICT",
+    "schema_ok": false,
+    "retry_count": 1,
+    "trace_id": null
+  },
+  "corrected": {
+    "route_status": "PASS",
+    "schema_ok": true,
+    "retry_count": 0,
+    "trace_id": null
+  },
+  "geometry-repaired": {
+    "route_status": "PASS",
+    "schema_ok": true,
+    "retry_count": 0,
+    "trace_id": null
+  }
+}

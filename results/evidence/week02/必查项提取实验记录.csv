@@ -8,3 +8,5 @@ RQ06,fill-compaction-acceptance,通用自动,模型从原材料提取,真题和�
 RQ07,fill-compaction-acceptance,引用修复验证,模拟模型回复,本地引用校验测试,通过,,,不适用,否,,,,仅工程实现验证,checklist-extraction/README.md,回原件检索、一次定向修引用、保留有效项。待真实模型复跑。
 RQ08,landscape-sheet-revision,通用人工对照,人工读原材料建立结构化清单,与 RQ03 共用下游流程,待跑,,,未执行,否,,77,,P08 待对照,checklist-extraction/README.md,测试清单来源的作用。
 RQ09,fill-compaction-acceptance,通用人工对照,人工读原材料建立结构化清单,与修复后的自动版共用下游流程,待跑,,,未执行,否,,108,,P04、P05 待对照,checklist-extraction/README.md,与修复后的自动版配对。
+RQ10,fill-compaction-acceptance,独立测点拆分,现场试验报告及既有必查项提取,同输入、本地固定回复节点对照,通过节点验证,,4,不适用,否,,,,FD-14 至 FD-17 各自建项。笼统结论 4 个缺口，逐点处置后 0 个。,progress-2026-11-28/estimate-fill-decision-split.json,通用自动组尚无本轮端到端评分。
+RQ11,fire-test-validation-memo,交付前归因必查,时序和数值验收及按题面设置的内容核对,RSI 引擎固定回复回放,返修组 PASS,,,通过,否,,,,验证传热归因、偏差方向和初温/温升字段的核对及定向返修。,progress-2026-11-28/fire-controlled-replay.json,此前真实评分 75/208 对应较早交付，P09 为 0/30。

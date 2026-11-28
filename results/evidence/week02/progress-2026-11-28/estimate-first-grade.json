@@ -1,0 +1,45 @@
+{
+  "run": "grade-estimate-CnjA6aZt",
+  "weighted_points": 2.0,
+  "possible_weighted_points": 46.0,
+  "reward": 0.043478260869565216,
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "criteria": [
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "No mention of $1,303,717.70 or Section 2 subtotal in text.",
+      "reason": "The memorandum does not state the corrected Section 2 subtotal.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "Item 2.36 and quantity 10 EA are not listed in the text.",
+      "reason": "The memorandum does not state the quantity for schedule item 2.36.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Table headers exist ('Estimate → schedule', 'Quantity (old → new)', etc.) but no data rows are present.",
+      "reason": "The memorandum includes table headers but lacks the line-by-line table listing changed items with sheet sources.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Text states 'new:sec2_c6_basin_plan: plan observation has no disposition' without naming the ramp or schedule mismatch.",
+      "reason": "The memorandum does not specifically identify the basin maintenance access ramp or state it has no matching schedule item.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    }
+  ]
+}

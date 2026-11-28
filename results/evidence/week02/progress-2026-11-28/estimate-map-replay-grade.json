@@ -1,0 +1,45 @@
+{
+  "run": "grade-estimate-Iz6tBrw5",
+  "weighted_points": 3.0,
+  "possible_weighted_points": 46.0,
+  "reward": 0.06521739130434782,
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "criteria": [
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "File Memo_to_Callaway_2026-10-31.pdf.txt does not contain the figure $1,303,717.70 or a Section 2 subtotal.",
+      "reason": "The memorandum does not state the corrected Section 2 subtotal of $1,303,717.70.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "File Memo_to_Callaway_2026-10-31.pdf.txt does not list schedule item 2.36 or quantity 10 EA.",
+      "reason": "The memorandum does not state that the quantity for schedule item 2.36 is 10 EA.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 7,
+      "score": 1,
+      "passed": true,
+      "evidence": "File Memo_to_Callaway_2026-10-31.pdf.txt includes a table with columns 'Estimate → schedule', 'Quantity', 'Amount', 'Evidence and disposition' listing items like 2.04, 2.44 with sources like 'Sheet C-8', 'C-9'.",
+      "reason": "The memorandum includes a line-by-line table listing Section 2 items with their plan sheet or schedule sources.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "File Memo_to_Callaway_2026-10-31.pdf.txt does not mention 'basin maintenance access ramp'.",
+      "reason": "The memorandum does not state that the basin maintenance access ramp has no matching item in the published schedule.",
+      "weight": 1.0,
+      "credited_fraction": 0.0
+    }
+  ]
+}

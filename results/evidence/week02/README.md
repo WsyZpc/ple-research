@@ -1,8 +1,17 @@
 # PLE 第二周｜RSI 人工编排与工程复核
 
-本周在 RSI 中尝试了三道 PLE 开发题，覆盖十条问题清单中的 P01–P05、P08。保留了任务输入对应的证据引用、执行状态、Word 交付以及可重放的节点结果。
+截至 2026-11-28，六道开发题均已接入 RSI 前端画布。按十条问题各自的验收判据，**4 条已通过，2 条部分完成，4 条尚未通过**。
 
-## 结果与复核材料
+| 范围 | 当前结论 | 最新证据 |
+| --- | --- | --- |
+| LES · P01–P03 | P01、P02 尚未通过。P03 已保持审查项开放，亚网格闭合及补记位置仍待写入。最新 Word 得 7/82。 | [逐项评分](progress-2026-11-28/les-latest-grade.json) · [P01 操作数回放](progress-2026-11-28/les-p01-node-replay.json) · [画布](progress-2026-11-28/canvases/les.png) |
+| 填土 · P04–P05 | 固定回复回放分别得 31/31 与 9/9。新版拆分规则可逐点核验 FD-14 至 FD-17，通用自动清单版待端到端复测。 | [评分](fill/coverage-gate/grade.json) · [节点对照](progress-2026-11-28/estimate-fill-decision-split.json) · [画布](progress-2026-11-28/canvases/fill.png) |
+| 工程估算 · P06–P07 | 清单行匹配回放 2/46 → 3/46，P06 新增对账表得分，关键数量和小计仍待修。P07 尚未在评分稿写出坡道无对应项。新版盘点已能独立识别坡道。 | [首轮评分](progress-2026-11-28/estimate-first-grade.json) · [回放评分](progress-2026-11-28/estimate-map-replay-grade.json) · [画布](progress-2026-11-28/canvases/estimate.png) |
+| 景观 · P08 | 通用自动清单版 P08 得 20/20，整题 65/77，保留书面认定待核。 | [评分](checklist-extraction/landscape/grade.json) · [画布](progress-2026-11-28/canvases/landscape.png) |
+| E119 · P09 | 整题本地评分 52/208 → 75/208，三条归因判据仍为 0/30。新版定向返修在固定回复回放中通过，待生成并复评真实模型产物。 | [评分](progress-2026-11-28/fire-scored-grade.json) · [回放](progress-2026-11-28/fire-controlled-replay.json) · [画布](progress-2026-11-28/canvases/fire.png) |
+| 数据中心 · P10 | 同一历史 IFC 旧门禁放行，增强门禁返回返修。编码及几何修正后，原评分器成功进入工程约束评估，满足 11/17 项，得 0.324。 | [门禁对照](progress-2026-11-28/ifc-gate-comparison.json) · [评分](progress-2026-11-28/ifc-original-grader-comparison.json) · [画布](progress-2026-11-28/canvases/site.png) |
+
+## 早期三题结果与复核材料
 
 | 任务 | 编排与核验结果 | 证据 |
 | --- | --- | --- |
@@ -14,7 +23,7 @@
 
 填土题新版比首轮多 **54 分**。四个检测点的验收依据、逐点处置及补试要求贡献 32 分，Item 012 贡献 9 分，施工暂缓与解除条件贡献 7 分，其余报告及规范细节贡献 6 分。仍缺具体规范条款、SF-26-0708 的重新签发要求、连续专项检查的出勤证据等。覆盖门禁版首次裁判调用超时，随后对同一评分包重跑得 78/108。两轮候选均采用固定回复回放。 [同初稿对照](fill/coverage-gate/comparison.json) · [裁判超时](fill/coverage-gate/judge-timeout.json) · [重跑结果](fill/coverage-gate/results.json)
 
-LES 的历史基线为 2/82，审计意见重建的历史回放为 7/82。两次用到的交付材料不同。LES 仍待新版评分。P06、P07、P09、P10 等待本轮复测。
+LES 的历史基线为 2/82，审计意见重建的历史回放为 7/82。两次用到的交付材料不同。按操作数补证的新版节点已在历史黑板上验证，待生成新的交付物复评。
 
 ## 必查项提取实验
 
@@ -49,7 +58,7 @@ flowchart LR
 
 ## 表格与其他证据
 
-- [10 条问题对照 CSV（含景观和填土复测记录）](周任务_10条修复对照.csv) · [10 条问题对照 Excel（评分前快照）](周任务_10条修复对照.xlsx)
+- [10 条问题最新进度 CSV](周任务_10条修复对照.csv) · [10 条问题对照 Excel（评分前快照）](周任务_10条修复对照.xlsx)
 - [六题基线评分及验证器输出](baseline/)
 - [LES 历史评测目录](les/scoring/) · [填土执行日志](fill/runtime.log) · [填土离线联调样例](fill/fixture/)
 - [节点回放与通信故障证据](节点回放与通信故障证据.csv) · [故障注入、恢复和 Word 回放快照](recovery/)

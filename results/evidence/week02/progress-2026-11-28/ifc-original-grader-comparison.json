@@ -1,0 +1,333 @@
+{
+  "baseline": {
+    "sha256": "47ca4deb932a1a9e952fb9b276cf5846b694645de629425edd16972abbe91141",
+    "metrics": {
+      "combined_score": 0.0,
+      "valid": 0.0,
+      "grader_exception": true,
+      "grader_exception_type": "RuntimeError",
+      "verdict": "EXTRACTION_FAILED",
+      "gate_errors": [
+        "file:grader_exception"
+      ],
+      "report": {
+        "instance": "p6_002",
+        "verdict": "EXTRACTION_FAILED",
+        "gate_errors": [
+          {
+            "item": "file",
+            "code": "grader_exception"
+          }
+        ]
+      }
+    },
+    "reward": {
+      "reward": 0.0
+    }
+  },
+  "serialization_only": {
+    "sha256": "0e6330c4a058fffdd45f5e9bb75277fa11af300ba5123fa921b6c3d0bb334022",
+    "metrics": {
+      "combined_score": 0.0,
+      "valid": 0.0,
+      "report": {
+        "instance": "p6_002",
+        "layers": {
+          "1_schema": {
+            "pass": true,
+            "errors": []
+          },
+          "2_geometry": {
+            "pass": false,
+            "errors": [
+              {
+                "check": "no_overlap",
+                "detail": "DH_P1 overlaps BRM_W"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "DH_P2_A overlaps GEN"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "DH_P2_A overlaps CTP"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "DH_P2_A overlaps BRM_W"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "DH_P2_A overlaps BRM_S"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "GEN overlaps CTP"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "GEN overlaps BRM_S"
+              },
+              {
+                "check": "no_overlap",
+                "detail": "CTP overlaps BRM_S"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses DH_P2_A"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses DH_P2_B"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses SUB"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses CTP"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses BRM_W"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses BRM_S"
+              },
+              {
+                "check": "road_clear_of_buildings",
+                "detail": "road road_main crosses RET"
+              },
+              {
+                "check": "min_area",
+                "detail": "DH_P1 area 4100 < 4500"
+              },
+              {
+                "check": "min_area",
+                "detail": "DH_P2_A area 4100 < 4500"
+              },
+              {
+                "check": "min_area",
+                "detail": "DH_P2_B area 4100 < 4500"
+              }
+            ]
+          }
+        },
+        "verdict": "GEOMETRY_INVALID"
+      },
+      "verdict": "GEOMETRY_INVALID",
+      "extraction_gate": {
+        "unit_scale_m": 1,
+        "scene_extent_m": 207.78,
+        "n_buildings": 9
+      },
+      "constraint_fraction": 0.0,
+      "failed_constraints": []
+    },
+    "reward": {
+      "reward": 0.0
+    }
+  },
+  "geometry_repair": {
+    "sha256": "79d66944f8551df74e87df2d7b6eebc114e2ef91d6ef6bcadc47f48732e9e8e0",
+    "metrics": {
+      "combined_score": 0.324,
+      "valid": 0.0,
+      "report": {
+        "instance": "p6_002",
+        "layers": {
+          "1_schema": {
+            "pass": true,
+            "errors": []
+          },
+          "2_geometry": {
+            "pass": true,
+            "errors": []
+          },
+          "3_constraints": {
+            "pass": false,
+            "satisfied": 11,
+            "total": 17,
+            "fraction": 0.647,
+            "per_constraint": [
+              {
+                "template": "setback_uniform",
+                "id": "c1",
+                "nl": "All structures shall be set back at least 18 m from every property line.",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "coverage_max",
+                "id": "c2",
+                "nl": "Total building coverage shall not exceed 15% of the lot area.",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "site",
+                    "detail": "coverage 0.176 > 0.151"
+                  }
+                ]
+              },
+              {
+                "template": "fire_separation",
+                "id": "c3",
+                "nl": "Diesel generation and fuel storage areas shall be located no closer than 28 m to any occupied structure.",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "retention_sizing",
+                "id": "c4",
+                "nl": "Provide stormwater retention with surface area of at least 12% of total impervious area (building roofs plus paved roads).",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "site",
+                    "detail": "retention 1600 m2 < required 2211 m2 (0.12 x 18740)"
+                  }
+                ]
+              },
+              {
+                "template": "road_access_connected",
+                "id": "c5",
+                "nl": "Every occupied or hazardous-use structure must lie within 18 m of an access road that connects, without interruption, to the site entrance on the designated frontage.",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "gate_on_frontage",
+                "id": "c6",
+                "nl": "",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "power_routing_v2",
+                "id": "c7",
+                "nl": "",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "noise_at_receptor",
+                "id": "c8",
+                "nl": "Cumulative equipment noise at each identified residential receptor shall not exceed 42 dB(A); intervening structures may be credited as barriers.",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "R2",
+                    "detail": "received 50.3 dB > 42.4 dB"
+                  }
+                ]
+              },
+              {
+                "template": "screening_3d",
+                "id": "c9",
+                "nl": "Generator yards and fuel storage shall be screened from direct view from the marked viewpoints; screening is effective only where the intervening structure or berm is tall enough to intercept the line of sight (viewer eye height 1.7 m).",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "exclusion_zone",
+                "id": "c10",
+                "nl": "",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "phase_standalone",
+                "id": "c11",
+                "nl": "The Phase 1 scope, taken alone, must fully comply with every requirement of this brief; compliance may not depend on Phase 2 construction.",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "phase1:c8:R2",
+                    "detail": "received 50.3 dB > 42.4 dB"
+                  },
+                  {
+                    "item": "phase1:c14:phase1",
+                    "detail": "phase-1 objective 411.7 > cap 314.0"
+                  }
+                ]
+              },
+              {
+                "template": "no_stranded_assets",
+                "id": "c12",
+                "nl": "Facilities constructed in an earlier phase shall remain in service, unaltered, at full build-out; accordingly, no utility line shall be routed beneath the footprint of a building of a different phase.",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "objective_cap",
+                "id": "c13",
+                "nl": "Total utility quantities are capped: the weighted sum of MV cable length (x1.0) and road length (x0.3) shall not exceed 473.",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "site",
+                    "detail": "objective 579.0 > cap 473.0"
+                  }
+                ]
+              },
+              {
+                "template": "phase_objective_cap",
+                "id": "c14",
+                "nl": "Phase 1 utility quantities are separately capped: the weighted sum of Phase 1 medium-voltage length (x1.0) and Phase 1 roadway length (x0.3) shall not exceed 314.",
+                "pass": false,
+                "violations": [
+                  {
+                    "item": "phase1",
+                    "detail": "phase-1 objective 411.7 > cap 314.0"
+                  }
+                ]
+              },
+              {
+                "template": "gfa_min",
+                "id": "c15",
+                "nl": "Each building shall provide the gross floor area required by the program for its use (GFA = footprint area x storey count).",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "height_max",
+                "id": "c16",
+                "nl": "No structure shall exceed 13.8 m in height above grade; berms and at-grade basins are exempt.",
+                "pass": true,
+                "violations": []
+              },
+              {
+                "template": "storey_consistency",
+                "id": "c17",
+                "nl": "For multi-storey uses, floor-to-floor height (building height divided by storey count) shall be between 3.2 m and 5.5 m.",
+                "pass": true,
+                "violations": []
+              }
+            ]
+          }
+        },
+        "verdict": "INFEASIBLE"
+      },
+      "verdict": "INFEASIBLE",
+      "extraction_gate": {
+        "unit_scale_m": 1,
+        "scene_extent_m": 284.0,
+        "n_buildings": 9
+      },
+      "constraint_fraction": 0.647,
+      "failed_constraints": [
+        "c2",
+        "c4",
+        "c8",
+        "c11",
+        "c13",
+        "c14"
+      ]
+    },
+    "reward": {
+      "reward": 0.324
+    }
+  }
+}

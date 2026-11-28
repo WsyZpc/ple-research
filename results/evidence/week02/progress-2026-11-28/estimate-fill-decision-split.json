@@ -1,0 +1,164 @@
+{
+  "method": "Offline A/B on saved node inputs and real source documents, with controlled model outputs. The old estimate inventory reply was reconstructed from its normalized saved output. The new inventory was given one scripted supplemental observation after rejecting the coarse reply. No live model generation, new submission or benchmark grade.",
+  "before": {
+    "version": "before",
+    "experiment": "Offline node A/B; controlled model and audit replies; no benchmark grade.",
+    "estimate": {
+      "trace": "8e525ea8-e696-4411-a812-81e766b5fb44",
+      "first_reply": "reconstructed previously accepted sheet-level inventory",
+      "calls": 1,
+      "rows": [
+        {
+          "id": "sec2_c6_basin_plan",
+          "description": "Detention Basin Grading and Outfall",
+          "sheet": "C-6",
+          "quote": "Detention basin footprint: irregular rectangular basin, approximately 293′ × 195′ at top-of-berm."
+        },
+        {
+          "id": "sec2_c8_storm_drain",
+          "description": "Storm Drain Pipe and Structures",
+          "sheet": "C-8",
+          "quote": "Line A total run: 2,649.67 linear feet; the trunk parallels the recorded north boundary at a nominal 10.00 ft southerly offset."
+        },
+        {
+          "id": "sec2_c9_basin_details",
+          "description": "Detention Basin Details and Appurtenances",
+          "sheet": "C-9",
+          "quote": "Phase 3 detention allocation: 6.4 acre-feet — matches the accepted allocation for Phase 3 identified in the Master Drainage Study"
+        }
+      ],
+      "validation": []
+    },
+    "fill": {
+      "trace": "4e1f0fa4-eba7-438b-9c3f-890c67adc26b",
+      "identical_input": "same source files and one generic source-anchored check",
+      "point_checks": [],
+      "missing_with_generic_draft": 0,
+      "missing_with_individual_statements": 0,
+      "missing_with_shared_statement": 0,
+      "missing_when_FD15_omitted": 0
+    }
+  },
+  "after": {
+    "version": "deployed",
+    "experiment": "Offline node A/B; controlled model and audit replies; no benchmark grade.",
+    "estimate": {
+      "trace": "8e525ea8-e696-4411-a812-81e766b5fb44",
+      "first_reply": "reconstructed previously accepted sheet-level inventory",
+      "calls": 2,
+      "rows": [
+        {
+          "id": "obj_795817d1fc548a12b604",
+          "description": "Emergency Spillway (Weir)",
+          "sheet": "C-9",
+          "quote": "Detail — Emergency Spillway (Weir) Detail Callouts:  Broad-crested weir over compacted fill on east berm."
+        },
+        {
+          "id": "obj_fa426d429e6507cc6637",
+          "description": "Outlet Control Structure and Orifice Plate",
+          "sheet": "C-9",
+          "quote": "Detail — Outlet Control Structure and Orifice Plate Detail Callouts:  Reinforced concrete headwall 4′ wide × 4′ tall, footing at elev. 2,850.00′, wall top at elev. 2,859.20′, poured against basin toe of slope."
+        },
+        {
+          "id": "obj_2d7342bec5a96218fb6a",
+          "description": "Access Ramp",
+          "sheet": "C-9",
+          "quote": "Detail — Access Ramp Detail Callouts:  Ramp width 15′; longitudinal grade 6%."
+        },
+        {
+          "id": "obj_327f25bb42a7f5bf0393",
+          "description": "36-inch RCP",
+          "sheet": "C-8",
+          "quote": "36″ RCP from S-1 to S-5"
+        },
+        {
+          "id": "obj_7ba6fdeb9dc7fb08feb3",
+          "description": "48-inch RCP",
+          "sheet": "C-8",
+          "quote": "48″ RCP from S-5 to S-8"
+        },
+        {
+          "id": "obj_c530ee5ba20b32ec5a8b",
+          "description": "60-inch RCP",
+          "sheet": "C-8",
+          "quote": "60″ RCP from S-8 to S-14"
+        },
+        {
+          "id": "obj_b8e74c63ad009e88565b",
+          "description": "manhole",
+          "sheet": "C-8",
+          "quote": "S-1 5' dia. manhole (headwall / cleanout) 0+00.00"
+        },
+        {
+          "id": "obj_f986404dcb0fc76a1347",
+          "description": "curb inlet",
+          "sheet": "C-8",
+          "quote": "S-2 Curb inlet + junction manhole 2+13.58"
+        },
+        {
+          "id": "sec2_c6_basin_plan",
+          "description": "Detention basin footprint",
+          "sheet": "C-6",
+          "quote": "Detention basin footprint: irregular rectangular basin, approximately 293′ × 195′ at top-of-berm."
+        }
+      ],
+      "validation": [
+        "sec2_c6_basin_plan: supply a single object label copied from the quote"
+      ]
+    },
+    "fill": {
+      "trace": "4e1f0fa4-eba7-438b-9c3f-890c67adc26b",
+      "identical_input": "same source files and one generic source-anchored check",
+      "point_checks": [
+        {
+          "id": "obj_0d5669faefb52e1cb7a8",
+          "subject": "FD-14",
+          "description": "Evaluate field test FD-14 separately",
+          "applies_when": "Determining acceptance of the tested fill",
+          "acceptance": "Identify FD-14, evaluate its density and moisture against the applicable basis, and state its disposition or the evidence still needed.",
+          "provenance": "environment/files/Birchwood/PackageA/04_Materials/Field_Density_Report_SF-26-0708.pdf:L52",
+          "source_id": "D13",
+          "source_quote": "FD-14 748.6 Block A, Grid B-3, slab-on-grade subgrade Lift 6 124.8 6.1 105.2 PASS",
+          "origin": "test_record"
+        },
+        {
+          "id": "obj_fd626687fd6e7c49c058",
+          "subject": "FD-15",
+          "description": "Evaluate field test FD-15 separately",
+          "applies_when": "Determining acceptance of the tested fill",
+          "acceptance": "Identify FD-15, evaluate its density and moisture against the applicable basis, and state its disposition or the evidence still needed.",
+          "provenance": "environment/files/Birchwood/PackageA/04_Materials/Field_Density_Report_SF-26-0708.pdf:L57",
+          "source_id": "D13",
+          "source_quote": "FD-15 748.6 Block A, Grid D-5, slab-on-grade subgrade Lift 6 123.5 9.8 104.1 PASS",
+          "origin": "test_record"
+        },
+        {
+          "id": "obj_6158bee5413f86e9fcce",
+          "subject": "FD-16",
+          "description": "Evaluate field test FD-16 separately",
+          "applies_when": "Determining acceptance of the tested fill",
+          "acceptance": "Identify FD-16, evaluate its density and moisture against the applicable basis, and state its disposition or the evidence still needed.",
+          "provenance": "environment/files/Birchwood/PackageA/04_Materials/Field_Density_Report_SF-26-0708.pdf:L58",
+          "source_id": "D13",
+          "source_quote": "FD-16 748.6 Block A, Grid F-4, slab-on-grade subgrade Lift 6 122.9 10.4 103.6 PASS",
+          "origin": "test_record"
+        },
+        {
+          "id": "obj_70d468109616298f394a",
+          "subject": "FD-17",
+          "description": "Evaluate field test FD-17 separately",
+          "applies_when": "Determining acceptance of the tested fill",
+          "acceptance": "Identify FD-17, evaluate its density and moisture against the applicable basis, and state its disposition or the evidence still needed.",
+          "provenance": "environment/files/Birchwood/PackageA/04_Materials/Field_Density_Report_SF-26-0708.pdf:L59",
+          "source_id": "D13",
+          "source_quote": "FD-17 748.6 Block A, Grid G-2, slab-on-grade subgrade Lift 6 126.1 5.8 106.3 PASS",
+          "origin": "test_record"
+        }
+      ],
+      "missing_with_generic_draft": 4,
+      "missing_with_individual_statements": 0,
+      "missing_with_shared_statement": 4,
+      "missing_when_FD15_omitted": 1
+    }
+  }
+}

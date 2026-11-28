@@ -3,7 +3,7 @@
 
 ## 第二周｜RSI 人工编排
 
-对 LES 网格分辨率、填土压实验收和景观 L-4 修订进行了编排尝试，涉及十条问题中的 P01–P05、P08。景观题本地评分为基线 **12/77**、历史人工专用版 **70/77**、通用自动清单版 **65/77（84.4%）**。P08 分别为 **0/20、13/20、20/20**。填土题的历史固定回复回放从 **24/108** 提升至 **78/108**，通用自动版尚未取得实测分数。[原子能力对照与运行证据](results/evidence/week02/checklist-extraction/README.md) · [历史填土画布](results/evidence/week02/fill/coverage-gate/rsi-canvas.png)
+截至 2026-11-28，六道题均已有 RSI 前端画布。按十条问题逐项验收，**4 条已通过，2 条部分完成，4 条尚未通过**。数据中心 IFC 修正版通过原评分器的结构与几何检查，进入 17 项约束评估，满足 **11/17 项**，本地得分 **0.324**。估算和 E119 已取得初轮评分，新版编排待端到端复评。 [本周进度与证据](results/evidence/week02/README.md)
 
 [本周 README 与证据索引](results/evidence/week02/README.md) · [十条问题 CSV](results/evidence/week02/周任务_10条修复对照.csv) · [必查项提取实验 CSV](results/evidence/week02/必查项提取实验记录.csv) · [十条问题 Excel（评分前快照）](results/evidence/week02/周任务_10条修复对照.xlsx) · [RSI 项目源码](experiments/rsi/)
 

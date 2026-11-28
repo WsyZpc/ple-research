@@ -1,0 +1,105 @@
+{
+  "method": "RSI engine, controlled model replies. No new benchmark score.",
+  "cases": {
+    "repair": {
+      "route_status": "PASS",
+      "retry_count": 1,
+      "schema_ok": true,
+      "failed_node": null,
+      "fire_content_check_ids": [
+        "fire-shared-heat-transfer",
+        "fire-endurance-direction",
+        "fire-temperature-basis"
+      ],
+      "fire_validation_metrics": {
+        "sim_hotspot_minus_mean_degC": 91.16875,
+        "test_criterion_separation_min": 45.0,
+        "test_hotspot_minus_mean_degC": 85.0,
+        "uncertainty_basis": "Procedure defaults, conditional on applicability, independence and the project QA record.",
+        "sim_single_rise_at_control_degC": 181.0,
+        "sim_controlling_criterion": "sim_single",
+        "sim_criterion_separation_min": 45.162499999999994,
+        "sim_average_rise_at_control_degC": 89.83125
+      },
+      "required_check_audit": [
+        {
+          "id": "comparisons",
+          "status": "addressed"
+        },
+        {
+          "id": "fire-shared-heat-transfer",
+          "status": "addressed"
+        },
+        {
+          "id": "fire-endurance-direction",
+          "status": "addressed"
+        },
+        {
+          "id": "fire-temperature-basis",
+          "status": "addressed"
+        }
+      ]
+    },
+    "hold": {
+      "route_status": "EVIDENCE_HOLD",
+      "retry_count": 0,
+      "schema_ok": true,
+      "failed_node": null,
+      "fire_content_check_ids": [
+        "fire-shared-heat-transfer",
+        "fire-endurance-direction",
+        "fire-temperature-basis"
+      ],
+      "fire_validation_metrics": {
+        "sim_hotspot_minus_mean_degC": 91.16875,
+        "test_criterion_separation_min": 45.0,
+        "test_hotspot_minus_mean_degC": 85.0,
+        "uncertainty_basis": "Procedure defaults, conditional on applicability, independence and the project QA record.",
+        "sim_single_rise_at_control_degC": 181.0,
+        "sim_controlling_criterion": "sim_single",
+        "sim_criterion_separation_min": 45.162499999999994,
+        "sim_average_rise_at_control_degC": 89.83125
+      },
+      "required_check_audit": [
+        {
+          "id": "comparisons",
+          "status": "pending"
+        },
+        {
+          "id": "fire-shared-heat-transfer",
+          "status": "addressed"
+        },
+        {
+          "id": "fire-endurance-direction",
+          "status": "addressed"
+        },
+        {
+          "id": "fire-temperature-basis",
+          "status": "addressed"
+        }
+      ]
+    },
+    "pause": {
+      "route_status": "TRANSPORT_PAUSED",
+      "retry_count": 0,
+      "schema_ok": false,
+      "failed_node": "engineering_solver",
+      "fire_content_check_ids": [
+        "fire-shared-heat-transfer",
+        "fire-endurance-direction",
+        "fire-temperature-basis"
+      ],
+      "fire_validation_metrics": {
+        "sim_hotspot_minus_mean_degC": 91.16875,
+        "test_criterion_separation_min": 45.0,
+        "test_hotspot_minus_mean_degC": 85.0,
+        "uncertainty_basis": "Procedure defaults, conditional on applicability, independence and the project QA record.",
+        "sim_single_rise_at_control_degC": 181.0,
+        "sim_controlling_criterion": "sim_single",
+        "sim_criterion_separation_min": 45.162499999999994,
+        "sim_average_rise_at_control_degC": 89.83125
+      },
+      "required_check_audit": null
+    }
+  }
+}

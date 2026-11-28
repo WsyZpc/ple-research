@@ -1,0 +1,36 @@
+{
+  "run": "grade-fire-Ap18KcRN",
+  "weighted_points": 75.0,
+  "possible_weighted_points": 208.0,
+  "reward": 0.3605769230769231,
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "criteria": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "No explicit statement found in memo about displacement common to both thermal-transmission criteria arising from bias in through-wall physics shared by both heat paths.",
+      "reason": "Criterion requires specific phrasing about displacement and bias in through-wall physics; memo discusses tie-concrete interface and thermal properties but does not make this specific claim.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "No explicit statement found about lag on field-mean path ruling out steel-tie path as sole source of error.",
+      "reason": "Section 6.2 discusses hotspot-to-mean differential but does not state that field-mean path lag rules out steel-tie as sole error source.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 2,
+      "score": 0,
+      "passed": false,
+      "evidence": "No explicit statement found that corrective scope is limited to through-wall physics shared by both heat paths.",
+      "reason": "Section 6.3 lists rework items but does not state scope is limited to through-wall physics.",
+      "weight": 10.0,
+      "credited_fraction": 0.0
+    }
+  ]
+}

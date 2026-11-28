@@ -1,0 +1,570 @@
+{
+  "historical_legacy": {
+    "schema_ok": true,
+    "schema_error": "",
+    "checks": {
+      "IfcBuilding": 9,
+      "geometry_verified": true
+    }
+  },
+  "historical_enhanced": {
+    "schema_ok": false,
+    "schema_error": "IFC contract failed (86 findings): #24 IfcBuilding : On instance: #24=IfcBuilding('DH_P1_guid',$,'DH_P1',$,$,$,#23,$,$,$,$,$) ^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters. | #25 IfcBuildingStorey : On instance: #25=IfcBuildingStorey('DH_P1_S1_guid',$,'DH_P1_S1',$,$,$,$,$,2.25,$) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters. | #25 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.25 Not valid",
+    "checks": {
+      "IfcBuilding": 9,
+      "schema_issue_count": 78,
+      "buildings_extracted": 9,
+      "network_count": 5,
+      "graph_edge_count": 8,
+      "findings": [
+        "#24 IfcBuilding : On instance: #24=IfcBuilding('DH_P1_guid',$,'DH_P1',$,$,$,#23,$,$,$,$,$) ^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#25 IfcBuildingStorey : On instance: #25=IfcBuildingStorey('DH_P1_S1_guid',$,'DH_P1_S1',$,$,$,$,$,2.25,$) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#25 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.25 Not valid",
+        "#26 IfcBuildingStorey CompositionType: On instance: #26=IfcBuildingStorey('DH_P1_S2_guid',$,'DH_P1_S2',$,$,$,$,$,6.75,$) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#26 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 6.75 Not valid",
+        "#27 IfcRelAggregates CompositionType: On instance: #27=IfcRelAggregates('DH_P1_agg_guid',$,$,$,#12,(#24)) ^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#28 IfcRelAggregates CompositionType: On instance: #28=IfcRelAggregates('DH_P1_storey_agg_guid',$,$,$,#24,(#25,#26)) ^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#33 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(8200) Not valid",
+        "#34 IfcPropertySet NominalValue: On instance: #34=IfcPropertySet('DH_P1_pset_guid',$,'DCD_Layout',$,(#29,#30,#31,#32,#33)) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#35 IfcRelDefinesByProperties NominalValue: On instance: #35=IfcRelDefinesByProperties('DH_P1_pset_rel_guid',$,$,$,(#24),#34) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#43 IfcBuilding NominalValue: On instance: #43=IfcBuilding('DH_P2_A_guid',$,'DH_P2_A',$,$,$,#42,$,$,$,$,$) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#44 IfcBuildingStorey NominalValue: On instance: #44=IfcBuildingStorey('DH_P2_A_S1_guid',$,'DH_P2_A_S1',$,$,$,$,$,2.25,$) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#44 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.25 Not valid",
+        "#45 IfcBuildingStorey CompositionType: On instance: #45=IfcBuildingStorey('DH_P2_A_S2_guid',$,'DH_P2_A_S2',$,$,$,$,$,6.75,$) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#45 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 6.75 Not valid",
+        "#46 IfcRelAggregates CompositionType: On instance: #46=IfcRelAggregates('DH_P2_A_agg_guid',$,$,$,#12,(#43)) ^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#47 IfcRelAggregates CompositionType: On instance: #47=IfcRelAggregates('DH_P2_A_storey_agg_guid',$,$,$,#43,(#44,#45)) ^^^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#52 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(8200) Not valid",
+        "#53 IfcPropertySet NominalValue: On instance: #53=IfcPropertySet('DH_P2_A_pset_guid',$,'DCD_Layout',$,(#48,#49,#50,#51,#52)) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#54 IfcRelDefinesByProperties NominalValue: On instance: #54=IfcRelDefinesByProperties('DH_P2_A_pset_rel_guid',$,$,$,(#43),#53) ^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#62 IfcBuilding NominalValue: On instance: #62=IfcBuilding('DH_P2_B_guid',$,'DH_P2_B',$,$,$,#61,$,$,$,$,$) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#63 IfcBuildingStorey NominalValue: On instance: #63=IfcBuildingStorey('DH_P2_B_S1_guid',$,'DH_P2_B_S1',$,$,$,$,$,2.25,$) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#63 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.25 Not valid",
+        "#64 IfcBuildingStorey CompositionType: On instance: #64=IfcBuildingStorey('DH_P2_B_S2_guid',$,'DH_P2_B_S2',$,$,$,$,$,6.75,$) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#64 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 6.75 Not valid",
+        "#65 IfcRelAggregates CompositionType: On instance: #65=IfcRelAggregates('DH_P2_B_agg_guid',$,$,$,#12,(#62)) ^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#66 IfcRelAggregates CompositionType: On instance: #66=IfcRelAggregates('DH_P2_B_storey_agg_guid',$,$,$,#62,(#63,#64)) ^^^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#71 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(8200) Not valid",
+        "#72 IfcPropertySet NominalValue: On instance: #72=IfcPropertySet('DH_P2_B_pset_guid',$,'DCD_Layout',$,(#67,#68,#69,#70,#71)) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#73 IfcRelDefinesByProperties NominalValue: On instance: #73=IfcRelDefinesByProperties('DH_P2_B_pset_rel_guid',$,$,$,(#62),#72) ^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#81 IfcBuilding NominalValue: On instance: #81=IfcBuilding('SUB_guid',$,'SUB',$,$,$,#80,$,$,$,$,$) ^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#82 IfcBuildingStorey NominalValue: On instance: #82=IfcBuildingStorey('SUB_S1_guid',$,'SUB_S1',$,$,$,$,$,2.5,$) ^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#82 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.5 Not valid",
+        "#83 IfcRelAggregates CompositionType: On instance: #83=IfcRelAggregates('SUB_agg_guid',$,$,$,#12,(#81)) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#84 IfcRelAggregates CompositionType: On instance: #84=IfcRelAggregates('SUB_storey_agg_guid',$,$,$,#81,(#82)) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#89 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(1000) Not valid",
+        "#90 IfcPropertySet NominalValue: On instance: #90=IfcPropertySet('SUB_pset_guid',$,'DCD_Layout',$,(#85,#86,#87,#88,#89)) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#91 IfcRelDefinesByProperties NominalValue: On instance: #91=IfcRelDefinesByProperties('SUB_pset_rel_guid',$,$,$,(#81),#90) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#99 IfcBuilding NominalValue: On instance: #99=IfcBuilding('GEN_guid',$,'GEN',$,$,$,#98,$,$,$,$,$) ^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#100 IfcBuildingStorey NominalValue: On instance: #100=IfcBuildingStorey('GEN_S1_guid',$,'GEN_S1',$,$,$,$,$,2.5,$) ^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#100 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.5 Not valid",
+        "#101 IfcRelAggregates CompositionType: On instance: #101=IfcRelAggregates('GEN_agg_guid',$,$,$,#12,(#99)) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#102 IfcRelAggregates CompositionType: On instance: #102=IfcRelAggregates('GEN_storey_agg_guid',$,$,$,#99,(#100)) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#107 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(500) Not valid",
+        "#108 IfcPropertySet NominalValue: On instance: #108=IfcPropertySet('GEN_pset_guid',$,'DCD_Layout',$,(#103,#104,#105,#106,#107)) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#109 IfcRelDefinesByProperties NominalValue: On instance: #109=IfcRelDefinesByProperties('GEN_pset_rel_guid',$,$,$,(#99),#108) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#117 IfcBuilding NominalValue: On instance: #117=IfcBuilding('CTP_guid',$,'CTP',$,$,$,#116,$,$,$,$,$) ^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#118 IfcBuildingStorey NominalValue: On instance: #118=IfcBuildingStorey('CTP_S1_guid',$,'CTP_S1',$,$,$,$,$,2.5,$) ^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#118 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.5 Not valid",
+        "#119 IfcRelAggregates CompositionType: On instance: #119=IfcRelAggregates('CTP_agg_guid',$,$,$,#12,(#117)) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#120 IfcRelAggregates CompositionType: On instance: #120=IfcRelAggregates('CTP_storey_agg_guid',$,$,$,#117,(#118)) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#125 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(800) Not valid",
+        "#126 IfcPropertySet NominalValue: On instance: #126=IfcPropertySet('CTP_pset_guid',$,'DCD_Layout',$,(#121,#122,#123,#124,#125)) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#127 IfcRelDefinesByProperties NominalValue: On instance: #127=IfcRelDefinesByProperties('CTP_pset_rel_guid',$,$,$,(#117),#126) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#135 IfcBuilding NominalValue: On instance: #135=IfcBuilding('BRM_W_guid',$,'BRM_W',$,$,$,#134,$,$,$,$,$) ^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#136 IfcBuildingStorey NominalValue: On instance: #136=IfcBuildingStorey('BRM_W_S1_guid',$,'BRM_W_S1',$,$,$,$,$,2.5,$) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#136 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.5 Not valid",
+        "#137 IfcRelAggregates CompositionType: On instance: #137=IfcRelAggregates('BRM_W_agg_guid',$,$,$,#12,(#135)) ^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#138 IfcRelAggregates CompositionType: On instance: #138=IfcRelAggregates('BRM_W_storey_agg_guid',$,$,$,#135,(#136)) ^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#143 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(300) Not valid",
+        "#144 IfcPropertySet NominalValue: On instance: #144=IfcPropertySet('BRM_W_pset_guid',$,'DCD_Layout',$,(#139,#140,#141,#142,#143)) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#145 IfcRelDefinesByProperties NominalValue: On instance: #145=IfcRelDefinesByProperties('BRM_W_pset_rel_guid',$,$,$,(#135),#144) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#153 IfcBuilding NominalValue: On instance: #153=IfcBuilding('BRM_S_guid',$,'BRM_S',$,$,$,#152,$,$,$,$,$) ^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#154 IfcBuildingStorey NominalValue: On instance: #154=IfcBuildingStorey('BRM_S_S1_guid',$,'BRM_S_S1',$,$,$,$,$,2.5,$) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#154 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 2.5 Not valid",
+        "#155 IfcRelAggregates CompositionType: On instance: #155=IfcRelAggregates('BRM_S_agg_guid',$,$,$,#12,(#153)) ^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#156 IfcRelAggregates CompositionType: On instance: #156=IfcRelAggregates('BRM_S_storey_agg_guid',$,$,$,#153,(#154)) ^^^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#161 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(400) Not valid",
+        "#162 IfcPropertySet NominalValue: On instance: #162=IfcPropertySet('BRM_S_pset_guid',$,'DCD_Layout',$,(#157,#158,#159,#160,#161)) ^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#163 IfcRelDefinesByProperties NominalValue: On instance: #163=IfcRelDefinesByProperties('BRM_S_pset_rel_guid',$,$,$,(#153),#162) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#171 IfcBuilding NominalValue: On instance: #171=IfcBuilding('RET_guid',$,'RET',$,$,$,#170,$,$,$,$,$) ^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#172 IfcBuildingStorey NominalValue: On instance: #172=IfcBuildingStorey('RET_S1_guid',$,'RET_S1',$,$,$,$,$,0.15,$) ^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#172 IfcBuildingStorey CompositionType: With attribute: <attribute CompositionType?: <enumeration IfcElementCompositionEnum: (COMPLEX, ELEMENT, PARTIAL)>> Value: 0.15 Not valid",
+        "#173 IfcRelAggregates CompositionType: On instance: #173=IfcRelAggregates('RET_agg_guid',$,$,$,#12,(#171)) ^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#174 IfcRelAggregates CompositionType: On instance: #174=IfcRelAggregates('RET_storey_agg_guid',$,$,$,#171,(#172)) ^^^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#179 IfcPropertySingleValue NominalValue: invalid attribute value: IfcReal(2160) Not valid",
+        "#180 IfcPropertySet NominalValue: On instance: #180=IfcPropertySet('RET_pset_guid',$,'DCD_Layout',$,(#175,#176,#177,#178,#179)) ^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "#181 IfcRelDefinesByProperties NominalValue: On instance: #181=IfcRelDefinesByProperties('RET_pset_rel_guid',$,$,$,(#171),#180) ^^^^^^^^^^^^^^^^^^^ IfcGloballyUniqueId base64 validation: The attribute GlobalId should be valid base64 encoded 128-bit number. Violated by: Guid length should be 22 characters.",
+        "DH_P1: requires unique in-solid storey elevations, including 0",
+        "DH_P2_A: requires unique in-solid storey elevations, including 0",
+        "DH_P2_B: requires unique in-solid storey elevations, including 0",
+        "network graph is missing building node BRM_S",
+        "network graph is missing building node BRM_W",
+        "network graph is missing building node RET",
+        "utility_entry -> SUB: unresolved or duplicate endpoint",
+        "network graph is missing edge type utility_feed"
+      ]
+    }
+  },
+  "corrected_enhanced": {
+    "schema_ok": true,
+    "schema_error": "",
+    "checks": {
+      "IfcBuilding": 9,
+      "schema_issue_count": 0,
+      "buildings_extracted": 9,
+      "network_count": 5,
+      "graph_edge_count": 8,
+      "extracted_layout": {
+        "buildings": [
+          {
+            "id": "DH_P1",
+            "type": "data_hall",
+            "phase": 1,
+            "footprint": [
+              [
+                65.0,
+                72.78
+              ],
+              [
+                155.0,
+                72.78
+              ],
+              [
+                155.0,
+                27.22
+              ],
+              [
+                65.0,
+                27.22
+              ],
+              [
+                65.0,
+                72.78
+              ]
+            ],
+            "area_m2": 4100.400000000001,
+            "bottom_m": 0.0,
+            "top_m": 9.0,
+            "storey_elevations": [
+              4.5,
+              0.0
+            ]
+          },
+          {
+            "id": "DH_P2_A",
+            "type": "data_hall",
+            "phase": 2,
+            "footprint": [
+              [
+                125.0,
+                72.78
+              ],
+              [
+                215.0,
+                72.78
+              ],
+              [
+                215.0,
+                27.22
+              ],
+              [
+                125.0,
+                27.22
+              ],
+              [
+                125.0,
+                72.78
+              ]
+            ],
+            "area_m2": 4100.400000000001,
+            "bottom_m": 0.0,
+            "top_m": 9.0,
+            "storey_elevations": [
+              0.0,
+              4.5
+            ]
+          },
+          {
+            "id": "DH_P2_B",
+            "type": "data_hall",
+            "phase": 2,
+            "footprint": [
+              [
+                115.0,
+                227.78
+              ],
+              [
+                205.0,
+                227.78
+              ],
+              [
+                205.0,
+                182.22
+              ],
+              [
+                115.0,
+                182.22
+              ],
+              [
+                115.0,
+                227.78
+              ]
+            ],
+            "area_m2": 4100.400000000001,
+            "bottom_m": 0.0,
+            "top_m": 9.0,
+            "storey_elevations": [
+              0.0,
+              4.5
+            ]
+          },
+          {
+            "id": "SUB",
+            "type": "substation",
+            "phase": 1,
+            "footprint": [
+              [
+                143.0,
+                100.5
+              ],
+              [
+                183.0,
+                100.5
+              ],
+              [
+                183.0,
+                75.5
+              ],
+              [
+                143.0,
+                75.5
+              ],
+              [
+                143.0,
+                100.5
+              ]
+            ],
+            "area_m2": 1000.0,
+            "bottom_m": 0.0,
+            "top_m": 5.0,
+            "storey_elevations": [
+              0.0
+            ]
+          },
+          {
+            "id": "GEN",
+            "type": "generator_yard",
+            "phase": 1,
+            "footprint": [
+              [
+                162.5,
+                45.0
+              ],
+              [
+                187.5,
+                45.0
+              ],
+              [
+                187.5,
+                25.0
+              ],
+              [
+                162.5,
+                25.0
+              ],
+              [
+                162.5,
+                45.0
+              ]
+            ],
+            "area_m2": 500.0,
+            "bottom_m": 0.0,
+            "top_m": 5.0,
+            "storey_elevations": [
+              0.0
+            ]
+          },
+          {
+            "id": "CTP",
+            "type": "cooling_plant",
+            "phase": 1,
+            "footprint": [
+              [
+                160.0,
+                45.0
+              ],
+              [
+                200.0,
+                45.0
+              ],
+              [
+                200.0,
+                25.0
+              ],
+              [
+                160.0,
+                25.0
+              ],
+              [
+                160.0,
+                45.0
+              ]
+            ],
+            "area_m2": 800.0,
+            "bottom_m": 0.0,
+            "top_m": 5.0,
+            "storey_elevations": [
+              0.0
+            ]
+          },
+          {
+            "id": "BRM_W",
+            "type": "berm",
+            "phase": 1,
+            "footprint": [
+              [
+                130.0,
+                70.0
+              ],
+              [
+                160.0,
+                70.0
+              ],
+              [
+                160.0,
+                60.0
+              ],
+              [
+                130.0,
+                60.0
+              ],
+              [
+                130.0,
+                70.0
+              ]
+            ],
+            "area_m2": 300.0,
+            "bottom_m": 0.0,
+            "top_m": 5.0,
+            "storey_elevations": [
+              0.0
+            ]
+          },
+          {
+            "id": "BRM_S",
+            "type": "berm",
+            "phase": 1,
+            "footprint": [
+              [
+                160.0,
+                30.0
+              ],
+              [
+                200.0,
+                30.0
+              ],
+              [
+                200.0,
+                20.0
+              ],
+              [
+                160.0,
+                20.0
+              ],
+              [
+                160.0,
+                30.0
+              ]
+            ],
+            "area_m2": 400.0,
+            "bottom_m": 0.0,
+            "top_m": 5.0,
+            "storey_elevations": [
+              0.0
+            ]
+          },
+          {
+            "id": "RET",
+            "type": "stormwater_retention",
+            "phase": 1,
+            "footprint": [
+              [
+                190.0,
+                138.0
+              ],
+              [
+                190.0,
+                102.0
+              ],
+              [
+                130.0,
+                102.0
+              ],
+              [
+                130.0,
+                138.0
+              ],
+              [
+                190.0,
+                138.0
+              ]
+            ],
+            "area_m2": 2160.0,
+            "bottom_m": 0.0,
+            "top_m": 0.3,
+            "storey_elevations": [
+              0.0
+            ]
+          }
+        ],
+        "networks": [
+          {
+            "id": "road_main",
+            "type": "road",
+            "width_m": 6.0,
+            "phase": 1,
+            "geom": [
+              [
+                160,
+                0
+              ],
+              [
+                160,
+                205
+              ]
+            ]
+          },
+          {
+            "id": "mv_util_sub",
+            "type": "mv_power",
+            "phase": 1,
+            "geom": [
+              [
+                320,
+                195
+              ],
+              [
+                163,
+                88
+              ]
+            ]
+          },
+          {
+            "id": "mv_sub_dh1",
+            "type": "mv_power",
+            "phase": 1,
+            "geom": [
+              [
+                163,
+                88
+              ],
+              [
+                110,
+                50
+              ]
+            ]
+          },
+          {
+            "id": "mv_sub_dh2a",
+            "type": "mv_power",
+            "phase": 2,
+            "geom": [
+              [
+                163,
+                88
+              ],
+              [
+                170,
+                50
+              ]
+            ]
+          },
+          {
+            "id": "mv_sub_dh2b",
+            "type": "mv_power",
+            "phase": 2,
+            "geom": [
+              [
+                163,
+                88
+              ],
+              [
+                160,
+                205
+              ]
+            ]
+          }
+        ],
+        "graph": {
+          "nodes": [
+            "DH_P1",
+            "DH_P2_A",
+            "DH_P2_B",
+            "SUB",
+            "GEN",
+            "CTP",
+            "GATE",
+            "utility_entry",
+            "BRM_W",
+            "BRM_S",
+            "RET"
+          ],
+          "edges": [
+            {
+              "u": "GATE",
+              "v": "SUB",
+              "type": "vehicle_access",
+              "via": "road_main"
+            },
+            {
+              "u": "GATE",
+              "v": "DH_P1",
+              "type": "vehicle_access",
+              "via": "road_main"
+            },
+            {
+              "u": "GATE",
+              "v": "DH_P2_A",
+              "type": "vehicle_access",
+              "via": "road_main"
+            },
+            {
+              "u": "GATE",
+              "v": "DH_P2_B",
+              "type": "vehicle_access",
+              "via": "road_main"
+            },
+            {
+              "u": "utility_entry",
+              "v": "SUB",
+              "type": "utility_feed",
+              "via": "mv_util_sub"
+            },
+            {
+              "u": "SUB",
+              "v": "DH_P1",
+              "type": "power_feed",
+              "via": "mv_sub_dh1"
+            },
+            {
+              "u": "SUB",
+              "v": "DH_P2_A",
+              "type": "power_feed",
+              "via": "mv_sub_dh2a"
+            },
+            {
+              "u": "SUB",
+              "v": "DH_P2_B",
+              "type": "power_feed",
+              "via": "mv_sub_dh2b"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "input_sha256": "47ca4deb932a1a9e952fb9b276cf5846b694645de629425edd16972abbe91141",
+  "corrected_sha256": "0e6330c4a058fffdd45f5e9bb75277fa11af300ba5123fa921b6c3d0bb334022",
+  "ifcopenshell": "0.9.0.post1"
+}
