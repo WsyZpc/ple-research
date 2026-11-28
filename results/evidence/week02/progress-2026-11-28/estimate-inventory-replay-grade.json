@@ -1,0 +1,124 @@
+{
+  "run": "grade-estimate-9n9E1JcI",
+  "task_id": "engineers-estimate-check",
+  "weighted_points": 25,
+  "possible_weighted_points": 46,
+  "reward": 0.5434782608695652,
+  "judge_model": "qwen3.5-plus",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "criteria": [
+    {
+      "index": 0,
+      "score": 0,
+      "passed": false,
+      "evidence": "None found in text.",
+      "reason": "The memorandum does not contain the revised rounded bond figure of $5,384,000. The text ends with a signature line without stating the bond amount.",
+      "weight": 10,
+      "credited_fraction": 0
+    },
+    {
+      "index": 1,
+      "score": 0,
+      "passed": false,
+      "evidence": "None found in text.",
+      "reason": "The memorandum does not state the corrected Section 2 subtotal of $1,303,717.70. Individual line items are listed but no subtotal is provided.",
+      "weight": 10,
+      "credited_fraction": 0
+    },
+    {
+      "index": 2,
+      "score": 1,
+      "passed": true,
+      "evidence": "2.35 → 2.36 ... 14 → 10 EA",
+      "reason": "The table explicitly lists the quantity for schedule item 2.36 as 10 EA.",
+      "weight": 10,
+      "credited_fraction": 1
+    },
+    {
+      "index": 3,
+      "score": 1,
+      "passed": true,
+      "evidence": "new:obj_f832a61a9f839768596b → 2.38 ... 0 → 15083.70",
+      "reason": "The table explicitly lists the amount for schedule item 2.38 as 15083.70.",
+      "weight": 10,
+      "credited_fraction": 1
+    },
+    {
+      "index": 4,
+      "score": 1,
+      "passed": true,
+      "evidence": "new:obj_57350e96cc689f3cf352 → 2.03 ... 0 → 13800.00",
+      "reason": "The table explicitly lists the amount for schedule item 2.03 as 13800.00.",
+      "weight": 1,
+      "credited_fraction": 1
+    },
+    {
+      "index": 5,
+      "score": 1,
+      "passed": true,
+      "evidence": "2.30 → unmatched ... 58200 → 58200 ... retain the amount already carried.",
+      "reason": "The table shows the amount 58200 retained for item 2.30 with notation to retain the carried amount.",
+      "weight": 1,
+      "credited_fraction": 1
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "To: Callaway Land Partners",
+      "reason": "The memo header identifies Callaway Land Partners as the recipient.",
+      "weight": 1,
+      "credited_fraction": 1
+    },
+    {
+      "index": 7,
+      "score": 1,
+      "passed": true,
+      "evidence": "Estimate → schedule ... Evidence and disposition ... Design-Drafting/Phase 3/DSR_Ph3_Improvement_Plans_C1-C9.pdf C-8",
+      "reason": "The memo contains a table listing changed items with their plan sheet sources.",
+      "weight": 1,
+      "credited_fraction": 1
+    },
+    {
+      "index": 8,
+      "score": 1,
+      "passed": true,
+      "evidence": "Date: 10/31/2026",
+      "reason": "The memo header includes the required date.",
+      "weight": 1,
+      "credited_fraction": 1
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Access Ramp: The basin maintenance access ramp has no matching item in the published schedule. C-9 calls for aggregate base over compacted subgrade.",
+      "reason": "The memo identifies C-9 as the source for the access ramp detail but does not explicitly state it is shown on Sheet C-6 as required by the criterion.",
+      "weight": 1,
+      "credited_fraction": 0
+    }
+  ],
+  "artifact": {
+    "file": "estimate-inventory-replay.docx",
+    "sha256": "d4e9d733ded9f93d032a9aaa0d88746f9ca6ddaea9d1568f093f35879eeabce0"
+  },
+  "flow_replay": {
+    "trace_id": "10b5435e-b755-4f5a-ae07-9d05e2db9518",
+    "route_status": "EVIDENCE_HOLD",
+    "schema_ok": true,
+    "inventory_objects": 22,
+    "mapping_calls": 2,
+    "verified_rows": 16,
+    "retry_count": 1,
+    "unresolved_rows": {
+      "new:obs_storm_drain_bedding_c8": "new priced item requires a measurement",
+      "new:obs_795817d1fc548a12b604": "new row must be keyed by its plan observation",
+      "new:obj_fa426d429e6507cc6637": "new priced item requires a measurement",
+      "2.45": "plan observation assigned to multiple ledger rows",
+      "new:obs_basin_excavation_c6": "new priced item requires a measurement",
+      "2.44": "plan observation assigned to multiple ledger rows",
+      "2.99": "missing price schedule item",
+      "2.42": "unknown observation"
+    }
+  }
+}
