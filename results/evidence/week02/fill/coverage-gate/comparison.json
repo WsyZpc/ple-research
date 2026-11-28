@@ -8,18 +8,20 @@
   "word_sha256": "2e5552be8db098523d227c4081218fd00cbd7ed53cac5660117067160713452f",
   "engineering_retries": 1,
   "route_status": "EVIDENCE_HOLD",
-  "score": "15/108 → 24/108，覆盖门禁版首次裁判超时，暂无新分",
+  "score": "15/108 → 24/108 → 78/108",
   "targets": {
     "P04": {
       "previous": "11/31",
-      "current": null,
+      "current": "31/31",
       "remaining": {}
     },
     "P05": {
       "previous": "9/9",
-      "current": null,
+      "current": "9/9",
       "remaining": {}
     }
   },
-  "first_judge_attempt": "judge-timeout.json"
+  "first_judge_attempt": "judge-timeout.json",
+  "successful_grade_run": "grade-fill-coverage-tdeb9gP4",
+  "grading_regressions": []
 }

@@ -7,14 +7,39 @@
 | 任务 | 编排与核验结果 | 证据 |
 | --- | --- | --- |
 | LES 网格分辨率（P01–P03） | 参数提取 → 物理复算 → 实体和来源审计 → 覆盖审计 → 门禁 → 有限局部修订或待核交付。真题两轮重试后保持 `EVIDENCE_HOLD`，Word 回读通过。C3 仍为 7.52，回放定位到参数实体或适用范围不匹配。P01、P02 待修复，P03 已保留审查项开放，仍缺 SGS 闭合记录位置。 | [真题黑板](les/run-joro928i/blackboard.json) · [Word](les/run-joro928i/CFDME-2025-041_resolution_note_revA.docx) · [后端单节点回放](les/single-node-live/replay-result.json) · [离线诊断](les/offline-diagnosis.json) · [历史回放评分](les/scoring/grade-les-tsYYxeD9/) |
-| 填土压实验收（P04–P05） | 基线 **15/108**，首轮固定回复回放 **24/108**。覆盖门禁版用同一初稿验证，四个检测点和其他必查项进入局部修订，覆盖清单从 **0/10** 到 **10/10**。新 Word 回读通过，Item 054 保持开放。 | [首轮评分](fill/scoring/grade-fill-compaction-acceptance-1rM5Jqmx/grade.json) · [新版回放和交付物](fill/coverage-gate/) |
+| 填土压实验收（P04–P05） | 本地原评分器复测 **15/108 → 24/108 → 78/108（72.2%）**。新版固定回复回放沿用同一初稿，一次局部修订后覆盖清单 **0/10 → 10/10**。P04 **11/31 → 31/31**，P05 **9/9 → 9/9**，首轮已有得分均保留。Item 054 保持开放。 | [首轮评分](fill/scoring/grade-fill-compaction-acceptance-1rM5Jqmx/grade.json) · [新版逐项评分](fill/coverage-gate/grade.json) · [新版回放和交付物](fill/coverage-gate/) |
 | 景观 L-4 修订（P08） | 核对批准函 Condition 14、HOA 公共区域、图纸数量和听证日历 → 经证据门禁导出备忘录 → 回读。原评分器本地复测 **70/77（90.9%）**，基线 **12/77**。P08 部分修复，**0/20 → 13/20**。图纸 58 株、复算 208 株。书面重大变更判定待取得，暂不承诺 11 月 30 日重提，状态为 `EVIDENCE_HOLD`。 | [评分明细](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json) · [运行结果](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/results.json) · [黑板](landscape/blackboard.json) · [备忘录](landscape/Memo_to_Callaway_L4_Revision.docx) · [版面预览](landscape/render/memo.pdf) |
 
 景观题逐项评分中，Condition 14 引用（#1）得 **5/5**，对本次修订的适用性判断（#2）得 **8/8**。唯一扣分项（#0，**0/7**）是备忘录缺一句直接表明 Condition 14 决定本次 L-4 行道树修订能否进入工作人员层级处置（staff-level action）。[逐项评分](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json)
 
-填土编排在覆盖审计阶段增加了由原始材料定位的必查项。门禁可以把有来源的缺口送回求解节点局部修订。导出后，Word 回读核对 FD-14 至 FD-17 和 RFI 079 的五条已通过覆盖检查的原句。删掉 FD-14 的处置句后，回读测试会报错。两轮均使用固定回复，因此分数用于观察相关能力和交付链路。覆盖门禁版的首次裁判调用在 840 秒后超时，最新可用整题分数仍为首轮回放的 **24/108**。 [同初稿对照](fill/coverage-gate/comparison.json) · [裁判超时](fill/coverage-gate/judge-timeout.json)
+填土题新版比首轮多 **54 分**。四个检测点的验收依据、逐点处置及补试要求贡献 32 分，Item 012 贡献 9 分，施工暂缓与解除条件贡献 7 分，其余报告及规范细节贡献 6 分。仍缺具体规范条款、SF-26-0708 的重新签发要求、连续专项检查的出勤证据等。覆盖门禁版首次裁判调用超时，随后对同一评分包重跑得 78/108。两轮候选均采用固定回复回放。 [同初稿对照](fill/coverage-gate/comparison.json) · [裁判超时](fill/coverage-gate/judge-timeout.json) · [重跑结果](fill/coverage-gate/results.json)
 
 LES 的历史基线为 2/82，审计意见重建的历史回放为 7/82。两次用到的交付材料不同。LES 仍待新版评分。P06、P07、P09、P10 等待本轮复测。
+
+## 填土新版编排可视化
+
+前端首页选择「填土压实验收」可预览本次回放路径。图中的虚线表示其他运行可能走的路径。 [RSI 前端画布截图](fill/coverage-gate/rsi-canvas.png)
+
+```mermaid
+flowchart LR
+    A["读取现场报告、铺填日志与规范"] --> B["工程提取与求解"]
+    B --> C["实体与来源审计"]
+    C --> D["填土必查项覆盖审计<br/>首次 0/10，复审 10/10"]
+    D --> E{"证据完备性门禁"}
+    E -- "缺项有原文依据" --> F["快照与定向补证"]
+    F --> G["局部修订目标结论<br/>本次 1 轮"]
+    G --> H["修订保留性检查"]
+    H --> I["复算并重新审计"]
+    I --> C
+    E -- "仍缺同料源试验" --> J["Item 054 保持开放"]
+    J --> K["按原模板导出 Word"]
+    E -. "通过或到达重试上限" .-> K
+    E -. "通信暂停" .-> N["保存黑板以便恢复"]
+    K --> L["回读四个检测点和 RFI 079 的五条陈述"]
+    L --> M["交付待核验收记录"]
+```
+
+共用的求解、覆盖审计和证据门禁实现增加了 `fill_compaction` 分支，填土 Word 导出器将审计通过的陈述交给通用回读能力。针对同一份 LES 输入的前后对照中，这三个共用能力的输出和模型请求参数一致。
 
 ## 表格与其他证据
 
@@ -22,7 +47,7 @@ LES 的历史基线为 2/82，审计意见重建的历史回放为 7/82。两次
 - [六题基线评分及验证器输出](baseline/)
 - [LES 历史评测目录](les/scoring/) · [填土执行日志](fill/runtime.log) · [填土离线联调样例](fill/fixture/)
 - [节点回放与通信故障证据](节点回放与通信故障证据.csv) · [故障注入、恢复和 Word 回放快照](recovery/)
-- [后端联调截图](setup/work1.png) · [画布初始化截图](setup/work2.png)。两张图记录环境联调。三道真题逐次从画布发起的运行截图待补。
+- [后端联调截图](setup/work1.png) · [画布初始化截图](setup/work2.png)。两张图记录环境联调。[填土画布截图](fill/coverage-gate/rsi-canvas.png)记录已完成回放的路径。
 
 表格证据路径相对于本目录。原始黑板和运行快照内的本机路径保留为运行元数据。可直接从本目录打开相应的交付物和证据。
 
