@@ -1,0 +1,86 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_REVIEW_DOCX",
+  "name": "FLOW_PLE_REVIEW_DOCX",
+  "type": "flow",
+  "title": "审查 Word 交付",
+  "description": "按题面指定的模板或通用布局导出草稿，再回读核验。",
+  "params": [
+    {
+      "title": "blackboard",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "result",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EXPORT",
+      "type": "event",
+      "title": "生成审查 Word",
+      "reference": "FLOW_CODE_PLE_EXPORT_REVIEW_DOCX",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "VERIFY",
+      "type": "flow",
+      "title": "回读本轮交付文件",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_ARTIFACT_REVIEW",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "EXPORT",
+      "condition": "true"
+    },
+    {
+      "source": "EXPORT",
+      "target": "VERIFY",
+      "condition": "true"
+    },
+    {
+      "source": "VERIFY",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

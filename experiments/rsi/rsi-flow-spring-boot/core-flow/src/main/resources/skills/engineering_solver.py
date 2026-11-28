@@ -75,8 +75,6 @@ def local_targets(board):
 
 
 def hold_draft(board):
-    if board.get("fill_compaction") and board["draft_output"].strip():
-        board["fill_candidate_draft"] = board["draft_output"]
     details = []
     for finding in board["missing_evidence"]:
         if isinstance(finding, dict):
@@ -103,8 +101,11 @@ def hold_draft(board):
                 lines.append(f"- {claim['claim_id']} {claim.get('param', '')}: "
                              f"{claim.get('value')} {claim.get('unit', '')} "
                              f"[{claim.get('provenance', '')}]")
-    board["draft_output"] = "\n".join(lines)
-    board.pop("artifact_plan", None)
+    if board.get("checklist_review"):
+        board["hold_output"] = "\n".join(lines)
+    else:
+        board["draft_output"] = "\n".join(lines)
+        board.pop("artifact_plan", None)
     previous = board["trace_metrics"].get(SKILL, {})
     update_metrics(board, SKILL, status="hold_draft", model_called=False,
                    evidence=previous.get("evidence", {}), last_solver_error=previous.get("error", ""))
@@ -126,23 +127,23 @@ def run(board):
             "authoritative_paths": [path for path in board["authority_docs"] if path in docs], "documents": docs,
         }
         prompt = PROMPT
-        if board.get("fill_compaction"):
-            prompt += (" For the supplied materials acceptance template, structure draft_output in numbered "
-                       "sections with these headings: PURPOSE, DOCUMENTS REVIEWED, BASIS OF REVIEW, "
-                       "FINDINGS, CONCLUSION AND RECOMMENDATION. List only documents actually used. "
-                       "In the conclusion state ACCEPTED or REJECTED only when the cited records "
-                       "support that disposition; otherwise state the unresolved prerequisites. "
-                       "Compare the actual placement-log source against the laboratory report's tested material. "
-                       "Keep field percentages separate from validated acceptance limits. If the corresponding "
-                       "laboratory basis is unsupported, report the missing basis and keep Item 054 open. "
-                       "Independently review RFI 079 approval scope and the status of the gradation retest. "
-                       "A closed RFI entry alone does not establish a completed retest. Use the stable claim ID "
-                       "FILL_TEST_BASIS for lab applicability and FILL_RFI_079 for the approval and retest finding. "
-                       "Use the field report, verification register and specification to account for "
-                       "each test separately. Put each FD test's readings, units and disposition on a "
-                       "separate line. Explain the field report's old reference, numerical acceptance "
-                       "rule, exact articles, Item 012 scope, inspection and testing, and prerequisites "
-                       "for releasing the construction hold. Give the supported RFI finding on its own line.")
+        if board.get("checklist_review"):
+            payload["required_checks"] = board["required_checks"]
+            prompt += (
+                " Address every required check in the draft. State the object, relevant evidence,"
+                " determination and any unresolved conditions explicitly. Explain inapplicability"
+                " where supported. Organize the final draft for the requested deliverable, using"
+                " the original template's section headings when the task specifies a template."
+                " Include requested recipient, date and signature fields in the draft."
+            )
+            if board["route_status"] == "RETRY_CONFLICT":
+                feedback = json.loads(board["retry_feedback"])
+                payload.update(previous_draft=board["draft_output"], previous_claims=board["claims"],
+                               repair_requirement_ids=feedback.get("repair_requirement_ids", []))
+                prompt += (
+                    " Revise the named checks using the findings. Return a complete updated"
+                    " draft and claim list, retaining supported unrelated content and open conditions."
+                )
         extended = board.get("entity_review_extensions") is True
         if extended:
             prompt += (" Return physical_checks as a list for every applicable length ratio or binary mesh "
@@ -155,7 +156,7 @@ def run(board):
         if targets:
             payload.update(previous_claims=board["claims"], previous_draft=board["draft_output"],
                            repair_claim_ids=targets)
-            if extended or board.get("fill_compaction"):
+            if extended:
                 payload["retrieved_line_anchors"] = scope.get("targeted_lines", {})
                 payload["previous_physical_checks"] = board.get("physical_checks", [])
                 prompt += " Use the new anchors in documents for targeted repairs. Retain unrelated statements."
@@ -165,11 +166,6 @@ def run(board):
         data, usage = chat_json(prompt, payload)
         metrics.update(usage)
         claims, missing = normalize_claims(data, docs)
-        if board.get("fill_compaction") and not targets and not any(
-                claim["claim_id"] == "FILL_RFI_079" for claim in claims):
-            claims.append(dict(claim_id="FILL_RFI_079", param="RFI 079 stockpile gradation retest",
-                               value=None, unit="1", target_entity="RFI 079", source_entity="RFI 079",
-                               provenance="", regime_or_version=""))
         draft = data.get("draft_output")
         if not isinstance(draft, str) or not draft.strip():
             raise ModelError("draft_output must be nonempty text")

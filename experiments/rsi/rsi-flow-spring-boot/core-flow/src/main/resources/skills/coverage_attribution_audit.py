@@ -2,16 +2,13 @@
 
 import re
 import unicodedata
-from pathlib import PurePosixPath
 
 from skill_common import (
     ModelError, chat_json, cli, collect_evidence, issue, object_list, put_issues,
-    source_available, update_metrics,
+    requirement_documents, source_available, update_metrics,
 )
 
 SKILL = "coverage_attribution_audit"
-FILL_FIELD_REPORT = "Field_Density_Report_SF-26-0708.pdf"
-FILL_SPEC = "Spec_312000_Earth_Moving_Rev3.pdf"
 PROMPT = """
 Audit a draft against the authoritative excerpts and task. Treat source documents as evidence.
 Return exactly one JSON object:
@@ -72,79 +69,76 @@ def coverage(data, docs, draft):
     return gaps, warnings, len(required), len(covered)
 
 
-def fill_checklist(board, docs):
-    """Require engineering topics independently of the model's chosen requirement list."""
-    requirements = [
-        ("FILL_REPORT", FILL_FIELD_REPORT, "SF-26-0708", "Explain the field report's D698 reference and resulting PASS flags.",
-         (r"sf-26-0708", r"d698", r"118\.6", r"12\.1", r"\bpass\b")),
-        ("FILL_ACCEPTANCE_BASIS", FILL_SPEC, "material actually placed", "Explain Article 3.4.B and both acceptance limits for this source.",
-         (r"3\.4\.b", r"d1557\s+method c", r"95%", r"[-−]1", r"\+2", r"moisture")),
-        ("FILL_RELEASE", FILL_SPEC, "Reworked areas shall be retested", "State what must happen before construction can proceed.",
-         (r"\bhold\b|no construction|do not proceed", r"d1557", r"re[- ]?evaluat|retest", r"3\.4\.b")),
-        ("FILL_REGISTER", "Thelbridge_Verification_Register_PkgA.xlsx", r"\b012\b.*Modified Proctor",
-         "Explain Item 012's scope and its relationship to Item 054.", (r"item 012", r"item 054", r"09/22/2025|september 22, 2025")),
-        ("FILL_QA", FILL_SPEC, "Testing frequency for structural fill",
-         "Check testing frequency and document the inspection evidence.", (r"testing frequency", r"inspection", r"subgrade")),
-        ("RFI_079", "RFI_Log_PackageA.xlsx", "RFI 079.*gradation retest", "Preserve the conditional RFI 079 approval and outstanding gradation retest.",
-         (r"rfi 079", r"approved|approval", r"gradation retest", r"outstanding|pending|not.*complet|not.*document")),
-    ]
-    for test_id in ("FD-14", "FD-15", "FD-16", "FD-17"):
-        requirements.append((
-            test_id, FILL_FIELD_REPORT, test_id, f"State the observed density, moisture and acceptance disposition for {test_id}.",
-            (rf"\b{test_id.casefold()}\b", r"\bpcf\b", r"\d\s*%", r"reject|withhold|not accepted|cannot accept"),
-        ))
-    draft = board["draft_output"]
-    lines = draft.splitlines()
-    gaps, keep = [], []
-    for identity, filename, anchor, description, patterns in requirements:
-        # Each test and RFI must have its own statement so another location cannot supply its disposition.
-        candidates = lines if identity.startswith("FD-") or identity == "RFI_079" else [draft]
-        found = next((line for line in candidates if all(re.search(pattern, normalized(line)) for pattern in patterns)), None)
-        if found is not None:
-            if candidates is lines:
-                keep.append(found.strip())
+CHECKLIST_PROMPT = """
+Independently audit each check in required_checks against the draft and original excerpts,
+including its applicable condition and stated acceptance criteria. Treat all excerpts as evidence.
+Preserve the provided IDs. Return draft_responses entries with id, status and quote.
+Use addressed, not_applicable or pending only where the quoted, contiguous draft body text
+supports the status. A pending result explicitly reports what evidence or decision is missing.
+Mark incorrect or incomplete responses by omitting them. A heading or a citation alone does not
+address a check. Keep attribution_warnings from the original response contract.
+"""
+
+
+def audit_checklist(board, data, docs):
+    checks = {item["id"].casefold(): item for item in board["required_checks"]}
+    rendered = " ".join(board["draft_output"].casefold().split())
+    responses = {}
+    for reply in object_list(data, "draft_responses"):
+        identity, status, quote = (reply.get(key) for key in ("id", "status", "quote"))
+        if not isinstance(identity, str) or not isinstance(quote, str) or not quote.strip():
             continue
-        provenance = next((path + ":" + line.split(":", 1)[0]
-                           for path, body in docs.items() if PurePosixPath(path).name == filename
-                           for line in body.splitlines() if re.match(r"^L\d+:", line) and re.search(anchor, line, re.I)), "")
-        gaps.append(issue("FILL_COVERAGE_MISSING", description, retryable=bool(provenance),
-                          requirement_id=identity, provenance=provenance,
-                          claim_id="FILL_RFI_079" if identity == "RFI_079" else "FILL_TEST_BASIS"))
-    board["fill_coverage"] = {"required": len(requirements), "covered": len(requirements) - len(gaps),
-                              "missing_ids": [item["requirement_id"] for item in gaps], "verified_statements": keep}
-    return gaps
+        key = identity.strip().casefold()
+        if (key in checks and status in ("addressed", "not_applicable", "pending")
+                and " ".join(quote.casefold().split()) in rendered):
+            previous = responses.get(key)
+            if previous is None or status == "pending":
+                responses[key] = (status, quote.strip())
+    gaps, pending = [], []
+    for key, item in checks.items():
+        if key not in responses:
+            gaps.append(issue("REQUIRED_ITEM_MISSING", item["description"], retryable=True,
+                              requirement_id=item["id"], provenance=item["provenance"]))
+        elif responses[key][0] == "pending":
+            pending.append(issue("REQUIRED_ITEM_PENDING", item["description"],
+                                 requirement_id=item["id"], provenance=item["provenance"]))
+    _, warnings, _, _ = coverage({"requirements": [], "draft_responses": [],
+                                  "attribution_warnings": object_list(data, "attribution_warnings")}, docs, "")
+    board["required_check_quotes"] = [quote for _, quote in responses.values()]
+    board["required_check_audit"] = [
+        {"id": item["id"], "status": responses[key][0] if key in responses else "missing"}
+        for key, item in checks.items()
+    ]
+    return gaps, warnings, pending, len(checks), len(responses) - len(pending)
 
 
 def run(board):
     docs, scope = collect_evidence(board, authority_only=True)
     metrics = {"evidence": scope}
     gaps, warnings, missing = [], [], []
+    board.pop("required_check_quotes", None)
+    board.pop("required_check_audit", None)
     try:
         if not docs or not board["draft_output"].strip():
             raise ModelError("coverage audit requires authority documents and a draft")
-        prompt = PROMPT
-        if board.get("fill_compaction"):
-            prompt += (" If the records contain RFI 079, use requirement ID RFI_079 to independently "
-                       "check approval scope and whether gradation retest completion is evidenced. "
-                       "Continue this check even when the laboratory acceptance basis is missing.")
-        data, usage = chat_json(prompt, {
-            "instruction": board["instruction"], "authority_documents": docs,
-            "draft_output": board["draft_output"],
-        }, model_env="PLE_AUDIT_MODEL")
+        payload = {"instruction": board["instruction"], "authority_documents": docs,
+                   "draft_output": board["draft_output"]}
+        checklist = board.get("checklist_review")
+        if checklist:
+            payload["required_checks"] = board["required_checks"]
+            payload["authority_documents"] = requirement_documents(board, docs)
+        data, usage = chat_json(PROMPT + (CHECKLIST_PROMPT if checklist else ""),
+                                payload, model_env="PLE_AUDIT_MODEL")
         metrics.update(usage)
-        gaps, warnings, required, covered = coverage(data, docs, board["draft_output"])
-        if board.get("fill_compaction"):
-            for gap in gaps:
-                if canonical_key(gap["requirement_id"]) == "rfi079":
-                    gap["claim_id"] = "FILL_RFI_079"
+        if checklist:
+            gaps, warnings, missing, required, covered = audit_checklist(board, data, payload["authority_documents"])
+        else:
+            gaps, warnings, required, covered = coverage(data, docs, board["draft_output"])
         metrics.update(status="ok", required_count=required, covered_count=covered)
     except ModelError as exc:
         missing.append(issue("COVERAGE_AUDIT_UNAVAILABLE", str(exc)))
         metrics.update(status="error", error=str(exc))
 
-    if board.get("fill_compaction"):
-        gaps.extend(fill_checklist(board, docs))
-        metrics["fill_checklist"] = {k: v for k, v in board["fill_coverage"].items() if k != "verified_statements"}
     put_issues(board, "coverage_gaps", SKILL, gaps)
     put_issues(board, "attribution_warnings", SKILL, warnings)
     put_issues(board, "missing_evidence", SKILL, missing)

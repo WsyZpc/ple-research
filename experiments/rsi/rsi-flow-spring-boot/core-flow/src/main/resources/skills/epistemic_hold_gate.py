@@ -1,7 +1,6 @@
 """Deterministic evidence gate with a single owner for the retry counter."""
 
 import json
-from pathlib import PurePosixPath
 
 from skill_common import cli, issue, update_metrics
 
@@ -23,22 +22,6 @@ def blocking_findings(board):
     return found
 
 
-def fill_repair_targets(board, findings, claim_ids):
-    active = {item["path"] for item in board["file_index"] if isinstance(item, dict)
-              and isinstance(item.get("path"), str) and item.get("status") == "active"}
-    placement_and_lab = any(PurePosixPath(path).name.casefold().startswith("fill_placement_records_blocka_")
-                            for path in active) and any(
-        PurePosixPath(path).name.casefold().startswith("proctor_") for path in active)
-    return sorted({f["claim_id"] for f in findings
-                   if f.get("claim_id") in claim_ids and f.get("retryable") is True
-                   and ((f.get("requirement_id", "").casefold().replace("_", "") == "rfi079"
-                         and f.get("provenance", "").rpartition(":")[0] in active)
-                        or (f.get("code") == "ENTITY_MISMATCH" and f["claim_id"] == "FILL_TEST_BASIS"
-                            and placement_and_lab)
-                        or (f.get("code") in {"INDEPENDENT_SOURCE_CONFLICT", "FILL_COVERAGE_MISSING"}
-                            and f.get("provenance", "").rpartition(":")[0] in active))})
-
-
 def run(board):
     count, maximum = board["retry_count"], board["max_retry"]
     if count < 0 or maximum < 0:
@@ -50,21 +33,22 @@ def run(board):
                  if isinstance(c, dict) and isinstance(c.get("claim_id"), str)}
     local_targets = sorted({item["claim_id"] for item in findings
                             if item.get("retryable") is True and item.get("claim_id") in claim_ids})
+    checklist_ids = {check["id"] for check in board.get("required_checks", [])}
+    check_targets = sorted({item["requirement_id"] for item in findings
+                            if item.get("retryable") is True and item.get("requirement_id") in checklist_ids})
     feedback = {"findings": findings}
     if (board.get("word_retention_requested") and "roundtrip_schema_guard" in board["trace_metrics"]
             and any(f.get("retention_mode") == "artifact" for f in findings)):
         route, reason = "EVIDENCE_HOLD", "DELIVERED_WORD_RETENTION_FAILED"
     elif not findings:
         route, reason = "PASS", "NO_BLOCKERS"
-    elif board.get("fill_compaction"):
-        targets = fill_repair_targets(board, findings, claim_ids)
-        if targets and count < maximum and "roundtrip_schema_guard" not in board["trace_metrics"]:
-            route, reason = "RETRY_CONFLICT", "FILL_ACTIONABLE_EVIDENCE"
-            feedback["repair_claim_ids"] = targets
-            board["retry_count"] = count + 1
-        else:
-            route, reason = "EVIDENCE_HOLD", "FILL_UNRESOLVED_EVIDENCE"
-    elif (holds and local_targets and count < maximum
+    elif board.get("checklist_review") and "roundtrip_schema_guard" in board["trace_metrics"]:
+        route, reason = "EVIDENCE_HOLD", "REVIEW_DELIVERY_HAS_BLOCKERS"
+    elif board.get("checklist_review") and check_targets and count < maximum:
+        route, reason = "RETRY_CONFLICT", "REPAIR_REQUIRED_CHECKS"
+        feedback["repair_requirement_ids"] = check_targets
+        board["retry_count"] = count + 1
+    elif (not board.get("checklist_review") and holds and local_targets and count < maximum
           and "roundtrip_schema_guard" not in board["trace_metrics"]):
         route, reason = "RETRY_CONFLICT", "LOCAL_REPAIR_WITH_HOLD"
         feedback["repair_claim_ids"] = local_targets

@@ -2,6 +2,7 @@ param(
     [string]$TaskRoot = '\\wsl.localhost\Ubuntu\home\wsyzpc1\ple_harness\data\tasks',
     [string]$Uri = 'http://127.0.0.1:18080/api/engine/flow',
     [string]$ExpectedSchema = 'docx',
+    [string]$ChecklistPath,
     [ValidateSet('les-mesh-resolution', 'fill-compaction-acceptance', 'landscape-sheet-revision')]
     [string]$TaskId = 'les-mesh-resolution'
 )
@@ -24,20 +25,33 @@ $task = Join-Path $TaskRoot $TaskId
 $isFill = $TaskId -eq 'fill-compaction-acceptance'
 $isLandscape = $TaskId -eq 'landscape-sheet-revision'
 $materials = if ($isLandscape) { 'environment/filesystem' } else { 'environment/files' }
-$taskDir = if ($isFill) { $TaskId } else { "$TaskId/$materials" }
+$usesChecklist = $isFill -or $isLandscape
+$taskDir = if ($usesChecklist) { $TaskId } else { "$TaskId/$materials" }
 # Windows PowerShell 5.1 attaches provider metadata to strings returned by Get-Content.
 $instruction = [IO.File]::ReadAllText((Join-Path $task 'instruction.md'), [Text.Encoding]::UTF8)
 if ([string]::IsNullOrWhiteSpace($instruction)) { throw "The instruction for $TaskId is empty." }
 if (-not (Test-Path -LiteralPath (Join-Path $task $materials) -PathType Container)) {
     throw "The task materials directory is missing for $TaskId."
 }
-if ($isFill) {
-    $attachments = Join-Path $task 'environment/tools/files/ce01-slab-on-grade-fill-compaction-acceptance-3d2c133e'
-    foreach ($name in 'Fill_Placement_Records_BlockA_SlabOnGrade.xlsx', 'Thelbridge_Materials_Acceptance_Record_TEMPLATE.docx') {
-        if (-not (Test-Path -LiteralPath (Join-Path $attachments $name) -PathType Leaf)) {
-            throw "Missing fill compaction attachment: $name"
-        }
+if ($usesChecklist) {
+    $schema = if ($ExpectedSchema.TrimStart().StartsWith('{')) {
+        ConvertFrom-ReviewJson $ExpectedSchema
+    } else {
+        [pscustomobject]@{ format = $ExpectedSchema }
     }
+    if ($isLandscape -and -not $schema.artifact_filename) {
+        $schema | Add-Member -NotePropertyName artifact_filename -NotePropertyValue 'Memo_to_Callaway_L4_Revision.docx' -Force
+    }
+    if ($ChecklistPath) {
+        $manual = [IO.File]::ReadAllText((Resolve-Path -LiteralPath $ChecklistPath), [Text.Encoding]::UTF8)
+        $checks = (ConvertFrom-ReviewJson $manual).required_checks
+        if (-not $checks) { throw 'Checklist file must contain a nonempty required_checks array.' }
+        $schema | Add-Member -NotePropertyName required_checks -NotePropertyValue @($checks) -Force
+        $schema | Add-Member -NotePropertyName checklist_mode -NotePropertyValue 'manual' -Force
+    }
+    $ExpectedSchema = $schema | ConvertTo-Json -Depth 10 -Compress
+} elseif ($ChecklistPath) {
+    throw '-ChecklistPath is available for fill compaction and landscape review.'
 }
 $request = @{
     flowId = if ($isLandscape) {
@@ -62,9 +76,8 @@ try {
 if ($response -is [string]) { $response = ConvertFrom-ReviewJson $response }
 if (-not $response.data.value.result) { throw 'RSI did not return a flow blackboard.' }
 $board = ConvertFrom-ReviewJson $response.data.value.result
-if (($isFill -and -not $board.fill_compaction) -or
-    ($isLandscape -and -not $board.trace_metrics.landscape_review) -or
-    (-not $isFill -and -not $isLandscape -and -not $board.entity_review_extensions)) {
+if (($usesChecklist -and -not $board.checklist_review) -or
+    (-not $usesChecklist -and -not $board.entity_review_extensions)) {
     throw 'The backend responded with the previous flow. Rebuild and restart AppTestStarter Windows.'
 }
 $board

@@ -1,0 +1,54 @@
+{
+  "trace_id": "4e1f0fa4-eba7-438b-9c3f-890c67adc26b",
+  "task_dir": "fill-compaction-acceptance",
+  "route_status": "EVIDENCE_HOLD",
+  "retry_count": 0,
+  "checklist_mode": "auto",
+  "checks_ready": false,
+  "required_checks": [],
+  "missing_evidence": [
+    {
+      "retryable": false,
+      "source_skill": "requirement_extraction",
+      "code": "REQUIREMENT_EXTRACTION_FAILED",
+      "blocking": true,
+      "message": "required check CHK-054-02 has no readable source line range"
+    }
+  ],
+  "coverage_gaps": [],
+  "schema_ok": true,
+  "schema_error": "",
+  "artifact_path": "",
+  "schema_checked": false,
+  "trace_metrics": {
+    "requirement_extraction": {
+      "completion_tokens": 6575,
+      "content_chars": 10974,
+      "cumulative_tokens": 61416,
+      "error": "required check CHK-054-02 has no readable source line range",
+      "latency_ms": 85513,
+      "mode": "auto",
+      "finish_reason": "stop",
+      "prompt_tokens": 54841,
+      "calls": 1,
+      "total_tokens": 61416,
+      "model": "qwen3.5-plus",
+      "status": "error"
+    }
+  },
+  "events": [
+    {
+      "node": "workspace_recon",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 1438
+    },
+    {
+      "node": "requirement_extraction",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 90364
+    }
+  ],
+  "node_elapsed_ms": 91802
+}

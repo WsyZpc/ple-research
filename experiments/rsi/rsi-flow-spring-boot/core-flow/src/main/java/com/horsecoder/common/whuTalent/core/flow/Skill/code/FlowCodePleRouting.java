@@ -26,18 +26,18 @@ public class FlowCodePleRouting {
         board.put("max_retry", 2);
         if (extended) board.put("trace_id", java.util.UUID.randomUUID().toString());
         board.put("retry_count", 0);
-        if (extended && "fill-compaction-acceptance".equals(taskDir)) {
-            board.put("fill_compaction", true);
-            board.put("max_retry", 1);
-        }
-        if (extended && (taskDir.equals("les-mesh-resolution")
+        JSONObject spec = expectedSchema.trim().startsWith("{") ? JSONObject.parseObject(expectedSchema) : new JSONObject();
+        String task = taskDir.replace('\\', '/').split("/", 2)[0];
+        boolean checklist = extended && (spec.containsKey("checklist_mode")
+                || "fill-compaction-acceptance".equals(task) || "landscape-sheet-revision".equals(task));
+        if (checklist) {
+            board.put("checklist_review", true);
+            board.put("review_entry", "CHECKS");
+        } else if (extended && (taskDir.equals("les-mesh-resolution")
                 || taskDir.equals("les-mesh-resolution/environment/files"))) {
             board.put("entity_review_extensions", true);
-            if (expectedSchema.trim().startsWith("{")) {
-                JSONObject spec = JSONObject.parseObject(expectedSchema);
-                if (spec.containsKey("retention_required_text")) {
-                    board.put("retention_required_text", spec.get("retention_required_text"));
-                }
+            if (spec.containsKey("retention_required_text")) {
+                board.put("retention_required_text", spec.get("retention_required_text"));
             }
         }
         FlowEngine.instance().register("blackboard", board.toJSONString());
@@ -47,7 +47,7 @@ public class FlowCodePleRouting {
     public void prepareRepair(String blackboard) {
         JSONObject board = JSONObject.parseObject(blackboard);
         JSONObject feedback = board.getJSONObject("retry_feedback");
-        boolean supportsLocal = board.getBooleanValue("entity_review_extensions") || board.getBooleanValue("fill_compaction");
+        boolean supportsLocal = board.getBooleanValue("entity_review_extensions");
         boolean local = supportsLocal && feedback != null
                 && feedback.getJSONArray("repair_claim_ids") != null && !feedback.getJSONArray("repair_claim_ids").isEmpty();
         board.put("solver_entry", local ? "REPAIR" : "SOLVE");
@@ -80,10 +80,10 @@ public class FlowCodePleRouting {
         String dir = board.getString("task_dir").replace('\\', '/');
         boolean les = dir.equals("les-mesh-resolution") || dir.equals("les-mesh-resolution/environment/files");
         String delivery = "none";
-        if (les) {
+        if (board.getBooleanValue("checklist_review")) {
+            delivery = "review_docx";
+        } else if (les) {
             delivery = "les_docx";
-        } else if ("fill-compaction-acceptance".equals(dir) && board.getBooleanValue("fill_compaction")) {
-            delivery = "fill_docx";
         }
         FlowEngine.instance().register("delivery", delivery)
                 .register("blackboard", result).register("result", result);
@@ -105,9 +105,16 @@ public class FlowCodePleRouting {
         String entry = board.getString("review_entry");
         board.remove("review_entry");
         if (entry == null) entry = "SOLVE";
-        if (!java.util.Arrays.asList("SOLVE", "REPAIR", "AUDIT_1", "AUDIT_2").contains(entry))
+        if (!java.util.Arrays.asList("CHECKS", "SOLVE", "REPAIR", "AUDIT_1", "AUDIT_2").contains(entry))
             throw new IllegalArgumentException("Unsupported review entry: " + entry);
         FlowEngine.instance().register("entry", entry).register("blackboard", board.toJSONString());
+    }
+
+    @Flow("FLOW_CODE_PLE_CHECKLIST_STATUS")
+    public void checklistStatus(String blackboard) {
+        JSONObject board = JSONObject.parseObject(blackboard);
+        FlowEngine.instance().register("checks_status", board.getBooleanValue("checks_ready") ? "ready" : "stop")
+                .register("blackboard", blackboard).register("result", blackboard);
     }
 
     @Flow("FLOW_CODE_PLE_FINISH_TRACE")

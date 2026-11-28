@@ -3,9 +3,9 @@
 
 ## 第二周｜RSI 人工编排
 
-对 LES 网格分辨率、填土压实验收和景观 L-4 修订进行了编排尝试，涉及十条问题中的 P01–P05、P08。景观题用原评分器本地复测，从基线 **12/77** 提升至 **70/77（90.9%）**，P08 从 **0/20** 提升至 **13/20**。填土题的固定回复回放从 **24/108** 提升至 **78/108**，P04 和 P05 的评分项均通过。[新版填土画布](results/evidence/week02/fill/coverage-gate/rsi-canvas.png)
+对 LES 网格分辨率、填土压实验收和景观 L-4 修订进行了编排尝试，涉及十条问题中的 P01–P05、P08。景观题本地评分为基线 **12/77**、历史人工专用版 **70/77**、通用自动清单版 **65/77（84.4%）**。P08 分别为 **0/20、13/20、20/20**。填土题的历史固定回复回放从 **24/108** 提升至 **78/108**，通用自动版尚未取得实测分数。[原子能力对照与运行证据](results/evidence/week02/checklist-extraction/README.md) · [历史填土画布](results/evidence/week02/fill/coverage-gate/rsi-canvas.png)
 
-[本周 README 与证据索引](results/evidence/week02/README.md) · [十条问题 CSV](results/evidence/week02/周任务_10条修复对照.csv) · [十条问题 Excel](results/evidence/week02/周任务_10条修复对照.xlsx) · [RSI 项目源码](experiments/rsi/)
+[本周 README 与证据索引](results/evidence/week02/README.md) · [十条问题 CSV](results/evidence/week02/周任务_10条修复对照.csv) · [必查项提取实验 CSV](results/evidence/week02/必查项提取实验记录.csv) · [十条问题 Excel（评分前快照）](results/evidence/week02/周任务_10条修复对照.xlsx) · [RSI 项目源码](experiments/rsi/)
 
 ## 第一周｜数据集调研与六题基线
 

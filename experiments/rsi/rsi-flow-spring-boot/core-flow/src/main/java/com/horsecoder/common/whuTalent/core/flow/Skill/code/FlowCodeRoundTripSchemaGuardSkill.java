@@ -24,18 +24,18 @@ public class FlowCodeRoundTripSchemaGuardSkill {
         runScript("export_les_docx.py", blackboard, "blackboard");
     }
 
-    @Flow("FLOW_CODE_PLE_EXPORT_FILL_DOCX")
-    public void exportFillDocx(String blackboard) throws IOException, InterruptedException {
-        runScript("export_fill_docx.py", blackboard, "blackboard");
+    @Flow("FLOW_CODE_PLE_EXPORT_REVIEW_DOCX")
+    public void exportReviewDocx(String blackboard) throws IOException, InterruptedException {
+        runScript("export_review_docx.py", blackboard, "blackboard");
     }
 
-    private void runScript(String scriptName, String blackboard, String outputKey) throws IOException, InterruptedException {
+    static void runScript(String scriptName, String blackboard, String outputKey) throws IOException, InterruptedException {
         String name = scriptName.substring(0, scriptName.length() - 3);
         String result = PleSkillTrace.run(name, blackboard, input -> execute(scriptName, input));
         FlowEngine.instance().register(outputKey, result);
     }
 
-    private String execute(String scriptName, String blackboard) throws IOException, InterruptedException {
+    private static String execute(String scriptName, String blackboard) throws IOException, InterruptedException {
         Path work = Files.createTempDirectory("ple-skill-");
         Path script = work.resolve(scriptName);
         Path common = work.resolve("skill_common.py");
@@ -75,8 +75,8 @@ public class FlowCodeRoundTripSchemaGuardSkill {
         }
     }
 
-    private void copyResource(String name, Path target) throws IOException {
-        try (InputStream source = getClass().getResourceAsStream("/skills/" + name)) {
+    private static void copyResource(String name, Path target) throws IOException {
+        try (InputStream source = FlowCodeRoundTripSchemaGuardSkill.class.getResourceAsStream("/skills/" + name)) {
             if (source == null) {
                 throw new IOException("找不到 Python 资源 /skills/" + name);
             }

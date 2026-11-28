@@ -2,6 +2,7 @@ import json
 import os
 import re
 import sys
+from filecmp import cmp
 from pathlib import Path
 
 ARCHIVE_DIRS = {"archive", "archived", "superseded", "obsolete", "归档", "旧版"}
@@ -48,20 +49,20 @@ def resolve_workspace(blackboard):
 
 def scan_workspace(blackboard):
     workspace = resolve_workspace(blackboard)
-    fill = blackboard.get("fill_compaction") is True
-    attached = workspace / "environment/tools/files/ce01-slab-on-grade-fill-compaction-acceptance-3d2c133e"
-    roots = (workspace / "environment/files", attached) if fill else (workspace,)
-    if fill:
-        for root in roots:
-            if not root.is_dir() or root.resolve() != root:
-                raise WorkspaceInputError("缺少填土题项目材料或附件目录。")
+    roots = ()
+    if blackboard.get("checklist_review"):
+        roots = tuple(path for path in (
+            workspace / "environment/files", workspace / "environment/filesystem",
+            workspace / "environment/tools/files",
+        ) if path.is_dir() and path.resolve() == path)
+    roots = roots or (workspace,)
 
     rows = []
     revisions = []
     latest = {}
 
-    walks = (entry for root in roots for entry in os.walk(root, followlinks=False))
-    for folder, subdirs, files in walks:
+    walks = ((root, entry) for root in roots for entry in os.walk(root, followlinks=False))
+    for root, (folder, subdirs, files) in walks:
         parent = Path(folder)
         subdirs[:] = sorted(
             name for name in subdirs
@@ -71,12 +72,13 @@ def scan_workspace(blackboard):
 
         for name in sorted(files):
             path = parent / name
-            if fill and path.is_relative_to(attached) and name not in {
-                    "Fill_Placement_Records_BlockA_SlabOnGrade.xlsx",
-                    "Thelbridge_Materials_Acceptance_Record_TEMPLATE.docx"}:
-                continue
             if path.is_symlink() or path.resolve() != path or not path.is_file():
                 continue
+            inside_root = path.relative_to(root)
+            if blackboard.get("checklist_review") and inside_root.parts[0] == root.name and len(inside_root.parts) > 1:
+                counterpart = root.joinpath(*inside_root.parts[1:])
+                if counterpart.is_file() and counterpart.resolve() == counterpart and cmp(path, counterpart, shallow=False):
+                    continue
 
             relative = path.relative_to(workspace)
             archived = any(part.casefold() in ARCHIVE_DIRS for part in relative.parts[:-1])

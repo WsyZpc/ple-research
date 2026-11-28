@@ -3,7 +3,7 @@
   "name": "FLOW_PLE_LANDSCAPE_REVIEW",
   "type": "flow",
   "title": "景观修订审查",
-  "description": "读取原始图纸和批准函，核对审查前置条件并回读备忘录。",
+  "description": "以统一必查项流程处理景观修订，支持自动清单和人工清单。",
   "params": [
     {
       "title": "task_dir",
@@ -34,10 +34,10 @@
   ],
   "nodes": [
     {
-      "id": "INIT",
-      "type": "event",
-      "title": "建立本次审查黑板",
-      "reference": "FLOW_CODE_PLE_START_REVIEW",
+      "id": "REVIEW",
+      "type": "flow",
+      "title": "执行统一必查项审查",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_ENTITY_REVIEW",
       "params": [
         {
           "title": "task_dir",
@@ -60,116 +60,6 @@
       ],
       "results": [
         {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ]
-    },
-    {
-      "id": "RECON",
-      "type": "flow",
-      "title": "工作区侦察",
-      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_WORKSPACE_RECON",
-      "params": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ],
-      "results": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ]
-    },
-    {
-      "id": "CHECK",
-      "type": "event",
-      "title": "核对景观资料与批准条件",
-      "reference": "FLOW_CODE_PLE_LANDSCAPE_REVIEW",
-      "params": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ],
-      "results": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ]
-    },
-    {
-      "id": "GATE",
-      "type": "flow",
-      "title": "判断重提日期能否承诺",
-      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_EPISTEMIC_HOLD_GATE",
-      "params": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ],
-      "results": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ]
-    },
-    {
-      "id": "EXPORT",
-      "type": "event",
-      "title": "生成签字备忘录",
-      "reference": "FLOW_CODE_PLE_LANDSCAPE_EXPORT",
-      "params": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ],
-      "results": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ]
-    },
-    {
-      "id": "VERIFY",
-      "type": "event",
-      "title": "重开 Word 并检查内容",
-      "reference": "FLOW_CODE_PLE_LANDSCAPE_VERIFY",
-      "params": [
-        {
-          "title": "blackboard",
-          "name": "blackboard",
-          "type": "String",
-          "notnull": true
-        }
-      ],
-      "results": [
-        {
           "title": "result",
           "name": "result",
           "type": "String",
@@ -181,36 +71,11 @@
   "routes": [
     {
       "source": "start",
-      "target": "INIT",
+      "target": "REVIEW",
       "condition": "true"
     },
     {
-      "source": "INIT",
-      "target": "RECON",
-      "condition": "true"
-    },
-    {
-      "source": "RECON",
-      "target": "CHECK",
-      "condition": "true"
-    },
-    {
-      "source": "CHECK",
-      "target": "GATE",
-      "condition": "true"
-    },
-    {
-      "source": "GATE",
-      "target": "EXPORT",
-      "condition": "true"
-    },
-    {
-      "source": "EXPORT",
-      "target": "VERIFY",
-      "condition": "true"
-    },
-    {
-      "source": "VERIFY",
+      "source": "REVIEW",
       "target": "end",
       "condition": "true"
     }

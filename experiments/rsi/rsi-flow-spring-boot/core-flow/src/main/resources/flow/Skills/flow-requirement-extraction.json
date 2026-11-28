@@ -1,0 +1,59 @@
+{
+  "id": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REQUIREMENT_EXTRACTION",
+  "name": "FLOW_REQUIREMENT_EXTRACTION",
+  "type": "flow",
+  "title": "必查项提取",
+  "description": "按题面和原始证据生成带出处的必查项，或验证同格式的人工清单。",
+  "params": [
+    {
+      "title": "证据黑板",
+      "name": "blackboard",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "results": [
+    {
+      "title": "更新后的证据黑板",
+      "name": "result",
+      "type": "String",
+      "notnull": true
+    }
+  ],
+  "nodes": [
+    {
+      "id": "EXTRACT",
+      "type": "event",
+      "title": "生成或验证必查项",
+      "reference": "FLOW_CODE_REQUIREMENT_EXTRACTION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    }
+  ],
+  "routes": [
+    {
+      "source": "start",
+      "target": "EXTRACT",
+      "condition": "true"
+    },
+    {
+      "source": "EXTRACT",
+      "target": "end",
+      "condition": "true"
+    }
+  ]
+}

@@ -50,6 +50,62 @@
       ]
     },
     {
+      "id": "CHECKS",
+      "type": "flow",
+      "title": "读原始材料并建立必查项",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_REQUIREMENT_EXTRACTION",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
+      "id": "CHECK_STATUS",
+      "type": "event",
+      "title": "检查清单能否交给求解器",
+      "reference": "FLOW_CODE_PLE_CHECKLIST_STATUS",
+      "params": [
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        }
+      ],
+      "results": [
+        {
+          "title": "checks_status",
+          "name": "checks_status",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "blackboard",
+          "name": "blackboard",
+          "type": "String",
+          "notnull": true
+        },
+        {
+          "title": "result",
+          "name": "result",
+          "type": "String",
+          "notnull": true
+        }
+      ]
+    },
+    {
       "id": "SOLVE",
       "type": "flow",
       "title": "工程提取与求解",
@@ -426,10 +482,10 @@
       ]
     },
     {
-      "id": "DELIVER_FILL",
+      "id": "DELIVER_REVIEW",
       "type": "flow",
-      "title": "交付填土压实验收记录",
-      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_FILL_DELIVERY",
+      "title": "导出审查 Word 并回读",
+      "reference": "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_PLE_REVIEW_DOCX",
       "params": [
         {
           "title": "blackboard",
@@ -453,6 +509,26 @@
       "source": "start",
       "target": "ENTRY",
       "condition": "true"
+    },
+    {
+      "source": "ENTRY",
+      "target": "CHECKS",
+      "condition": "entry == 'CHECKS'"
+    },
+    {
+      "source": "CHECKS",
+      "target": "CHECK_STATUS",
+      "condition": "true"
+    },
+    {
+      "source": "CHECK_STATUS",
+      "target": "SOLVE",
+      "condition": "checks_status == 'ready'"
+    },
+    {
+      "source": "CHECK_STATUS",
+      "target": "FINISH",
+      "condition": "checks_status == 'stop'"
     },
     {
       "source": "ENTRY",
@@ -581,11 +657,11 @@
     },
     {
       "source": "SELECT_DELIVERY",
-      "target": "DELIVER_FILL",
-      "condition": "delivery == 'fill_docx'"
+      "target": "DELIVER_REVIEW",
+      "condition": "delivery == 'review_docx'"
     },
     {
-      "source": "DELIVER_FILL",
+      "source": "DELIVER_REVIEW",
       "target": "FINISH",
       "condition": "true"
     }

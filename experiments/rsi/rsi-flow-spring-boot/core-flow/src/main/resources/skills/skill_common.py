@@ -126,7 +126,8 @@ def artifact_location(board, value, *, must_exist):
     if not configured and Path(value).is_absolute():
         exported = Path(value).resolve(strict=must_exist)
         task = Path(board["task_dir"].replace("\\", "/")).parts
-        if (task and task[0] in {"les-mesh-resolution", "fill-compaction-acceptance"}
+        if (task and (task[0] == "les-mesh-resolution" or board.get("checklist_review"))
+                and task[0] not in {".", "..", "/"}
                 and exported.is_relative_to(submission_root() / task[0])):
             return exported
     root = Path(configured).resolve(strict=True) if configured else task_workspace(board)
@@ -197,14 +198,21 @@ def search_terms(text):
     return words
 
 
-def relevant_excerpt(body, budget, query):
+def relevant_excerpt(body, budget, query, *, requirements=False):
     if len(body) <= budget:
         return body
     lines = body.splitlines()
     # Preserve source line numbers. Keep the opening definitions, then rank small
     # passages rather than spending the whole budget on front matter.
     chunks = ["\n".join(lines[i:i + 5]) for i in range(0, len(lines), 5)]
-    order = sorted(range(len(chunks)), key=lambda i: (i != 0, -len(search_terms(chunks[i]) & query), i))
+    scores = [len(search_terms(chunk) & query) for chunk in chunks]
+    if requirements:
+        required_terms = re.compile(r"\b(?:shall|must|required|prior to|subject to|no later than)\b", re.I)
+        scores = [
+            2 * score + max(scores[max(0, i - 1):i + 2]) + min(3, len(required_terms.findall(chunks[i])))
+            for i, score in enumerate(scores)
+        ]
+    order = sorted(range(len(chunks)), key=lambda i: (i != 0, -scores[i], i))
     picked = {}
     for i in order:
         chunk = chunks[i]
@@ -217,11 +225,11 @@ def relevant_excerpt(body, budget, query):
     return "\n".join(picked[i] for i in sorted(picked))
 
 
-def add_retrieved_lines(documents, workspace, hits, eligible):
+def add_retrieved_lines(documents, workspace, hits, eligible, *, limit=12):
     # Reopen original files: all consumers validate the same numbered lines,
     # even if the normal first-pass excerpts omitted them.
     spans = {}
-    for candidates in list(hits.values())[:12]:
+    for candidates in list(hits.values())[:limit]:
         for hit in candidates[:3]:
             name, first, last = hit["path"], hit["start_line"], hit["end_line"]
             if (name in eligible and type(first) is int and type(last) is int
@@ -252,13 +260,31 @@ def add_retrieved_lines(documents, workspace, hits, eligible):
     return added, errors
 
 
-FILL_SOURCE_PREFIXES = (
-    "fill_placement_records_blocka_", "field_density_report_sf-26-0708",
-    "proctor_", "spec_312000_", "rfi_log_", "thelbridge_verification_register_",
-)
+def requirement_documents(board, documents):
+    instruction = "\n".join(f"L{i}: {line}" for i, line in enumerate(board["instruction"].splitlines(), 1))
+    return {**documents, "@instruction": instruction}
 
 
-def collect_evidence(board, *, authority_only):
+def add_required_lines(documents, workspace, checks, eligible):
+    """Make the source ranges supplied by the checklist available to downstream nodes."""
+    hits = {}
+    for check in checks[:80]:
+        reference = check.get("provenance") if isinstance(check, dict) else None
+        if not isinstance(reference, str):
+            continue
+        name, _, anchor = reference.strip().replace("\\", "/").rpartition(":")
+        match = ANCHOR.fullmatch(anchor)
+        if name not in eligible or not match or source_available(reference, documents):
+            continue
+        start, end = int(match[1]), int(match[2] or match[1])
+        if 1 <= start <= end <= 6000 and end - start < 12:
+            for number in range(start, end + 1, 4):
+                hits[(name, number)] = [{"path": name, "start_line": number,
+                                         "end_line": min(number + 3, end)}]
+    return add_retrieved_lines(documents, workspace, hits, eligible, limit=240)
+
+
+def collect_evidence(board, *, authority_only, required_checks=None):
     workspace = task_workspace(board)
     active = {}
     for entry in board["file_index"]:
@@ -268,9 +294,6 @@ def collect_evidence(board, *, authority_only):
         if isinstance(name, str):
             active[name] = None
     authority = {p for p in board["authority_docs"] if isinstance(p, str)}
-    fill = board.get("fill_compaction")
-    preferred = {name for name in active if fill and Path(name).name.casefold().startswith(FILL_SOURCE_PREFIXES)}
-    authority.update(preferred)
     # After a solve, audit exactly the source set the solver actually received.
     prior = board["trace_metrics"].get("engineering_solver", {}).get("evidence", {})
     replay = authority_only and isinstance(prior.get("read_paths"), list)
@@ -281,8 +304,6 @@ def collect_evidence(board, *, authority_only):
     else:
         names = list(dict.fromkeys([*active, *sorted(authority)]))
     query = search_terms(board["instruction"] + " " + board["task_dir"])
-    if fill:
-        query.update(search_terms("RFI 079 gradation retest stockpile north Block C Larchwood D1557 Method C"))
     # Link engineering vocabulary in a question to the labels used by primary records.
     concepts = (
         ({"mesh", "plume", "网格", "羽流"}, {"mesh", "grid", "refinement", "logs", "verification"}),
@@ -293,6 +314,24 @@ def collect_evidence(board, *, authority_only):
     for triggers, synonyms in concepts:
         if query & triggers:
             query.update(synonyms)
+    if board.get("checklist_review"):
+        review_terms = (
+            ({"revision", "resubmittal", "approval"}, {"approval", "condition", "conditions", "approved", "review",
+             "hearing", "calendar", "deadline", "determination", "association", "common", "ownership",
+             "significant", "design", "staff", "commission"}),
+            ({"compaction", "density", "proctor"}, {"gradation", "placement", "retest", "subgrade",
+             "inspection", "stockpile", "specification", "register"}),
+        )
+        for triggers, terms in review_terms:
+            if query & triggers:
+                query.update(terms)
+
+    def path_priority(name):
+        if not board.get("checklist_review"):
+            return 0
+        if Path(name).name.casefold() in board["instruction"].casefold():
+            return 0
+        return 1 if name in authority else 2
 
     def administrative_only(name):
         parts = {part.casefold() for part in Path(name).parts}
@@ -304,7 +343,7 @@ def collect_evidence(board, *, authority_only):
         path = Path(name)
         return 8 * len(query & search_terms(path.stem)) + len(query & search_terms(str(path.parent)))
     if not replay:
-        names.sort(key=lambda n: (n not in preferred, administrative_only(n), -path_score(n), n not in authority, n))
+        names.sort(key=lambda n: (administrative_only(n), path_priority(n), -path_score(n), n not in authority, n))
     samples, errors = {}, []
     # Bound the discovery pass separately from the model's context budget.
     for name in names[:MAX_FILES * 4]:
@@ -336,27 +375,35 @@ def collect_evidence(board, *, authority_only):
                    for term in query}
         def relevance(name):
             return path_score(name) + sum(weights[t] for t in sorted(samples[name][2])) / math.log2(2 + len(samples[name][0]) / 1000)
-        order.sort(key=lambda n: (n not in preferred, administrative_only(n), -relevance(n), n not in authority, n))
+        order.sort(key=lambda n: (administrative_only(n), path_priority(n), -relevance(n), n not in authority, n))
     documents, truncated = {}, []
     remaining = MAX_EVIDENCE_CHARS
     selected = order[:MAX_FILES]
     # Reserve space for each selected record. Short records return their unused quota.
     quota = {}
-    for i, name in enumerate(sorted(selected, key=lambda n: len(samples[n][0]))):
-        quota[name] = min(len(samples[name][0]), remaining // (len(selected) - i) - 1)
+    weights = {name: 2 if board.get("checklist_review") and path_priority(name) < 2 else 1 for name in selected}
+    remaining_weight = sum(weights.values())
+    for name in sorted(selected, key=lambda n: len(samples[n][0]) / weights[n]):
+        quota[name] = min(len(samples[name][0]), remaining * weights[name] // remaining_weight - 1)
         remaining -= quota[name] + 1
+        remaining_weight -= weights[name]
     for name in selected:
         body, limited, _ = samples[name]
-        excerpt = relevant_excerpt(body, quota[name], query)
+        excerpt = relevant_excerpt(body, quota[name], query, requirements=board.get("checklist_review") is True)
         if limited or len(excerpt) < len(body):
             truncated.append(name)
         documents[name] = excerpt
     added = {}
-    if (board.get("entity_review_extensions") or fill) and board.get("targeted_evidence"):
+    if board.get("entity_review_extensions") and board.get("targeted_evidence"):
         excluded = {e.get("path") for e in board["file_index"] if isinstance(e, dict)
                     and e.get("status") in {"archived", "superseded"}}
         added, lookup_errors = add_retrieved_lines(documents, workspace, board["targeted_evidence"],
                                                  (set(active) | authority) - excluded)
+        errors.extend(lookup_errors)
+    checks = board.get("required_checks", []) if required_checks is None else required_checks
+    if checks:
+        required_lines, lookup_errors = add_required_lines(documents, workspace, checks, set(active))
+        added.update(required_lines)
         errors.extend(lookup_errors)
     return documents, {
         "targeted_lines": added,
@@ -384,7 +431,7 @@ def source_available(reference, documents):
     return anchor.casefold() in documents[path].casefold()
 
 
-def chat_json(system, data, *, model_env="PLE_LLM_MODEL"):
+def chat_json(system, data, *, model_env="PLE_LLM_MODEL", timeout_seconds=None):
     started = time.monotonic()
     base = os.environ.get("PLE_LLM_BASE_URL") or os.environ.get("OPENAI_BASE_URL")
     key = (os.environ.get("PLE_LLM_API_KEY") or os.environ.get("DASHSCOPE_API_KEY")
@@ -410,6 +457,8 @@ def chat_json(system, data, *, model_env="PLE_LLM_MODEL"):
     )
     try:
         timeout = float(os.environ.get("PLE_LLM_TIMEOUT_SECONDS", "90"))
+        if timeout_seconds is not None:
+            timeout = min(timeout, timeout_seconds)
         with urlopen(request, timeout=timeout) as response:
             raw = json.load(response)
         choices = raw.get("choices") if isinstance(raw, dict) else None

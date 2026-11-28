@@ -10,13 +10,19 @@
 | 填土压实验收（P04–P05） | 本地原评分器复测 **15/108 → 24/108 → 78/108（72.2%）**。新版固定回复回放沿用同一初稿，一次局部修订后覆盖清单 **0/10 → 10/10**。P04 **11/31 → 31/31**，P05 **9/9 → 9/9**，首轮已有得分均保留。Item 054 保持开放。 | [首轮评分](fill/scoring/grade-fill-compaction-acceptance-1rM5Jqmx/grade.json) · [新版逐项评分](fill/coverage-gate/grade.json) · [新版回放和交付物](fill/coverage-gate/) |
 | 景观 L-4 修订（P08） | 核对批准函 Condition 14、HOA 公共区域、图纸数量和听证日历 → 经证据门禁导出备忘录 → 回读。原评分器本地复测 **70/77（90.9%）**，基线 **12/77**。P08 部分修复，**0/20 → 13/20**。图纸 58 株、复算 208 株。书面重大变更判定待取得，暂不承诺 11 月 30 日重提，状态为 `EVIDENCE_HOLD`。 | [评分明细](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json) · [运行结果](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/results.json) · [黑板](landscape/blackboard.json) · [备忘录](landscape/Memo_to_Callaway_L4_Revision.docx) · [版面预览](landscape/render/memo.pdf) |
 
-景观题逐项评分中，Condition 14 引用（#1）得 **5/5**，对本次修订的适用性判断（#2）得 **8/8**。唯一扣分项（#0，**0/7**）是备忘录缺一句直接表明 Condition 14 决定本次 L-4 行道树修订能否进入工作人员层级处置（staff-level action）。[逐项评分](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json)
+景观历史人工专用版的 Condition 14 引用（#1）得 **5/5**，适用性判断（#2）得 **8/8**。其唯一扣分项（#0，**0/7**）是缺少 Condition 14 对工作人员层级处置的直接约束。[历史人工版逐项评分](landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json)
 
 填土题新版比首轮多 **54 分**。四个检测点的验收依据、逐点处置及补试要求贡献 32 分，Item 012 贡献 9 分，施工暂缓与解除条件贡献 7 分，其余报告及规范细节贡献 6 分。仍缺具体规范条款、SF-26-0708 的重新签发要求、连续专项检查的出勤证据等。覆盖门禁版首次裁判调用超时，随后对同一评分包重跑得 78/108。两轮候选均采用固定回复回放。 [同初稿对照](fill/coverage-gate/comparison.json) · [裁判超时](fill/coverage-gate/judge-timeout.json) · [重跑结果](fill/coverage-gate/results.json)
 
 LES 的历史基线为 2/82，审计意见重建的历史回放为 7/82。两次用到的交付材料不同。LES 仍待新版评分。P06、P07、P09、P10 等待本轮复测。
 
-## 填土新版编排可视化
+## 必查项提取实验
+
+景观通用自动版提取了 **13 条**必查项，Word 回读通过，原评分器本地实测 **65/77**，P08 **20/20**。自动版补回了 Condition 14 约束的 7 分，在 HOA 权属、TAB 已关闭申报窗口和 TAB 建议转交权限上共失 12 分。首次 `HTTP 401` 的评分标记为未测得。 [实验记录](checklist-extraction/README.md) · [逐项评分](checklist-extraction/landscape/grade.json)
+
+填土通用自动版首跑的必查项引用无法核验，未生成 Word。路径规范化、原文回读、一次定向修引用和有效项保留已完成本地模拟验证。实际模型复跑和同流程人工清单对照待完成。[运行记录](checklist-extraction/fill/run.json) · [实验 CSV](必查项提取实验记录.csv)
+
+## 历史填土编排可视化
 
 前端首页选择「填土压实验收」可预览本次回放路径。图中的虚线表示其他运行可能走的路径。 [RSI 前端画布截图](fill/coverage-gate/rsi-canvas.png)
 
@@ -39,7 +45,7 @@ flowchart LR
     L --> M["交付待核验收记录"]
 ```
 
-共用的求解、覆盖审计和证据门禁实现增加了 `fill_compaction` 分支，填土 Word 导出器将审计通过的陈述交给通用回读能力。针对同一份 LES 输入的前后对照中，这三个共用能力的输出和模型请求参数一致。
+图中保留的是提交 `fcb349e` 对应的历史固定回复回放。当前填土和景观的求解与审计读同一格式的必查项清单，共用 Word 导出和回读。针对同一份 LES 测试输入的前后对照中，求解、覆盖审计和证据门禁的输出及模型请求参数一致。
 
 ## 表格与其他证据
 
@@ -47,13 +53,14 @@ flowchart LR
 - [六题基线评分及验证器输出](baseline/)
 - [LES 历史评测目录](les/scoring/) · [填土执行日志](fill/runtime.log) · [填土离线联调样例](fill/fixture/)
 - [节点回放与通信故障证据](节点回放与通信故障证据.csv) · [故障注入、恢复和 Word 回放快照](recovery/)
+- [必查项提取实验 CSV](必查项提取实验记录.csv) · [实验口径、逐项分差与新证据](checklist-extraction/README.md)
 - [后端联调截图](setup/work1.png) · [画布初始化截图](setup/work2.png)。两张图记录环境联调。[填土画布截图](fill/coverage-gate/rsi-canvas.png)记录已完成回放的路径。
 
 表格证据路径相对于本目录。原始黑板和运行快照内的本机路径保留为运行元数据。可直接从本目录打开相应的交付物和证据。
 
 ## 原子能力与代码
 
-共注册九个通用原子能力：工作区侦察、工程提取与求解、实体与来源隔离审计、集合覆盖与归因审校、证据完备性门禁、产物回读、物理派生量复算、定向补证、修订保留性检查。题目专用节点负责 LES Word 导出、填土模板填写和景观资料核对及备忘录生成。
+目前注册十个通用原子能力，包括工作区侦察、必查项提取、工程提取与求解、实体与来源隔离审计、集合覆盖与归因审校、证据完备性门禁、产物回读、物理派生量复算、定向补证和修订保留性检查。填土与景观使用同一套清单接口和 Word 交付节点。[必查项提取注册](../../../experiments/rsi/rsi-flow-spring-boot/core-flow/src/main/resources/flow/Skills/flow-requirement-extraction.json)
 
 - [前端 rsi-flow-platform](../../../experiments/rsi/rsi-flow-platform/)
 - [画布组件 rsi-flow-visual](../../../experiments/rsi/rsi-flow-visual/)
@@ -71,4 +78,6 @@ flowchart LR
 & .\experiments\rsi\run_les_review.ps1 -TaskId landscape-sheet-revision -TaskRoot '<原题目录的父目录>'
 ```
 
-已有黑板可以通过 [replay_review.py](../../../experiments/rsi/replay_review.py) 复算或重新导出。出现 `TRANSPORT_PAUSED` 时，从该次运行的 `final.json` 执行 `resume`。通信重试与工程重试独立记录。景观真题已在 RSI 引擎跑完，最新一次 HTTP 入口重跑返回 700，具体原因待结合后端日志定位。
+填土与景观默认走模型自动提取。人工组传入 `-ChecklistPath '<人工清单.json>'`，文件顶层是 `required_checks` 数组，每项包含 `id`、`description`、`applies_when`、`acceptance` 和 `provenance`。
+
+已有黑板可以通过 [replay_review.py](../../../experiments/rsi/replay_review.py) 回放必查项提取、复算或重新导出。出现 `TRANSPORT_PAUSED` 时，从该次运行的 `final.json` 执行 `resume`。通信重试与工程重试独立记录。

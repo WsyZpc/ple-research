@@ -1,0 +1,40 @@
+{
+  "task_id": "landscape-sheet-revision",
+  "baseline_points": 12,
+  "manual_specialized_points": 70,
+  "automatic_generic_points": 65,
+  "possible_points": 77,
+  "p08_points": {
+    "baseline": 0,
+    "manual_specialized": 13,
+    "automatic_generic": 20,
+    "possible": 20
+  },
+  "changes_against_manual_specialized": [
+    {
+      "index": 0,
+      "check": "Condition 14 适用于 L-4，重大变更先经设计审查再进入工作人员层级处置。",
+      "weight": 7.0,
+      "delta_points": 7.0
+    },
+    {
+      "index": 3,
+      "check": "行道树种植带属于 HOA 所有的公共区域。",
+      "weight": 3.0,
+      "delta_points": -3.0
+    },
+    {
+      "index": 7,
+      "check": "11 月 18 日 TAB 会议的申报窗口已于 10 月 28 日关闭。",
+      "weight": 7.0,
+      "delta_points": -7.0
+    },
+    {
+      "index": 9,
+      "check": "TAB 提出建议并转交规划委员会。",
+      "weight": 2.0,
+      "delta_points": -2.0
+    }
+  ],
+  "controlled_manual_on_generic_workflow": "not_run"
+}

@@ -1,0 +1,9 @@
+{
+  "run": "grade-landscape-auto-uAqV77ZO",
+  "task_id": "landscape-sheet-revision",
+  "artifact": "ok",
+  "measured": false,
+  "display_score": 0.0,
+  "error": "HTTP 401 Invalid token",
+  "same_artifact_sha256": "640748d718a73f1ad262748db9c7ee764b0ec6ac407c367c89d9748437581759"
+}

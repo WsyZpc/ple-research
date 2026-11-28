@@ -1,0 +1,400 @@
+{
+  "trace_id": "65994c04-fecd-4cd8-88e8-35a2e2f8f322",
+  "task_dir": "landscape-sheet-revision",
+  "route_status": "EVIDENCE_HOLD",
+  "retry_count": 0,
+  "checklist_mode": "auto",
+  "checks_ready": true,
+  "required_checks": [
+    {
+      "applies_when": "L-4 landscape sheet resubmittal for Phase 3",
+      "provenance": "environment/filesystem/Correspondence/Agency/CC-PW_1stReview_Comments_10092026.pdf:L73-L76",
+      "acceptance": "Revised planting plan showing 208 trees minimum based on 4,160 linear feet of street frontage at 1 tree per 20 linear feet ratio; linear-foot tabulation by frontage included on cover sheet or dedicated tabulation sheet",
+      "description": "Street tree count verification against Title 30 canopy standard",
+      "id": "CHK-L4-001"
+    },
+    {
+      "applies_when": "L-4 landscape sheet resubmittal for Phase 3",
+      "provenance": "environment/filesystem/Correspondence/Agency/CC-PW_1stReview_Comments_10092026.pdf:L76",
+      "acceptance": "Revised annual irrigation demand worksheet submitted with resubmittal showing water application rates by irrigation method, area by hydrozone, and total annual demand reflecting revised tree count",
+      "description": "Annual irrigation demand worksheet revision",
+      "id": "CHK-L4-002"
+    },
+    {
+      "applies_when": "Phase 3 landscape resubmittal package",
+      "provenance": "environment/filesystem/Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L27",
+      "acceptance": "Sheets L-1, L-2, L-3, and L-4 sealed by landscape architect of record (Bea Cortland, PLA, NV LA #742) at resubmittal",
+      "description": "Landscape architect seal on sheets L-1 through L-4",
+      "id": "CHK-L1-001"
+    },
+    {
+      "applies_when": "L-2 landscape sheet resubmittal for Phase 3",
+      "provenance": "environment/filesystem/Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L28",
+      "acceptance": "Functional turf tabulation provided for Parcel A (Parcel D on civil sheets) per Title 30 sec. 30.64.030(j); conversion plan for nonfunctional turf addressing 12/31/2026 compliance deadline",
+      "description": "Turf classification and functional turf tabulation for Parcel A",
+      "id": "CHK-L2-001"
+    },
+    {
+      "applies_when": "L-1 landscape sheet resubmittal for Phase 3",
+      "provenance": "environment/filesystem/Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L29",
+      "acceptance": "Compliance note on L-1 revised to cite applicable code standard (Title 30 sec. 30.64.030(j)) and address functional turf classification requirements",
+      "description": "Compliance note revision citing Title 30 turf standards",
+      "id": "CHK-L1-002"
+    },
+    {
+      "applies_when": "L-2 streetscape sections resubmittal",
+      "provenance": "environment/filesystem/Correspondence/Agency/CC-PW_1stReview_Comments_10092026.pdf:L77-L79",
+      "acceptance": "Sheet L-2 streetscape sections dimension the setback of planting from face of curb; desert-planting strip dimensioned on each typical section confirming no turf within 10 feet of street or curb per Title 30 sec. 30.64.030(j)",
+      "description": "Streetscape section planting setback dimensions",
+      "id": "CHK-L2-002"
+    },
+    {
+      "applies_when": "Any landscape revision that materially changes approved plan character",
+      "provenance": "environment/filesystem/Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L109-L112",
+      "acceptance": "Written determination from Comprehensive Planning on whether proposed landscape changes trigger Condition 14 design review (public hearing before Town Advisory Board and Planning Commission); red-line comparison of proposed Phase 3 palette against 2022 approved palette provided for evaluation",
+      "description": "Significant change design review determination",
+      "id": "CHK-DESIGN-001"
+    },
+    {
+      "applies_when": "Phase 3 improvement plan submittal",
+      "provenance": "environment/filesystem/Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L59-L60",
+      "acceptance": "Improvement plans prepared and sealed by professional engineer registered in the State of Nevada in accordance with Clark County Uniform Standard Specifications and Drawings for Public Works",
+      "description": "Professional engineer registration verification",
+      "id": "CHK-ENG-001"
+    },
+    {
+      "applies_when": "Landscape plan submittal for Phase 3",
+      "provenance": "environment/filesystem/Correspondence/Agency/TM-22-500041_Conditions_of_Approval_03142022.pdf:L123-L124",
+      "acceptance": "All identification signage, entry monumentation, and community features shown on landscape plans; subject to Comprehensive Planning review prior to installation",
+      "description": "Identification signage and entry monumentation on landscape plans",
+      "id": "CHK-SIGN-001"
+    },
+    {
+      "applies_when": "Phase 3 landscape revision resubmittal",
+      "provenance": "@instruction:L1",
+      "acceptance": "Complete resubmittal package including revised L-4 street tree planting plan, revised irrigation demand worksheet, sealed landscape sheets L-1 through L-4, and annotated comment matrix delivered to Dale Yeoman (Public Works Development Review) by 11/30/2026",
+      "description": "Resubmittal package delivery to Yeoman by target date",
+      "id": "CHK-DELIV-001"
+    },
+    {
+      "applies_when": "Task completion deliverable",
+      "provenance": "@instruction:L1",
+      "acceptance": "One memo to Callaway Land Partners dated 10/31/2026 addressing commitment to 11/30 resubmittal date and prerequisites that must be completed first",
+      "description": "Memo to Callaway for signature",
+      "id": "CHK-MEMO-001"
+    },
+    {
+      "applies_when": "Phase 3 resubmittal package",
+      "provenance": "environment/filesystem/Correspondence/DSR_Ph3_Resubmittal_Tracker.xlsx:L38",
+      "acceptance": "Current will-serve/capacity confirmation letters from all applicable utility agencies (LVVWD, CCWRD) included in resubmittal package; confirmations verified as current at plan approval",
+      "description": "Utility capacity confirmation letters current at plan approval",
+      "id": "CHK-UTIL-001"
+    },
+    {
+      "applies_when": "Phase 3 improvement plan submittal",
+      "provenance": "environment/filesystem/Correspondence/Agency/CCFD_Ph2_Access_Approval.pdf:L36-L48",
+      "acceptance": "Permanent second point of access designed and approved to current CCFD standards; temporary Phase 2 stub access relinquished upon Phase 3 development commencement; CCFD written determination on file",
+      "description": "Fire access configuration for Phase 3 permanent buildout",
+      "id": "CHK-FIRE-001"
+    }
+  ],
+  "missing_evidence": [
+    {
+      "retryable": true,
+      "source_skill": "engineering_solver",
+      "code": "UNVERIFIED_SOURCE",
+      "blocking": true,
+      "claim_id": "C10",
+      "message": "C10 缺少可核对的出处"
+    },
+    {
+      "retryable": false,
+      "source_skill": "engineering_solver",
+      "code": "SOLVER_EVIDENCE_MISSING",
+      "blocking": true,
+      "message": "No written determination from Comprehensive Planning on whether Phase 3 landscape changes trigger Condition 14 design review (CHK-DESIGN-001). PreApp meeting notes indicate this was not resolved and would follow submittal."
+    },
+    {
+      "retryable": false,
+      "source_skill": "engineering_solver",
+      "code": "SOLVER_EVIDENCE_MISSING",
+      "blocking": true,
+      "message": "No client direction on Phase 3 park amenities scope documented in provided sources (Tracker Line 28 shows 'Pending client'). HOA letter raises questions but no response from Callaway is in the record."
+    },
+    {
+      "retryable": false,
+      "source_skill": "engineering_solver",
+      "code": "SOLVER_EVIDENCE_MISSING",
+      "blocking": true,
+      "message": "Current status of utility capacity confirmation letters (LVVWD, CCWRD) not verified as current at plan approval. Water will-serve dated 07/22/2026 noted in meeting notes but currency at 11/30/2026 not confirmed."
+    },
+    {
+      "retryable": false,
+      "source_skill": "engineering_solver",
+      "code": "SOLVER_EVIDENCE_MISSING",
+      "blocking": true,
+      "message": "CCFD written determination on permanent Phase 3 fire access configuration not present in provided sources. Phase 2 temporary access approval (CCFD_Ph2_Access_Approval.pdf) explicitly states Phase 3 requires separate permanent access design and approval."
+    },
+    {
+      "retryable": true,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUTHORITY_REFERENCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C10",
+      "message": "C10 的出处在本轮权威证据中无法核验"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_CONFLICT_SOURCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C1",
+      "message": "C1 的冲突缺少可定位证据"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_CONFLICT_SOURCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C2",
+      "message": "C2 的冲突缺少可定位证据"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_CONFLICT_SOURCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C3",
+      "message": "C3 的冲突缺少可定位证据"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_CONFLICT_SOURCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C4",
+      "message": "C4 的冲突缺少可定位证据"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_CONFLICT_SOURCE_UNVERIFIED",
+      "blocking": true,
+      "claim_id": "C10",
+      "message": "C10 的冲突缺少可定位证据"
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C1",
+      "message": "CC-PW_1stReview_Comments_10092026.pdf:L73-L76 not present in supplied authority_documents. Cannot verify street frontage value from cited source."
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C2",
+      "message": "CC-PW_1stReview_Comments_10092026.pdf:L73-L76 not present in supplied authority_documents. Cannot verify tree count calculation from cited source."
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C3",
+      "message": "CC-PW_1stReview_Comments_10092026.pdf:L73-L76 not present in supplied authority_documents. Cannot verify shown tree count from cited source."
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C4",
+      "message": "CC-PW_1stReview_Comments_10092026.pdf:L73-L76 not present in supplied authority_documents. Cannot verify spacing standard from cited source."
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C8",
+      "message": "TM-22-500041_Conditions_of_Approval_03142022.pdf:L4 cited but L4 in provided excerpts shows 'L23: Based on the record before it...' Line numbering mismatch. Approval date 03/14/2022 inferred from filename but not explicitly stated in provided L37-L40 excerpts."
+    },
+    {
+      "retryable": false,
+      "source_skill": "entity_provenance_audit",
+      "code": "AUDIT_EVIDENCE_MISSING",
+      "confirmed_absent": false,
+      "blocking": true,
+      "claim_id": "C10",
+      "message": "@instruction is not an authoritative source document. No memo document provided to verify memo_date."
+    },
+    {
+      "retryable": false,
+      "source_skill": "coverage_attribution_audit",
+      "code": "COVERAGE_AUDIT_UNAVAILABLE",
+      "blocking": true,
+      "message": "attribution warning has no verifiable source"
+    }
+  ],
+  "coverage_gaps": [],
+  "schema_ok": true,
+  "schema_error": "",
+  "artifact_path": "Memo_to_Callaway_L4_Revision.docx",
+  "schema_checked": true,
+  "trace_metrics": {
+    "entity_provenance_audit": {
+      "definition_document_count": 23,
+      "completion_tokens": 3923,
+      "finish_reason": "stop",
+      "prompt_tokens": 20632,
+      "content_chars": 4063,
+      "calls": 1,
+      "total_tokens": 24555,
+      "model": "qwen3.5-plus",
+      "cumulative_tokens": 24555,
+      "status": "ok",
+      "latency_ms": 53553
+    },
+    "roundtrip_schema_guard": {
+      "checks": {
+        "tables": 0,
+        "paragraphs": 56
+      },
+      "calls": 1,
+      "status": "ok"
+    },
+    "coverage_attribution_audit": {
+      "completion_tokens": 7864,
+      "finish_reason": "stop",
+      "prompt_tokens": 50453,
+      "content_chars": 5575,
+      "calls": 1,
+      "total_tokens": 58317,
+      "model": "qwen3.5-plus",
+      "cumulative_tokens": 58317,
+      "error": "attribution warning has no verifiable source",
+      "latency_ms": 101175,
+      "status": "error"
+    },
+    "docx_export": {
+      "calls": 1,
+      "bytes": 41426,
+      "status": "ok"
+    },
+    "engineering_solver": {
+      "calls": 2,
+      "model_called": false,
+      "cumulative_tokens": 54066,
+      "status": "hold_draft",
+      "last_solver_error": ""
+    },
+    "requirement_extraction": {
+      "check_count": 13,
+      "completion_tokens": 4351,
+      "content_chars": 6527,
+      "cumulative_tokens": 48916,
+      "latency_ms": 57695,
+      "mode": "auto",
+      "finish_reason": "stop",
+      "prompt_tokens": 44565,
+      "calls": 1,
+      "model_called": true,
+      "total_tokens": 48916,
+      "model": "qwen3.5-plus",
+      "status": "ok"
+    },
+    "physical_recalculation": {
+      "checks": 0,
+      "calls": 1,
+      "status": "no_checks_requested"
+    },
+    "epistemic_hold_gate": {
+      "reason": "REVIEW_DELIVERY_HAS_BLOCKERS",
+      "retry_count_before": 0,
+      "route": "EVIDENCE_HOLD",
+      "blocking_count": 28,
+      "calls": 2,
+      "retry_count_after": 0,
+      "max_retry": 2
+    }
+  },
+  "events": [
+    {
+      "node": "workspace_recon",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 3048
+    },
+    {
+      "node": "requirement_extraction",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 61694
+    },
+    {
+      "node": "engineering_solver",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 100361
+    },
+    {
+      "node": "physical_recalculation",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 294
+    },
+    {
+      "node": "entity_provenance_audit",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 55584
+    },
+    {
+      "node": "coverage_attribution_audit",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 103278
+    },
+    {
+      "node": "epistemic_hold_gate",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 240
+    },
+    {
+      "node": "engineering_solver",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 201
+    },
+    {
+      "node": "export_review_docx",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 390
+    },
+    {
+      "node": "roundtrip_schema_guard",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 416
+    },
+    {
+      "node": "epistemic_hold_gate",
+      "status": "returned",
+      "attempt": 1,
+      "elapsed_ms": 182
+    }
+  ],
+  "node_elapsed_ms": 325688,
+  "artifact_sha256": "640748d718a73f1ad262748db9c7ee764b0ec6ac407c367c89d9748437581759"
+}

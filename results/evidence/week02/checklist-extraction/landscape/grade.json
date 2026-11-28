@@ -1,0 +1,184 @@
+{
+  "task_id": "task",
+  "judge_model": "qwen3.5-plus",
+  "judge_backend": "openai",
+  "grading_method": "portable_weighted_rubric_equivalent",
+  "rubric_source": "verifiers[]",
+  "family": "weighted_rubric",
+  "score_key": "passed_score",
+  "score": 0.8441558441558441,
+  "passed_score": 0.8441558441558441,
+  "combined_score": 0.8441558441558441,
+  "weighted_points": 65.0,
+  "possible_weighted_points": 77.0,
+  "grades": [
+    {
+      "index": 0,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Tentative Map Conditions of Approval (TM-22-500041_Conditions_of_Approval_03142022.pdf) - Condition 14 (Lines 109-112): Any significant change to approved plans...shall be subject to design review...prior to staff-level action.'",
+      "reason": "Memo explicitly references Condition 14 of TM-22-500041 with approval date in filename (03142022) and states it governs design review prior to staff-level action.",
+      "weight": 7.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 1,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Condition 14 (Lines 109-112): Any significant change to approved plans, including landscape and streetscape treatments in common areas...'",
+      "reason": "Memo directly quotes Condition 14 covering 'landscape and streetscape treatments in common areas'.",
+      "weight": 5.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 2,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Written determination from Comprehensive Planning on whether proposed landscape changes trigger Condition 14 design review' and 'If Comprehensive Planning determines the changes are significant, the resubmittal would require a public hearing process'",
+      "reason": "Memo treats the street tree revision as potentially falling within Condition 14 scope, requiring determination.",
+      "weight": 8.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 3,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx mentions 'common areas' in Condition 14 context and HOA questions about park amenities, but does not explicitly state streetscape planting area is common area owned by HOA.",
+      "reason": "No direct statement linking streetscape planting area to HOA-owned common area.",
+      "weight": 3.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 4,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'No written determination has been received on whether the Phase 3 landscape palette changes trigger Condition 14 design review' under UNRESOLVED CONDITIONS.",
+      "reason": "Memo explicitly states no significant-change determination has been issued.",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 5,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The Director of Comprehensive Planning determines whether a proposed change is significant.' and 'Written determination from Comprehensive Planning'",
+      "reason": "Memo identifies Comprehensive Planning as the party making the significant-change determination.",
+      "weight": 6.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 6,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'with a 21-day submittal cutoff (Meeting Notes Line 106-107)'",
+      "reason": "Memo states 21-day submittal cutoff for TAB meetings.",
+      "weight": 4.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 7,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx mentions '12/16/2026' as next TAB meeting and '21-day submittal cutoff' but does not state 11/18/2026 meeting or 10/28/2026 closure date.",
+      "reason": "No explicit statement of 11/18/2026 meeting or 10/28/2026 application window closure.",
+      "weight": 7.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 8,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'The Enterprise TAB meeting calendar shows the next available meeting after 11/30 would be 12/16/2026'",
+      "reason": "Memo explicitly states 12/16/2026 is the next available TAB meeting.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 9,
+      "score": 0,
+      "passed": false,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'design review as a public hearing before the Town Advisory Board and Planning Commission prior to staff-level action' - does not characterize TAB action as recommendation forwarded to Planning Commission.",
+      "reason": "No explicit statement that TAB action is a recommendation forwarded to Planning Commission.",
+      "weight": 2.0,
+      "credited_fraction": 0.0
+    },
+    {
+      "index": 10,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'shall be subject to design review as a public hearing before the Town Advisory Board and Planning Commission prior to staff-level action.'",
+      "reason": "Memo explicitly states design review must occur prior to staff-level action.",
+      "weight": 5.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 11,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Conditional Yes, subject to the following prerequisites' and 'UNRESOLVED CONDITION: Written determination from Comprehensive Planning on whether proposed landscape changes trigger Condition 14 design review'",
+      "reason": "Memo states commitment to 11/30/2026 is conditional on Comprehensive Planning's significant-change determination.",
+      "weight": 10.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 12,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Submission of red-line palette comparison to Comprehensive Planning by 11/15/2026 with request for expedited significant-change determination.'",
+      "reason": "Memo identifies obtaining Comprehensive Planning's written determination as immediate next action with deadline.",
+      "weight": 3.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 13,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Comment L-4 (Lines 73-76):...208 trees are required; 58 trees are shown.'",
+      "reason": "Memo explicitly states 58 trees are shown on current landscape sheets.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 14,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Based on 4,160 linear feet of frontage, 208 trees are required' and '1 tree per 20 linear feet ratio'",
+      "reason": "Memo explicitly states 208 trees required by one-per-twenty-linear-feet standard.",
+      "weight": 1.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 15,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'Sheets L-1, L-2, L-3, and L-4 must be sealed by Bea Cortland, PLA, NV LA #742 at resubmittal (Tracker Line 27).' and 'L-4...revised planting plan'",
+      "reason": "Memo states L-4 (street tree revision) must be sealed by landscape architect of record.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 16,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx exists as a readable Word document with complete memo structure.",
+      "reason": "One readable memo document is included in output.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    },
+    {
+      "index": 17,
+      "score": 1,
+      "passed": true,
+      "evidence": "Memo_to_Callaway_L4_Revision.docx: 'TO: Callaway Land Partners' and 'DATE: October 31, 2026'",
+      "reason": "Memo is addressed to Callaway and dated 10/31/2026.",
+      "weight": 2.0,
+      "credited_fraction": 1.0
+    }
+  ],
+  "truncated": false,
+  "answer_truncated": false,
+  "candidate_chars": 14273,
+  "primary_score": 0.8441558441558441,
+  "reward": 0.8441558441558441,
+  "candidate": "output/ contract collection (11 file(s), world diffed in the container)"
+}

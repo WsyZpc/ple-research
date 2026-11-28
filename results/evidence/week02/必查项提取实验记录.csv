@@ -1,0 +1,10 @@
+﻿记录,任务 ID,实验组,清单来源,执行口径,状态,评分模型,已核验清单数,Word 回读,是否测得,得分,满分,归一化分,问题条目核验,主要证据,备注
+RQ01,landscape-sheet-revision,历史基线,基线,历史本地评分,完成,qwen3.5-plus,,不适用,是,12,77,0.15584415584415584,P08 0/20,baseline/landscape-sheet-revision/grade.json,
+RQ02,landscape-sheet-revision,历史人工专用,人工规则,题目专用代码及本地评分,完成,qwen3.5-plus,,通过,是,70,77,0.9090909090909091,P08 13/20,landscape/scoring/grade-landscape-sheet-revision-3ukqY0iP/grade.json,历史参考。专用执行逻辑也不同。
+RQ03,landscape-sheet-revision,通用自动,模型从原材料提取,真题和真实模型，随后对 Word 本地评分,EVIDENCE_HOLD,qwen3.5-plus,13,通过,是,65,77,0.8441558441558441,P08 20/20,checklist-extraction/landscape/grade.json,相对历史人工版 +7 −3 −7 −2。本地只评分这一题。
+RQ04,landscape-sheet-revision,通用自动评分首试,与 RQ03 同一份 Word,评分服务认证失败,HTTP 401,qwen3.5-plus,13,通过,否,,77,,未测得,checklist-extraction/landscape/judge-401.json,首次显示 0.000 是未测占位。同包重试结果见 RQ03。
+RQ05,fill-compaction-acceptance,历史人工固定回复,人工必查项,真实材料及固定回复回放,EVIDENCE_HOLD,qwen3.5-plus,10,通过,是,78,108,0.7222222222222222,P04 31/31，P05 9/9,fill/coverage-gate/grade.json,历史参考。
+RQ06,fill-compaction-acceptance,通用自动,模型从原材料提取,真题和真实模型,提取阶段暂缓,,0,未执行,否,,108,,P04、P05 待复测,checklist-extraction/fill/run.json,CHK-054-02 引用无法核验，未生成 Word。
+RQ07,fill-compaction-acceptance,引用修复验证,模拟模型回复,本地引用校验测试,通过,,,不适用,否,,,,仅工程实现验证,checklist-extraction/README.md,回原件检索、一次定向修引用、保留有效项。待真实模型复跑。
+RQ08,landscape-sheet-revision,通用人工对照,人工读原材料建立结构化清单,与 RQ03 共用下游流程,待跑,,,未执行,否,,77,,P08 待对照,checklist-extraction/README.md,测试清单来源的作用。
+RQ09,fill-compaction-acceptance,通用人工对照,人工读原材料建立结构化清单,与修复后的自动版共用下游流程,待跑,,,未执行,否,,108,,P04、P05 待对照,checklist-extraction/README.md,与修复后的自动版配对。

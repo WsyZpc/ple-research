@@ -6,3 +6,7 @@ T03,通信故障,离线断连注入,与 T01 相同的初始输入；实体审计
 T04,恢复执行,离线故障恢复,recovery/paused/final.json,从实体审计恢复,首个节点为故障节点；跳过扫描和首次求解,从实体审计开始；后续按真实复算差异修订一次，最终 PASS。,1,0,3246,recovery/resumed/final.json,不适用
 T05,LES / P01–P03 交付,真实黑板的离线回放,les/run-joro928i/blackboard.json,重新导出 Word、回读、门禁,0 次模型调用；新 Word 存在并通过回读,新 Word 回读通过；9 条结论，整题仍 EVIDENCE_HOLD。,2,0,921,recovery/word/003-epistemic_hold_gate-4aa2dc16.1.output.json,未评分
 T06,LES / P01,运行中后端・真实任务单节点回放,les/run-joro928i/blackboard.json,仅运行 physical_recalculation,只执行复算节点并记录 C3 核验结果,回放通过，P01 待修复。C3 为 unverified，原候选仍为 3.76 / 0.5 = 7.52。火源区尺寸须按 three_grid_study_outputs.txt 第 8–10 行区分。,2,0,2317,les/single-node-live/replay-result.json,未评分
+T07,填土 / P04–P05,真实模型清单校验失败,4e1f0fa4,原题材料运行自动清单,提取条目须有可验证出处,CHK-054-02 引用无法核验，旧实现停止整轮，无 Word。,0,0,91802,checklist-extraction/fill/run.json,未评分
+T08,景观 / P08,真实模型及原评分器,65994c04,自动提取、求解、审计、门禁、Word 回读,保留清单、运行状态和评分证据,提取 13 条。覆盖审计引用无法核验，暂缓。Word 回读通过，P08 20/20。,0,0,325688,checklist-extraction/landscape/run.json,65/77
+T09,景观 / P08,评分服务认证失败,grade-landscape-auto-uAqV77ZO,用自动版 Word 评分,区分评分服务失败与内容得分,评审接口 HTTP 401，暂计 0，实测状态为 false。同一评分包后续重评成功。,0,不适用,未记录,checklist-extraction/landscape/judge-401.json,未测得
+T10,填土 / P04–P05,本地模拟引用修复,注入歧义、缺行及越界来源,复读原文，并对未通过的引用请求一次修订,保留有效项并标记待补证，人工组不调用自动修复,定向修复、部分保留、歧义拒绝和人工组校验均通过。,0,不适用,未记录,checklist-extraction/README.md,不适用

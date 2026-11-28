@@ -10,6 +10,7 @@ from urllib.request import Request, urlopen
 
 PREFIX = "@com.horsecoder.common.whuTalent.flowTesting.core/FLOW_"
 FLOWS = {
+    "checks": "REQUIREMENT_EXTRACTION",
     "physics": "PHYSICAL_RECALCULATION",
     "word": "PLE_LES_DELIVERY",
     "solver": "ENGINEERING_SOLVER",
@@ -51,6 +52,7 @@ def main():
         if paused["trace_id"] != board.get("trace_id"):
             parser.error("Input checkpoint and paused run do not match.")
         entries = {"entity_provenance_audit": "AUDIT_1", "coverage_attribution_audit": "AUDIT_2",
+                   "requirement_extraction": "CHECKS",
                    "engineering_solver": board.get("solver_entry", "SOLVE")}
         board["review_entry"] = entries[paused["failed_node"]]
         flows = ["PLE_CONTINUE_ENTITY_REVIEW"]
